@@ -18,7 +18,7 @@ Este backlog organiza as atividades do projeto **Medic Assist IA**. A divisao co
 
 | ID | Tarefa | Prioridade | Criterio de aceite |
 | --- | --- | --- | --- |
-| B08 | Criar script ou notebook de limpeza do dataset | Alta | Dataset tratado e salvo em `data/processed`. |
+| B08 | Criar script ou notebook de limpeza do dataset | Alta | Dataset tratado e salvo em `dataset/processed`. |
 | B09 | Criar colunas derivadas `area_recomendada` e `nivel_urgencia` | Alta | Dataset tratado contem as duas colunas alvo. |
 | B10 | Codificar variaveis categoricas | Media | Dados estao prontos para uso em modelo de classificacao. |
 | B11 | Separar dados em treino e teste | Alta | Conjuntos de treino e teste foram gerados com proporcao definida. |
@@ -69,4 +69,4 @@ Uma tarefa sera considerada concluida quando:
 - tiver resultado verificavel;
 - estiver documentada quando necessario;
 - respeitar o limite etico do projeto;
-- nao bloquear a execucao do fluxo principal do MediAssist IA.
+- nao bloquear a execucao do fluxo principal do Medic Assist IA.
