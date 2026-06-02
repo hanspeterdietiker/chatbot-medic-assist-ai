@@ -6,8 +6,8 @@ Este backlog organiza as atividades do projeto **Medic Assist IA**. A divisao co
 
 | ID | Tarefa | Prioridade | Criterio de aceite |
 | --- | --- | --- | --- |
-| B01 | Criar estrutura inicial de pastas do projeto | Alta | Projeto possui pastas para `data`, `notebooks`, `src`, `models` e `docs`. |
-| B02 | Baixar o dataset do Kaggle | Alta | Dataset esta salvo em `data/raw` e documentado em `docs/05-dataset-referencia.md`. |
+| B01 | Criar estrutura inicial de pastas do projeto | Alta | Projeto possui pastas para `dataset`, `notebooks`, `src`, `models` e `docs`. |
+| B02 | Baixar o dataset do Kaggle | Alta | Dataset esta salvo em `dataset` e documentado em `docs/05-dataset-referencia.md`. |
 | B03 | Analisar colunas originais do dataset | Alta | Existe um resumo das colunas disponiveis e dos campos uteis para o modelo. |
 | B04 | Definir regras iniciais para `area_recomendada` | Alta | Regras foram documentadas com base em `primary_condition` ou campo equivalente. |
 | B05 | Definir regras iniciais para `nivel_urgencia` | Alta | Classes baixa, prioritario e emergencia foram mapeadas. |

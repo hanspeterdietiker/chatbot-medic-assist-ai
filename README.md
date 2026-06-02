@@ -15,7 +15,8 @@ Esta pasta organiza a proposta do **Medic Assist IA** em arquivos Markdown separ
 9. [Fluxo de funcionamento](09-fluxo-funcionamento.md)
 10. [Arquitetura proposta](10-arquitetura-proposta.md)
 11. [Entregas e resultados esperados](11-entregas-resultados.md)
-12.[Backlog Desenvolvimento](12-backlog-desenvolvimento.md)
+12. [Backlog Desenvolvimento](12-backlog-desenvolvimento.md)
+
 ## Descricao curta
 
 O Medic Assist IA e um chatbot de apoio a triagem hospitalar que utiliza um modelo de aprendizado treinado com registros de pacientes para sugerir a area hospitalar mais adequada e o nivel de urgencia, sem realizar diagnostico ou prescricao de medicamentos.
