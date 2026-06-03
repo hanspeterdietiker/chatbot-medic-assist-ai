@@ -1,8 +1,8 @@
 # Visao geral
 
-## Medic Assist IA
+## Medic Assist AI
 
-O **Medic Assist IA** é uma proposta de sistema de apoio a triagem hospitalar inicial. A ideia e desenvolver um chatbot que colete informacoes basicas do paciente e utilize um modelo de aprendizado treinado com registros hospitalares para sugerir a area de atendimento mais adequada e o nivel de urgencia.
+O **Medic Assist AI** é uma proposta de sistema de apoio a triagem hospitalar inicial. A ideia e desenvolver um chatbot que colete informacoes basicas do paciente e utilize um modelo de aprendizado treinado com registros hospitalares para sugerir a area de atendimento mais adequada e o nivel de urgencia.
 
 ## Proposta do projeto
 
@@ -16,4 +16,4 @@ O sistema nao realiza diagnostico, nao prescreve medicamentos e nao substitui a 
 
 ## Frase de apresentacao
 
-O MediAssist IA e um chatbot de apoio a triagem hospitalar que utiliza um modelo de aprendizado treinado com registros de pacientes para sugerir a area hospitalar mais adequada e o nivel de urgencia, sem realizar diagnostico ou prescricao de medicamentos.
+O Medic Assist AI e um chatbot de apoio a triagem hospitalar que utiliza um modelo de aprendizado treinado com registros de pacientes para sugerir a area hospitalar mais adequada e o nivel de urgencia, sem realizar diagnostico ou prescricao de medicamentos.

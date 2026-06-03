@@ -1,6 +1,6 @@
-# Documentacao do Medic Assist IA
+# Documentacao do Medic Assist AI
 
-Esta pasta organiza a proposta do **Medic Assist IA** em arquivos Markdown separados por topico, para facilitar consulta, manutencao e uso no projeto.
+Esta pasta organiza a proposta do **Medic Assist AI** em arquivos Markdown separados por topico, para facilitar consulta, manutencao e uso no projeto.
 
 ## Topicos
 
@@ -19,4 +19,4 @@ Esta pasta organiza a proposta do **Medic Assist IA** em arquivos Markdown separ
 
 ## Descricao curta
 
-O Medic Assist IA e um chatbot de apoio a triagem hospitalar que utiliza um modelo de aprendizado treinado com registros de pacientes para sugerir a area hospitalar mais adequada e o nivel de urgencia, sem realizar diagnostico ou prescricao de medicamentos.
+O Medic Assist AI e um chatbot de apoio a triagem hospitalar que utiliza um modelo de aprendizado treinado com registros de pacientes para sugerir a area hospitalar mais adequada e o nivel de urgencia, sem realizar diagnostico ou prescricao de medicamentos.

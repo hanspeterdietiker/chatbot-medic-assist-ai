@@ -1,6 +1,6 @@
 # Limite etico e seguranca
 
-O Medic Assist IA deve ser apresentado como um sistema de apoio a decisao. Ele nao substitui avaliacao medica, nao prescreve medicamentos e nao define diagnostico.
+O Medic Assist AI deve ser apresentado como um sistema de apoio a decisao. Ele nao substitui avaliacao medica, nao prescreve medicamentos e nao define diagnostico.
 
 As respostas do chatbot devem ser formuladas de maneira segura, evitando afirmacoes clinicas conclusivas.
 

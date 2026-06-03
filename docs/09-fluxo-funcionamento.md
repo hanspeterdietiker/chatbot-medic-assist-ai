@@ -1,6 +1,6 @@
 # Fluxo de funcionamento
 
-O funcionamento do MediAssist IA pode ser dividido em seis etapas principais.
+O funcionamento do Medic Assist AI pode ser dividido em seis etapas principais.
 
 | Etapa | Nome | Descricao |
 | --- | --- | --- |

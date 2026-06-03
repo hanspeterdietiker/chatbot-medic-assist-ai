@@ -17,4 +17,4 @@
 
 ## Conclusao esperada
 
-O MediAssist IA deve demonstrar como tecnicas de classificacao supervisionada podem ser aplicadas a registros hospitalares para apoiar a organizacao do atendimento inicial, respeitando limites eticos e mantendo a decisao final com profissionais de saude.
+O Medic Assist AI deve demonstrar como tecnicas de classificacao supervisionada podem ser aplicadas a registros hospitalares para apoiar a organizacao do atendimento inicial, respeitando limites eticos e mantendo a decisao final com profissionais de saude.

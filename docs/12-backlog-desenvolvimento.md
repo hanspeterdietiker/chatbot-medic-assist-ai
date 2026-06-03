@@ -1,6 +1,6 @@
 # Backlog de desenvolvimento
 
-Este backlog organiza as atividades do projeto **Medic Assist IA**. A divisao considera um fluxo simples: preparar os dados, treinar o modelo, criar o chatbot, validar os resultados e organizar a entrega da A3.
+Este backlog organiza as atividades do projeto **Medic Assist AI**. A divisao considera um fluxo simples: preparar os dados, treinar o modelo, criar o chatbot, validar os resultados e organizar a entrega da A3.
 
 ## Sprint 1 - Preparacao do projeto e dataset
 
@@ -69,4 +69,4 @@ Uma tarefa sera considerada concluida quando:
 - tiver resultado verificavel;
 - estiver documentada quando necessario;
 - respeitar o limite etico do projeto;
-- nao bloquear a execucao do fluxo principal do Medic Assist IA.
+- nao bloquear a execucao do fluxo principal do Medic Assist AI.
