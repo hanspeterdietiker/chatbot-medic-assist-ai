@@ -17,18 +17,18 @@ Esta pasta organiza a proposta do **Medic Assist AI** em arquivos Markdown separ
 
 ## Topicos
 
-1. [Visao geral](01-visao-geral.md)
-2. [Contextualizacao do problema](02-contextualizacao-problema.md)
-3. [Objetivos](03-objetivos.md)
-4. [Limite etico e seguranca](04-limite-etico-seguranca.md)
-5. [Dataset de referencia](05-dataset-referencia.md)
-6. [Campos e colunas alvo](06-campos-colunas-alvo.md)
-7. [Regras de mapeamento](07-regras-mapeamento.md)
-8. [Tecnicas de IA](08-tecnicas-ia.md)
-9. [Fluxo de funcionamento](09-fluxo-funcionamento.md)
-10. [Arquitetura proposta](10-arquitetura-proposta.md)
-11. [Entregas e resultados esperados](11-entregas-resultados.md)
-12. [Backlog Desenvolvimento](12-backlog-desenvolvimento.md)
+1. [Visao geral](docs/01-visao-geral.md)
+2. [Contextualizacao do problema](docs/02-contextualizacao-problema.md)
+3. [Objetivos](docs/03-objetivos.md)
+4. [Limite etico e seguranca](docs/04-limite-etico-seguranca.md)
+5. [Dataset de referencia](docs/05-dataset-referencia.md)
+6. [Campos e colunas alvo](docs/06-campos-colunas-alvo.md)
+7. [Regras de mapeamento](docs/07-regras-mapeamento.md)
+8. [Tecnicas de IA](docs/08-tecnicas-ia.md)
+9. [Fluxo de funcionamento](docs/09-fluxo-funcionamento.md)
+10. [Arquitetura proposta](docs/10-arquitetura-proposta.md)
+11. [Entregas e resultados esperados](docs/11-entregas-resultados.md)
+12. [Backlog Desenvolvimento](docs/12-backlog-desenvolvimento.md)
 
 ## Descricao curta
 
