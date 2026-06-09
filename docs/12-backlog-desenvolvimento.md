@@ -70,3 +70,7 @@ Uma tarefa sera considerada concluida quando:
 - estiver documentada quando necessario;
 - respeitar o limite etico do projeto;
 - nao bloquear a execucao do fluxo principal do Medic Assist AI.
+
+---
+
+[← Entregas e resultados](11-entregas-resultados.md)

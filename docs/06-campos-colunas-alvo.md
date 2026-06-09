@@ -20,3 +20,7 @@ Para que o modelo possa ser treinado, serao criadas duas colunas alvo:
 - `nivel_urgencia`: classificacao da prioridade do atendimento.
 
 Essas colunas podem ser preenchidas por regras de mapeamento baseadas na condicao principal do paciente, idade e fatores de risco. Depois disso, elas serao usadas como variaveis alvo para treinar um modelo supervisionado de classificacao.
+
+---
+
+[← Dataset de referencia](05-dataset-referencia.md) | [Regras de mapeamento →](07-regras-mapeamento.md)

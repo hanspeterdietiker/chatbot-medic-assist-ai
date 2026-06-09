@@ -26,3 +26,7 @@ Usuario
 O modelo recebe os dados padronizados do paciente e retorna as classes mais provaveis para `area_recomendada` e `nivel_urgencia`.
 
 Essas respostas devem ser usadas como apoio, nao como decisao clinica definitiva.
+
+---
+
+[← Fluxo de funcionamento](09-fluxo-funcionamento.md) | [Entregas e resultados →](11-entregas-resultados.md)

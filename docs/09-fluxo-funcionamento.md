@@ -19,3 +19,7 @@ Ao final do fluxo, o sistema deve produzir:
 - nivel de urgencia;
 - mensagem segura para o paciente;
 - resumo estruturado para triagem humana.
+
+---
+
+[← Tecnicas de IA](08-tecnicas-ia.md) | [Arquitetura proposta →](10-arquitetura-proposta.md)

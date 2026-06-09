@@ -15,3 +15,7 @@ Caso as colunas originais nao possuam `area_recomendada` e `nivel_urgencia`, ess
 ## Uso academico
 
 O dataset sera usado para fins academicos e de pratica, dentro do contexto da A3 de Inteligencia Artificial.
+
+---
+
+[← Limite etico e seguranca](04-limite-etico-seguranca.md) | [Campos e colunas alvo →](06-campos-colunas-alvo.md)
