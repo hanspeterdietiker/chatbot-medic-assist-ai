@@ -24,3 +24,7 @@ O modelo pode ser avaliado com:
 - matriz de confusao;
 - relatorio de classificacao;
 - comparacao entre predicoes e classes esperadas.
+
+---
+
+[← Regras de mapeamento](07-regras-mapeamento.md) | [Fluxo de funcionamento →](09-fluxo-funcionamento.md)

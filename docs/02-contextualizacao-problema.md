@@ -12,3 +12,7 @@ Essa incerteza pode gerar:
 O projeto propoe um chatbot para apoiar a triagem inicial. A partir de informacoes como idade, genero, condicao principal e dados basicos do atendimento, o sistema utiliza um modelo de classificacao para recomendar uma area hospitalar e indicar um nivel de urgencia.
 
 A decisao final continua sendo humana e medica.
+
+---
+
+[← Visao geral](01-visao-geral.md) | [Objetivos →](03-objetivos.md)

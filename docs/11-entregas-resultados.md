@@ -18,3 +18,7 @@
 ## Conclusao esperada
 
 O Medic Assist AI deve demonstrar como tecnicas de classificacao supervisionada podem ser aplicadas a registros hospitalares para apoiar a organizacao do atendimento inicial, respeitando limites eticos e mantendo a decisao final com profissionais de saude.
+
+---
+
+[← Arquitetura proposta](10-arquitetura-proposta.md) | [Backlog de desenvolvimento →](12-backlog-desenvolvimento.md)

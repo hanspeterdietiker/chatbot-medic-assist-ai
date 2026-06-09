@@ -19,3 +19,7 @@ Depois da criacao dessas colunas, elas serao usadas como variaveis alvo para tre
 ## Observacao
 
 As regras devem ser revisadas pela equipe e, quando possivel, validadas com orientacao do professor. Elas servem para adaptar o dataset ao problema de classificacao supervisionada do projeto.
+
+---
+
+[← Campos e colunas alvo](06-campos-colunas-alvo.md) | [Tecnicas de IA →](08-tecnicas-ia.md)

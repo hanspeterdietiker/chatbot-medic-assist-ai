@@ -12,3 +12,7 @@ Criar um chatbot capaz de apoiar a triagem hospitalar inicial por meio da coleta
 - Classificar o nivel de urgencia em categorias como baixa, prioritaria ou emergencia.
 - Gerar um resumo simples para apoiar recepcao, triagem humana ou atendimento medico.
 - Manter o limite etico de nao diagnosticar doencas e nao prescrever medicamentos.
+
+---
+
+[← Contextualizacao do problema](02-contextualizacao-problema.md) | [Limite etico e seguranca →](04-limite-etico-seguranca.md)

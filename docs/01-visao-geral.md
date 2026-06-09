@@ -17,3 +17,7 @@ O sistema nao realiza diagnostico, nao prescreve medicamentos e nao substitui a 
 ## Frase de apresentacao
 
 O Medic Assist AI e um chatbot de apoio a triagem hospitalar que utiliza um modelo de aprendizado treinado com registros de pacientes para sugerir a area hospitalar mais adequada e o nivel de urgencia, sem realizar diagnostico ou prescricao de medicamentos.
+
+---
+
+[Contextualizacao do problema →](02-contextualizacao-problema.md)

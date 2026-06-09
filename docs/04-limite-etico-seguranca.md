@@ -19,3 +19,7 @@ O sistema nao pode:
 - tomar decisoes clinicas finais sem validacao humana.
 
 A validacao final deve permanecer com profissionais de saude.
+
+---
+
+[← Objetivos](03-objetivos.md) | [Dataset de referencia →](05-dataset-referencia.md)
