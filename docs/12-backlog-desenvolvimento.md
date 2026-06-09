@@ -73,4 +73,4 @@ Uma tarefa sera considerada concluida quando:
 
 ---
 
-[← Entregas e resultados](11-entregas-resultados.md)
+[← Entregas e resultados](11-entregas-resultados.md) | [Doc A3 →](13-trabalho-a3.md)
