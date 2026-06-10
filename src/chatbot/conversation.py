@@ -1,13 +1,11 @@
-from .messages import (
-    BOAS_VINDAS,
-    ENCERRAMENTO,
-    AVISO_EMERGENCIA,
-    AVISO_RESULTADO,
-    MENSAGEM_ANALISANDO,
-    ORIENTACAO_URGENCIA,
-    FONTE_MODELO_IA,
-    FONTE_REGRAS_SEGURANCA,
-    FONTE_REGRAS_FALLBACK,
+from .terminal_ui import (
+    show_step_header,
+    show_step_done,
+    show_triage_result,
+    prompt_text,
+    prompt_choice,
+    prompt_yes_no,
+    show_welcome,
 )
 
 CONDITIONS = [
@@ -24,72 +22,46 @@ CONDITIONS = [
 GENDERS = ["Masculino", "Feminino", "Outro / Prefiro não informar"]
 
 
-def _ask(prompt: str, validator=None, error_msg: str = "Resposta inválida. Tente novamente.") -> str:
-    while True:
-        answer = input(prompt).strip()
-        if validator is None or validator(answer):
-            return answer
-        print(f"  ⚠  {error_msg}\n")
-
-
-def _ask_choice(prompt: str, options: list[str]) -> tuple[int, str]:
-    n = len(options)
-    print(prompt)
-    for i, option in enumerate(options, 1):
-        print(f"  {i}. {option}")
-    while True:
-        raw = input("Sua escolha (número): ").strip()
-        if raw.isdigit() and 1 <= int(raw) <= n:
-            index = int(raw) - 1
-            return index, options[index]
-        print(f"  ⚠  Digite um número entre 1 e {n}.\n")
-
-
-def _ask_yes_no(prompt: str) -> bool:
-    while True:
-        raw = input(f"{prompt} (s/n): ").strip().lower()
-        if raw in ("s", "sim", "y", "yes"):
-            return True
-        if raw in ("n", "nao", "não", "no"):
-            return False
-        print("  ⚠  Responda com 's' para sim ou 'n' para não.\n")
-
-
 def collect_patient_data() -> dict:
-    """Run the guided conversation and return structured patient data."""
-    print(BOAS_VINDAS)
+    """Executa a conversa guiada e retorna dados estruturados do paciente."""
+    show_welcome()
 
-    print("PASSO 1 de 4 — Dados básicos\n")
-    age = int(_ask(
+    show_step_header(1, 4, "Dados básicos")
+    age = int(prompt_text(
         "Qual é a sua idade? ",
         validator=lambda x: x.isdigit() and 0 < int(x) < 130,
         error_msg="Informe um número de idade válido (1–129).",
     ))
+    _, gender = prompt_choice("Qual é o seu gênero?", GENDERS)
+    show_step_done(1, 4, "Dados básicos concluídos")
 
-    _, gender = _ask_choice("\nQual é o seu gênero?", GENDERS)
-
-    print("\nPASSO 2 de 4 — Condição principal\n")
-    _, primary_condition = _ask_choice(
+    show_step_header(2, 4, "Condição principal")
+    _, primary_condition = prompt_choice(
         "Qual melhor descreve o motivo da sua visita?", CONDITIONS
     )
     if primary_condition == "Other":
-        primary_condition = _ask("Descreva brevemente sua condição: ")
+        primary_condition = prompt_text("Descreva brevemente sua condição: ")
+    show_step_done(2, 4, "Condição registrada")
 
-    print("\nPASSO 3 de 4 — Sintomas adicionais\n")
-    has_fever = _ask_yes_no("Você está com febre?")
-    has_intense_pain = _ask_yes_no("Você sente dor intensa?")
-    has_difficulty_breathing = _ask_yes_no("Você tem dificuldade para respirar?")
-    is_conscious = _ask_yes_no("Você está consciente e consegue responder sozinho?")
+    show_step_header(3, 4, "Sintomas adicionais")
+    has_fever = prompt_yes_no("Você está com febre?")
+    has_intense_pain = prompt_yes_no("Você sente dor intensa?")
+    has_difficulty_breathing = prompt_yes_no("Você tem dificuldade para respirar?")
+    is_conscious = prompt_yes_no("Você está consciente e consegue responder sozinho?")
+    show_step_done(3, 4, "Sintomas registrados")
 
-    print("\nPASSO 4 de 4 — Histórico rápido\n")
-    symptom_duration_days = int(_ask(
+    show_step_header(4, 4, "Histórico rápido")
+    symptom_duration_days = int(prompt_text(
         "Há quantos dias você está com esses sintomas? ",
         validator=lambda x: x.isdigit() and int(x) >= 0,
         error_msg="Informe um número de dias válido (0 ou mais).",
     ))
-
-    has_chronic_disease = _ask_yes_no("Você possui alguma doença crônica diagnosticada?")
-    chronic_detail = _ask("Qual(is) doença(s) crônica(s)? ") if has_chronic_disease else ""
+    has_chronic_disease = prompt_yes_no("Você possui alguma doença crônica diagnosticada?")
+    chronic_detail = (
+        prompt_text("Qual(is) doença(s) crônica(s)? ")
+        if has_chronic_disease else ""
+    )
+    show_step_done(4, 4, "Triagem concluída")
 
     return {
         "age": age,
@@ -105,53 +77,14 @@ def collect_patient_data() -> dict:
     }
 
 
-def _format_source_label(source: str) -> str:
-    """Converte código interno da fonte em texto amigável para o paciente."""
-    if source.startswith("modelo_ia"):
-        return f"{FONTE_MODELO_IA} ({source.split('(')[1].rstrip(')')})" if "(" in source else FONTE_MODELO_IA
-    if source == "regras_seguranca":
-        return FONTE_REGRAS_SEGURANCA
-    return FONTE_REGRAS_FALLBACK
-
-
 def display_result(
     patient_data: dict,
     recommended_area: str,
     urgency_level: str,
     source: str = "regras_fallback",
 ) -> None:
-    """Exibe resultado da triagem com disclaimers de segurança e orientação clara (B22)."""
-    print(AVISO_RESULTADO)
-
-    print("=" * 60)
-    print("  SUA TRIAGEM — RESUMO")
-    print("=" * 60)
-
-    print("\n  Dados informados:")
-    print(f"    Idade              : {patient_data['age']} anos")
-    print(f"    Gênero             : {patient_data['gender']}")
-    print(f"    Condição principal : {patient_data['primary_condition']}")
-    print(f"    Duração sintomas   : {patient_data['symptom_duration_days']} dia(s)")
-    if patient_data["has_chronic_disease"]:
-        print(f"    Doença crônica     : {patient_data['chronic_detail']}")
-
-    urgency_key = urgency_level.lower()
-    urgency_label = urgency_key.upper()
-
-    print("\n  Recomendação:")
-    print(f"    Área sugerida      : {recommended_area}")
-    print(f"    Nível de urgência  : {urgency_label}")
-    print(f"    Origem             : {_format_source_label(source)}")
-
-    orientacao = ORIENTACAO_URGENCIA.get(urgency_key, "")
-    if orientacao:
-        print(f"\n  O que fazer agora:")
-        print(f"    {orientacao}")
-
-    if urgency_key == "emergencia":
-        print(AVISO_EMERGENCIA)
-
-    print(ENCERRAMENTO)
+    """Exibe resultado da triagem com interface visual aprimorada (B22 + B26)."""
+    show_triage_result(patient_data, recommended_area, urgency_level, source)
 
 
 def build_triage_summary(

@@ -21,4 +21,4 @@ O Medic Assist AI deve demonstrar como tecnicas de classificacao supervisionada 
 
 ---
 
-[← Arquitetura proposta](10-arquitetura-proposta.md) | [Backlog de desenvolvimento →](12-backlog-desenvolvimento.md)
+[← Arquitetura proposta](10-arquitetura-proposta.md) | [Backlog de desenvolvimento →](12-backlog-desenvolvimento.md) | [Resultados finais →](14-resultados-finais.md)

@@ -1,27 +1,39 @@
 # Tecnicas de IA
 
-Com o dataset reestruturado, o projeto passa a ser um problema de classificacao supervisionada. 
+Com o dataset reestruturado, o projeto passa a ser um problema de **classificacao supervisionada**.
 
-## Algoritmo Utilizado
+## Algoritmos utilizados
 
-- **Arvore de Decisao**: boa para apresentacao, pois permite visualizar regras de classificacao.
+| Algoritmo | Papel no projeto |
+| --------- | ---------------- |
+| **Arvore de Decisao** | Modelo principal — interpretavel, adequado para apresentacao A3 |
+| **Random Forest** | Comparacao — ensemble de arvores para avaliar robustez |
 
+Dois modelos independentes sao treinados para cada alvo:
+- `area_recomendada` (area hospitalar sugerida)
+- `nivel_urgencia` (baixa, prioritario, emergencia)
 
+## Algoritmo selecionado
 
-## Recomendacao inicial
+Apos comparacao de acuracia media no conjunto de teste, o chatbot utiliza **Arvore de Decisao** (`decision_tree`). Em caso de empate, a Arvore e preferida por permitir visualizar regras de classificacao.
 
-Para a A3, **Arvore de Decisao** 
+Detalhes em `models/model_metadata.json` e [Resultados finais](14-resultados-finais.md).
 
-Esses algoritmo combina com o suposto cenário.
+## Features de entrada
+
+Apenas variaveis disponiveis na triagem via chatbot:
+- `Age`, `Gender`, `Condition`
 
 ## Metricas de avaliacao
 
-O modelo pode ser avaliado com:
+O modelo foi avaliado com:
 
-- acuracia;
-- matriz de confusao;
-- relatorio de classificacao;
-- comparacao entre predicoes e classes esperadas.
+- acuracia (B17);
+- matriz de confusao (B18);
+- relatorio de classificacao — precision, recall, F1-score (B19);
+- comparacao entre Arvore de Decisao e Random Forest (B16).
+
+Arquivos: `models/metrics_decision_tree.json`, `models/metrics_random_forest.json`
 
 ---
 
