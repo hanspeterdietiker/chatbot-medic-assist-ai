@@ -1,39 +1,17 @@
-# Documentacao do Medic Assist AI
+# Medic Assist AI
 
-Esta pasta organiza a proposta do **Medic Assist AI** em arquivos Markdown separados por topico, para facilitar consulta, manutencao e uso no projeto.
+Chatbot de apoio à triagem hospitalar que utiliza **classificação supervisionada** (Árvore de Decisão e Random Forest) para sugerir área hospitalar e nível de urgência, sem realizar diagnóstico ou prescrever medicamentos.
+
+**Trabalho A3 — UC Inteligência Artificial** | Documento completo: [docs/13-trabalho-a3.md](docs/13-trabalho-a3.md)
 
 ---
 
 ## Integrantes
 
-
 | Nome               | RA         |
 | ------------------ | ---------- |
 | Gabriel Silva      | 1272313274 |
 | Hanspeter Dietiker | 1272313332 |
-
-
----
-
-## Topicos
-
-1. [Visao geral](docs/01-visao-geral.md)
-2. [Contextualizacao do problema](docs/02-contextualizacao-problema.md)
-3. [Objetivos](docs/03-objetivos.md)
-4. [Limite etico e seguranca](docs/04-limite-etico-seguranca.md)
-5. [Dataset de referencia](docs/05-dataset-referencia.md)
-6. [Campos e colunas alvo](docs/06-campos-colunas-alvo.md)
-7. [Regras de mapeamento](docs/07-regras-mapeamento.md)
-8. [Tecnicas de IA](docs/08-tecnicas-ia.md)
-9. [Fluxo de funcionamento](docs/09-fluxo-funcionamento.md)
-10. [Arquitetura proposta](docs/10-arquitetura-proposta.md)
-11. [Entregas e resultados esperados](docs/11-entregas-resultados.md)
-12. [Backlog Desenvolvimento](docs/12-backlog-desenvolvimento.md)
-13. [Documento A3](docs/13-trabalho-a3.md)
-
-## Descricao curta
-
-O Medic Assist AI e um chatbot de apoio a triagem hospitalar que utiliza um modelo de aprendizado treinado com registros de pacientes para sugerir a area hospitalar mais adequada e o nivel de urgencia, sem realizar diagnostico ou prescricao de medicamentos.
 
 ---
 
@@ -42,27 +20,34 @@ O Medic Assist AI e um chatbot de apoio a triagem hospitalar que utiliza um mode
 ```text
 intelligence-ia-a3/
 ├── dataset/
-│   ├── raw/                         # Dataset original do Kaggle (CSV separado por ;)
-│   └── processed/                   # Dataset tratado com colunas derivadas
-├── docs/                            # Documentacao do projeto por topico
+│   ├── raw/                    # Dataset original do Kaggle
+│   └── processed/              # Datasets tratados, codificados e split
+├── docs/                       # Documentação por tópico
+├── models/                     # Modelos treinados (.joblib) e métricas JSON
+├── notebooks/                  # Reservado para notebooks exploratórios
+├── poster/                     # Conteúdo do poster A3
 ├── src/
-│   ├── main.py                      # Entry point: inicia o chatbot
-│   ├── preprocess_dataset.py        # Script de limpeza e rotulacao do dataset
+│   ├── main.py                 # Entry point do chatbot
+│   ├── preprocess_dataset.py   # Limpeza e rotulação (B08+B09)
+│   ├── encode_dataset.py       # Codificação categórica (B10)
+│   ├── split_dataset.py        # Separação treino/teste (B11)
+│   ├── train_model.py          # Treinamento e avaliação (B15–B20)
 │   └── chatbot/
-│       ├── conversation.py          # Coleta de dados e exibicao de resultado
-│       ├── messages.py              # Mensagens de seguranca e avisos
-│       ├── recommended_area_rules.py  # Regras para area hospitalar recomendada
-│       └── urgency_triage_rules.py  # Regras para nivel de urgencia
-└── tests/                           # Testes automatizados com pytest
+│       ├── conversation.py     # Fluxo guiado de perguntas
+│       ├── terminal_ui.py      # Interface visual (cores, loading, painéis)
+│       ├── model_predictor.py  # Predição ML + camada de segurança
+│       ├── patient_encoder.py  # Conversão chatbot → features do modelo
+│       ├── messages.py         # Textos de segurança e avisos
+│       ├── recommended_area_rules.py
+│       └── urgency_triage_rules.py
+└── tests/                      # Testes automatizados (pytest)
 ```
 
 ---
 
-## Pre-requisitos
+## Pré-requisitos
 
-- **Python 3.10 ou superior** (minimo: 3.8)
-
-Verifique sua versao:
+- **Python 3.10+** (mínimo: 3.8)
 
 ```bash
 python --version
@@ -70,113 +55,102 @@ python --version
 
 ---
 
-## Instalacao
-
-### 1. Clone o repositorio
+## Instalação
 
 ```bash
 git clone https://github.com/seu-usuario/intelligence-ia-a3.git
 cd intelligence-ia-a3
-```
 
-### 2. Crie e ative um ambiente virtual (recomendado)
-
-```bash
-# Criar
 python -m venv venv
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # Linux/macOS
 
-# Ativar no Windows
-venv\Scripts\activate
-
-# Ativar no Linux/macOS
-source venv/bin/activate
-```
-
-### 3. Instale as dependencias
-
-```bash
 pip install -r requirements.txt
 ```
 
-
-| Pacote | Uso                                    |
-| ------ | -------------------------------------- |
-| pandas | Leitura e processamento do dataset CSV |
-| pytest | Execucao dos testes automatizados      |
-
+| Pacote        | Uso                                      |
+| ------------- | ---------------------------------------- |
+| pandas        | Leitura e processamento do dataset       |
+| scikit-learn  | Modelos de ML, métricas e train/test split |
+| rich          | Interface visual do terminal (cores, loading) |
+| pytest        | Testes automatizados                     |
 
 ---
 
-## Como rodar
+## Pipeline completo
 
-### Chatbot (fluxo principal)
-
-Inicia a conversa guiada com o paciente e exibe a area recomendada e o nivel de urgencia:
+Execute na ordem abaixo na primeira vez (ou após alterar o dataset):
 
 ```bash
+# 1. Limpeza e criação das colunas-alvo
+python src/preprocess_dataset.py
+
+# 2. Codificação de variáveis categóricas
+python src/encode_dataset.py
+
+# 3. Separação treino/teste (80/20)
+python src/split_dataset.py
+
+# 4. Treinamento dos modelos e geração de métricas
+python src/train_model.py
+
+# 5. Chatbot interativo com modelo integrado
 python src/main.py
 ```
 
-O chatbot faz perguntas em 4 etapas:
+### Entradas e saídas do pipeline
 
-1. Dados basicos: idade e genero
-2. Condicao principal (lista de opcoes)
-3. Sintomas adicionais: febre, dor intensa, dificuldade respiratoria, nivel de consciencia
-4. Historico: duracao dos sintomas e doencas cronicas
-
-Ao final, exibe a area hospitalar recomendada, o nivel de urgencia e um resumo estruturado para triagem humana.
-
----
-
-### Pre-processamento do dataset
-
-Gera o dataset rotulado com as colunas `area_recomendada` e `nivel_urgencia` a partir do dataset bruto:
-
-```bash
-python src/preprocess_dataset.py
-```
-
-- **Entrada:** `dataset/raw/hospital-data-analysis.csv`
-- **Saida:** `dataset/processed/hospital-data-labeled.csv`
-
-Execute este script antes de treinar qualquer modelo de IA.
+| Script                  | Entrada                              | Saída principal                          |
+| ----------------------- | ------------------------------------ | ---------------------------------------- |
+| preprocess_dataset.py   | dataset/raw/hospital-data-analysis.csv | dataset/processed/hospital-data-labeled.csv |
+| encode_dataset.py       | hospital-data-labeled.csv            | hospital-data-encoded.csv, encoding_maps.json |
+| split_dataset.py        | hospital-data-encoded.csv            | hospital-data-train.csv, hospital-data-test.csv |
+| train_model.py          | train + test CSVs                    | models/*.joblib, metrics_*.json          |
+| main.py                 | Entrada interativa do usuário        | Triagem com área e urgência sugeridas    |
 
 ---
 
-### Testes automatizados
-
-```bash
-pytest tests/
-```
-
-Para ver detalhes de cada teste:
+## Testes automatizados
 
 ```bash
 pytest tests/ -v
 ```
 
-
-| Arquivo de teste             | O que cobre                                      |
-| ---------------------------- | ------------------------------------------------ |
-| `test_area_rules.py`         | Regras de roteamento por condicao e faixa etaria |
-| `test_urgency_rules.py`      | Escalada de nivel de urgencia                    |
-| `test_preprocess_dataset.py` | Integridade e colunas do dataset processado      |
-
-
----
-
-## Variaveis de ambiente
-
-O projeto **nao utiliza variaveis de ambiente**. Nenhum arquivo `.env` e necessario.
-
-Todos os caminhos de arquivo sao relativos ao diretorio raiz do projeto e ja estao configurados nos scripts.
+| Arquivo de teste          | O que cobre                                           |
+| ------------------------ | ----------------------------------------------------- |
+| test_preprocess_dataset.py | Integridade do dataset processado                     |
+| test_encode_dataset.py   | Codificação categórica e mapeamentos                  |
+| test_split_dataset.py    | Separação treino/teste 80/20                          |
+| test_train_model.py      | Artefatos e métricas dos modelos                      |
+| test_model_predictor.py  | Integração chatbot ↔ modelo e encoder                 |
+| test_terminal_ui.py      | Interface visual (cores, painéis, loading)            |
+| test_area_rules.py       | Regras de roteamento por condição e faixa etária      |
+| test_urgency_rules.py    | Escalada de nível de urgência                         |
 
 ---
 
-## Limitacoes e avisos
+## Documentação
 
-- O sistema **nao realiza diagnostico medico** e **nao prescreve medicamentos**.
-- A recomendacao gerada e apenas um apoio para triagem inicial.
-- A decisao clinica final deve ser tomada por profissionais de saude.
-- Em casos de emergencia, ligue para o **SAMU: 192**.
+| Documento | Conteúdo |
+| --------- | -------- |
+| [docs/01-visao-geral.md](docs/01-visao-geral.md) | Visão geral do projeto |
+| [docs/14-resultados-finais.md](docs/14-resultados-finais.md) | Métricas e conclusões |
+| [docs/12-backlog-desenvolvimento.md](docs/12-backlog-desenvolvimento.md) | Backlog com status das tarefas |
+| [poster/CONTEUDO_POSTER.md](poster/CONTEUDO_POSTER.md) | Conteúdo do poster A3 |
 
+---
+
+## Variáveis de ambiente
+
+O projeto **não utiliza variáveis de ambiente** obrigatórias. Todos os caminhos são relativos à raiz do projeto.
+
+Opcional: `NO_COLOR=1` desativa cores no terminal (acessibilidade).
+
+---
+
+## Limitações e avisos éticos
+
+- O sistema **não realiza diagnóstico médico** e **não prescreve medicamentos**.
+- A recomendação é apenas apoio para triagem inicial.
+- A decisão clínica final cabe a profissionais de saúde.
+- Em emergências, ligue **192 (SAMU)**.

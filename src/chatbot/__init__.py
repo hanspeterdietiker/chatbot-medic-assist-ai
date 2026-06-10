@@ -4,6 +4,7 @@ from .urgency_triage_rules import apply_rules, apply_urgency_rules, get_base_urg
 from .recommended_area_rules import apply_area_rules
 from .model_predictor import predict_triage, get_algorithm_display_name
 from .patient_encoder import encode_patient_data, CHATBOT_TO_DATASET_CONDITION
+from .terminal_ui import show_loading, show_welcome, urgency_style, get_console
 
 __all__ = [
     "collect_patient_data",
@@ -17,6 +18,10 @@ __all__ = [
     "get_algorithm_display_name",
     "encode_patient_data",
     "CHATBOT_TO_DATASET_CONDITION",
+    "show_loading",
+    "show_welcome",
+    "urgency_style",
+    "get_console",
     "BOAS_VINDAS",
     "ENCERRAMENTO",
     "AVISO_EMERGENCIA",

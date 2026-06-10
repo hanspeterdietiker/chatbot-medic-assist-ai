@@ -6,7 +6,7 @@ Este backlog organiza as atividades do projeto **Medic Assist AI**. A divisao co
 
 | ID | Tarefa | Prioridade | Status | Criterio de aceite |
 | --- | --- | --- | --- | --- |
-| B01 | Criar estrutura inicial de pastas do projeto | Alta | Pendente | Projeto possui pastas para `dataset`, `notebooks`, `src`, `models` e `docs`. |
+| B01 | Criar estrutura inicial de pastas do projeto | Alta | Feito | Projeto possui pastas para `dataset`, `notebooks`, `src`, `models` e `docs`. |
 | B02 | Baixar o dataset do Kaggle | Alta | Feito | Dataset esta salvo em `dataset` e documentado em `docs/05-dataset-referencia.md`. |
 | B03 | Analisar colunas originais do dataset | Alta | Feito | Existe um resumo das colunas disponiveis e dos campos uteis para o modelo. |
 | B04 | Definir regras iniciais para `area_recomendada` | Alta | Feito | Regras foram documentadas com base em `primary_condition` ou campo equivalente. |
@@ -46,11 +46,11 @@ Este backlog organiza as atividades do projeto **Medic Assist AI**. A divisao co
 | B23 | Criar casos de teste simulados | Alta | Feito | Existem exemplos para cardiologia, neurologia, ortopedia, clinica medica e obstetricia. |
 | B24 | Validar predicoes com os casos simulados | Alta | Feito | Modelo retorna respostas coerentes para os exemplos principais. |
 | B25 | Revisar limites eticos nas respostas | Alta | Feito | Nenhuma resposta informa diagnostico ou medicamento. |
-| B26 | Melhorar experiencia de uso do chatbot | Media | Pendente | Fluxo esta claro, com perguntas objetivas e respostas compreensiveis. |
-| B27 | Criar README principal do projeto | Alta | Pendente | README possui instalacao, execucao, treinamento e teste. |
-| B28 | Preparar conteudo do poster | Alta | Pendente | Poster inclui problema, dataset, arquitetura, algoritmo, metricas, fluxo e resultados. |
-| B29 | Documentar resultados finais | Alta | Pendente | Metricas e conclusoes estao registradas em documento ou notebook. |
-| B30 | Revisar documentacao final | Media | Pendente | Arquivos em `docs` estao consistentes e sem informacoes duplicadas. |
+| B26 | Melhorar experiencia de uso do chatbot | Media | Feito | Fluxo esta claro, com perguntas objetivas e respostas compreensiveis. |
+| B27 | Criar README principal do projeto | Alta | Feito | README possui instalacao, execucao, treinamento e teste. |
+| B28 | Preparar conteudo do poster | Alta | Feito | Poster inclui problema, dataset, arquitetura, algoritmo, metricas, fluxo e resultados. |
+| B29 | Documentar resultados finais | Alta | Feito | Metricas e conclusoes estao registradas em documento ou notebook. |
+| B30 | Revisar documentacao final | Media | Feito | Arquivos em `docs` estao consistentes e sem informacoes duplicadas. |
 
 ## Prioridades gerais
 
