@@ -29,6 +29,7 @@ from .urgency_triage_rules import (
     URGENCIA_EMERGENCIA,
     apply_urgency_rules,
     apply_rules,
+    is_immediate_emergency,
 )
 from .lifestyle_rules import apply_lifestyle_reranking, escalate_for_lifestyle
 
@@ -98,12 +99,16 @@ def predict_triage(patient_data: dict) -> tuple[list[tuple[str, float]], str, st
 
     fonte: "modelo_ia (...)" | "regras_seguranca" | "regras_fallback"
     """
-    # Camada 1 — emergência imediata: inconsciência ou dificuldade respiratória
-    if not patient_data["is_conscious"] or patient_data["has_difficulty_breathing"]:
-        return [], AREA_PRONTO_SOCORRO, URGENCIA_EMERGENCIA, "regras_seguranca"
+    # Camada 1 — emergência imediata: inconsciência, dificuldade respiratória
+    # ou qualquer sinal de alerta 🔴 (sangramento, convulsão, etc.). A segurança
+    # força Pronto-Socorro + emergência, mas as doenças prováveis ainda são
+    # exibidas como apoio (o modelo roda normalmente quando disponível).
+    emergency = is_immediate_emergency(patient_data)
 
     # Fallback gracioso se modelos não foram treinados — sem doença prevista
     if not _models_available():
+        if emergency:
+            return [], AREA_PRONTO_SOCORRO, URGENCIA_EMERGENCIA, "regras_seguranca"
         area, urgency = apply_rules({**patient_data, "primary_condition": ""})
         return [], area, urgency, "regras_fallback"
 
@@ -118,6 +123,11 @@ def predict_triage(patient_data: dict) -> tuple[list[tuple[str, float]], str, st
     ranked = apply_lifestyle_reranking(ranked, patient_data)
     top = ranked[:top_k]
     top1_disease = top[0][0]
+
+    # Em emergência, mantém as doenças de apoio mas a área/urgência são ditadas
+    # pela regra de segurança (não pela doença #1).
+    if emergency:
+        return top, AREA_PRONTO_SOCORRO, URGENCIA_EMERGENCIA, "regras_seguranca"
 
     # Deriva área da doença #1 (apply_area_rules já trata override pediátrico)
     area = apply_area_rules(top1_disease, int(patient_data["age"]))
