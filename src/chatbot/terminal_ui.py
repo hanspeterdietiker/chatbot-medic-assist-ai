@@ -27,6 +27,11 @@ from .messages import (
     FONTE_REGRAS_SEGURANCA,
     ORIENTACAO_URGENCIA,
 )
+from .translations import (
+    translate_blood_pressure,
+    translate_cholesterol,
+    translate_disease,
+)
 
 T = TypeVar("T")
 
@@ -263,8 +268,11 @@ def show_triage_result(
     data_table.add_row("Idade", f"{patient_data['age']} anos")
     data_table.add_row("Gênero", patient_data["gender"])
     data_table.add_row("Sintomas", _format_symptoms(patient_data))
-    data_table.add_row("Pressão arterial", str(patient_data.get("blood_pressure", "Normal")))
-    data_table.add_row("Colesterol", str(patient_data.get("cholesterol_level", "Normal")))
+    alert_signals = patient_data.get("selected_alert_signals")
+    if alert_signals:
+        data_table.add_row("Sinais de alerta", ", ".join(alert_signals))
+    data_table.add_row("Pressão arterial", translate_blood_pressure(patient_data.get("blood_pressure", "Normal")))
+    data_table.add_row("Colesterol", translate_cholesterol(patient_data.get("cholesterol_level", "Normal")))
     habitos = lifestyle_factors(patient_data)
     data_table.add_row("Hábitos", ", ".join(habitos) if habitos else "Nenhum informado")
     data_table.add_row("Duração sintomas", f"{patient_data.get('symptom_duration_days', 0)} dia(s)")
@@ -284,7 +292,7 @@ def show_triage_result(
         disease_table.add_column("Possível doença", style="white")
         disease_table.add_column("Probabilidade", style="cyan", justify="right")
         for i, (name, prob) in enumerate(diseases, 1):
-            disease_table.add_row(str(i), name, f"{prob * 100:.1f}%")
+            disease_table.add_row(str(i), translate_disease(name), f"{prob * 100:.1f}%")
         console.print(Panel(
             disease_table,
             title="[bold]Possíveis doenças (apoio — NÃO é diagnóstico)[/]",
