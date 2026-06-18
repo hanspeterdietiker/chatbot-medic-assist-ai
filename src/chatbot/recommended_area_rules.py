@@ -18,15 +18,26 @@ AREA_CLINICA_MEDICA  = "Clínica Médica"
 # Keywords por condição — fonte única de verdade.
 # silenciosa entre as duas tabelas de regras.
 # ---------------------------------------------------------------------------
-KEYWORDS_NEUROLOGICAL  = ("stroke", "neurological", "avc", "neurologico")
+KEYWORDS_NEUROLOGICAL  = ("stroke", "neurological", "avc", "neurologico", "migraine",
+                          "alzheimer", "parkinson", "epilepsy", "sclerosis", "dementia",
+                          "palsy", "seizure")
 KEYWORDS_PREGNANCY     = ("pregnancy", "childbirth", "parto", "gravidez", "gestacao", "gestação", "obstetr")
-KEYWORDS_APPENDICITIS  = ("appendicitis", "apendicite")
-KEYWORDS_CARDIAC       = ("heart", "chest pain", "cardiac", "hypertension", "hipertensao", "hipertensão", "coração", "peito", "cardíaco")
-KEYWORDS_FRACTURE      = ("fracture", "trauma", "fratura")
-KEYWORDS_DIABETES      = ("diabetes", "glucose", "glicose", "glicemia")
-KEYWORDS_CANCER        = ("cancer", "tumor", "oncol")
-KEYWORDS_RESPIRATORY   = ("flu", "respiratory", "gripe", "respirar", "respiratorio", "respiratório")
-KEYWORDS_SKIN          = ("skin", "pele", "dermat")
+# Abdome agudo / condições cirúrgicas — mapeiam para Cirurgia (urgência alta)
+KEYWORDS_APPENDICITIS  = ("appendicitis", "apendicite", "cholecystitis", "pancreatitis", "diverticulitis")
+KEYWORDS_CARDIAC       = ("heart", "chest pain", "cardiac", "hypertension", "hipertensao", "hipertensão",
+                          "coração", "peito", "cardíaco", "coronary", "myocardial", "infarction",
+                          "atherosclerosis")
+KEYWORDS_FRACTURE      = ("fracture", "trauma", "fratura", "arthritis", "osteoarthritis",
+                          "osteoporosis", "osteomyelitis", "gout", "scoliosis")
+# Endocrinologia — diabetes, glicemia e tireoide (evita "thyroid" puro p/ não capturar Thyroid Cancer)
+KEYWORDS_DIABETES      = ("diabetes", "glucose", "glicose", "glicemia", "glycemia",
+                          "hyperthyroid", "hypothyroid")
+KEYWORDS_CANCER        = ("cancer", "tumor", "oncol", "lymphoma", "melanoma", "leukemia")
+KEYWORDS_RESPIRATORY   = ("flu", "respiratory", "gripe", "respirar", "respiratorio", "respiratório",
+                          "asthma", "pneumonia", "pneumothorax", "bronchitis", "influenza",
+                          "common cold", "copd", "pulmonary", "tuberculosis", "sinusitis",
+                          "tonsillitis", "sleep apnea", "cystic fibrosis")
+KEYWORDS_SKIN          = ("skin", "pele", "dermat", "eczema", "psoriasis", "acne")
 
 # ---------------------------------------------------------------------------
 # Tabela de regras: (keywords, area)

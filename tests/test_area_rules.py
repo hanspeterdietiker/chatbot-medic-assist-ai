@@ -114,6 +114,64 @@ class TestInfectionKeyword:
 
 
 # ---------------------------------------------------------------------------
+# Keywords expandidas para o dataset Disease Symptoms and Patient Profile
+# ---------------------------------------------------------------------------
+
+class TestKeywordsExpandidas:
+    def test_asthma_vai_para_pneumologia(self):
+        assert apply_area_rules("Asthma", 30) == AREA_PNEUMOLOGIA
+
+    def test_pneumonia_vai_para_pneumologia(self):
+        assert apply_area_rules("Pneumonia", 40) == AREA_PNEUMOLOGIA
+
+    def test_tuberculosis_vai_para_pneumologia(self):
+        assert apply_area_rules("Tuberculosis", 35) == AREA_PNEUMOLOGIA
+
+    def test_migraine_vai_para_neurologia(self):
+        assert apply_area_rules("Migraine", 33) == AREA_NEUROLOGIA
+
+    def test_parkinson_vai_para_neurologia(self):
+        assert apply_area_rules("Parkinson's Disease", 70) == AREA_NEUROLOGIA
+
+    def test_eczema_vai_para_dermatologia(self):
+        assert apply_area_rules("Eczema", 25) == AREA_DERMATOLOGIA
+
+    def test_psoriasis_vai_para_dermatologia(self):
+        assert apply_area_rules("Psoriasis", 45) == AREA_DERMATOLOGIA
+
+    def test_osteoporosis_vai_para_ortopedia(self):
+        assert apply_area_rules("Osteoporosis", 65) == AREA_ORTOPEDIA
+
+    def test_rheumatoid_arthritis_vai_para_ortopedia(self):
+        assert apply_area_rules("Rheumatoid Arthritis", 50) == AREA_ORTOPEDIA
+
+    def test_hypothyroidism_vai_para_endocrinologia(self):
+        assert apply_area_rules("Hypothyroidism", 40) == AREA_ENDOCRINOLOGIA
+
+    def test_coronary_artery_disease_vai_para_cardiologia(self):
+        assert apply_area_rules("Coronary Artery Disease", 60) == AREA_CARDIOLOGIA
+
+    def test_lung_cancer_vai_para_oncologia(self):
+        # "cancer" tem prioridade sobre "lung" (respiratório vem depois) → Oncologia
+        assert apply_area_rules("Lung Cancer", 60) == AREA_ONCOLOGIA
+
+    def test_thyroid_cancer_vai_para_oncologia(self):
+        # "thyroid" puro não é keyword — evita capturar como endócrino
+        assert apply_area_rules("Thyroid Cancer", 55) == AREA_ONCOLOGIA
+
+    def test_lymphoma_vai_para_oncologia(self):
+        assert apply_area_rules("Lymphoma", 48) == AREA_ONCOLOGIA
+
+    def test_pancreatitis_vai_para_cirurgia(self):
+        assert apply_area_rules("Pancreatitis", 50) == AREA_CIRURGIA
+
+    def test_doenca_sem_keyword_vai_para_clinica_medica(self):
+        # Cauda longa (saúde mental, infecções, genéticas) cai no default
+        assert apply_area_rules("Malaria", 30) == AREA_CLINICA_MEDICA
+        assert apply_area_rules("Depression", 30) == AREA_CLINICA_MEDICA
+
+
+# ---------------------------------------------------------------------------
 # Normalização de entrada (case-insensitive, espaços extras)
 # ---------------------------------------------------------------------------
 

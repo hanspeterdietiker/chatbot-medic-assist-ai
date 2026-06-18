@@ -1,16 +1,26 @@
 # Dataset de referencia
 
-O dataset de referencia e o **Hospital Patient Records Dataset**, disponivel no Kaggle:
+O dataset de referencia e o **Disease Symptoms and Patient Profile Dataset**, disponivel no Kaggle:
 
-[Blueblushed. Hospital Patient Records Dataset](https://www.kaggle.com/datasets/blueblushed/hospital-dataset-for-practice)
+[Disease Symptoms and Patient Profile Dataset](https://www.kaggle.com/datasets/uom190346a/disease-symptoms-and-patient-profile-dataset)
 
-O dataset possui registros hospitalares de pacientes e pode ser usado como base de aprendizado. Como ele nao foi criado especificamente para um chatbot de sintomas, sera necessario adaptar seus campos para o contexto do projeto.
+O dataset relaciona sintomas e perfil do paciente a uma doenca. Possui **349 registros** e **116 doencas** distintas, com as colunas: `Disease`, `Fever`, `Cough`, `Fatigue`, `Difficulty Breathing` (cada uma Yes/No), `Age`, `Gender`, `Blood Pressure`, `Cholesterol Level` (Low/Normal/High) e `Outcome Variable` (Positive/Negative).
 
-## Reestruturacao proposta
+Para baixar: faca login no Kaggle, baixe o CSV e salve em `dataset/raw/disease-symptoms-patient-profile.csv`.
 
-A reestruturacao transforma uma base hospitalar de pratica em uma base de classificacao supervisionada. Dessa forma, o modelo aprende a associar perfis e condicoes clinicas a uma area hospitalar e a um nivel de urgencia.
+## Como o dataset e usado
 
-Caso as colunas originais nao possuam `area_recomendada` e `nivel_urgencia`, essas colunas serao derivadas por regras de mapeamento e usadas como alvo no treinamento supervisionado.
+O alvo do modelo de Machine Learning e a coluna **`disease`** (doenca provavel). As features sao sintomas e perfil de saude:
+
+`age`, `gender`, `fever`, `cough`, `fatigue`, `difficulty_breathing`, `blood_pressure`, `cholesterol_level`.
+
+A **area recomendada** e o **nivel de urgencia** nao sao alvos do modelo: sao **derivados da doenca prevista** por regras de mapeamento (ver [07-regras-mapeamento.md](07-regras-mapeamento.md)). Isso mantem o foco em triagem e permite que **habitos de vida** (alcool/fumo) influenciem doenca, area e urgencia de forma coerente, via regras pos-modelo.
+
+> **Habitos (alcool/fumo):** o dataset nao traz essas colunas. Por isso, alcool e tabagismo sao coletados no chatbot e aplicados como **regras clinicas pos-modelo** (re-ranqueamento das doencas provaveis e escalada de urgencia), sem dados sinteticos no treino. Pressao arterial e colesterol funcionam como **proxies de saude** entre as features.
+
+## Limitacao conhecida
+
+Com 116 doencas e poucas amostras por classe, a acuracia **top-1** e naturalmente baixa; a metrica relevante para "doencas provaveis" e a acuracia **top-5**. Como a doenca nao e informada pelo paciente (apenas sintomas), o problema aprendido e realista — diferente de versoes anteriores em que a condicao era feature e gerava acuracia artificial.
 
 ## Uso academico
 

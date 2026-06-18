@@ -14,13 +14,13 @@ def run() -> dict:
     patient_data = collect_patient_data()
 
     # Spinner animado enquanto o modelo de IA processa (B26)
-    recommended_area, urgency_level, source = show_loading(
+    diseases, recommended_area, urgency_level, source = show_loading(
         "Analisando suas informações com o modelo de IA...",
         lambda: predict_triage(patient_data),
     )
 
-    display_result(patient_data, recommended_area, urgency_level, source)
-    return build_triage_summary(patient_data, recommended_area, urgency_level, source)
+    display_result(patient_data, diseases, recommended_area, urgency_level, source)
+    return build_triage_summary(patient_data, diseases, recommended_area, urgency_level, source)
 
 
 if __name__ == "__main__":

@@ -1,985 +1,350 @@
-Patient_ID,Age,Gender,Condition,Procedure,Cost,Length_of_Stay,Readmission,Outcome,Satisfaction,area_recomendada,nivel_urgencia
-1,45,Female,Heart Disease,Angioplasty,15000,5,No,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-2,60,Male,Diabetes,Insulin Therapy,2000,3,Yes,Stable,3,Clínica Médica / Endocrinologia,prioritario
-3,32,Female,Fractured Arm,X-Ray and Splint,500,1,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-4,75,Male,Stroke,CT Scan and Medication,10000,7,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-5,50,Female,Cancer,Surgery and Chemotherapy,25000,10,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-6,68,Male,Hypertension,Medication and Counseling,1000,2,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-7,55,Female,Appendicitis,Appendectomy,8000,4,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-8,40,Male,Fractured Leg,Cast and Physical Therapy,3000,6,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-9,70,Female,Heart Attack,Cardiac Catheterization,18000,8,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-10,25,Male,Allergic Reaction,Epinephrine Injection,100,1,No,Recovered,5,Clínica Médica,baixa
-11,48,Female,Respiratory Infection,Antibiotics and Rest,800,2,No,Stable,4,Clínica Médica / Pneumologia,baixa
-12,65,Male,Prostate Cancer,Radiation Therapy,20000,9,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-13,30,Female,Childbirth,Delivery and Postnatal Care,12000,3,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-14,52,Male,Kidney Stones,Lithotripsy,6000,4,No,Recovered,3,Clínica Médica,baixa
-15,58,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,5,No,Stable,4,Clínica Médica,baixa
-16,55,Female,Heart Disease,Angioplasty,15000,6,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-17,62,Male,Diabetes,Insulin Therapy,2000,4,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-18,35,Female,Fractured Arm,X-Ray and Splint,500,2,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-19,78,Male,Stroke,CT Scan and Medication,10000,8,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-20,53,Female,Cancer,Surgery and Chemotherapy,25000,11,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-21,72,Male,Hypertension,Medication and Counseling,1000,3,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-22,60,Female,Appendicitis,Appendectomy,8000,5,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-23,45,Male,Fractured Leg,Cast and Physical Therapy,3000,7,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-24,75,Female,Heart Attack,Cardiac Catheterization,18000,9,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-25,28,Male,Allergic Reaction,Epinephrine Injection,100,2,No,Recovered,5,Clínica Médica,baixa
-26,52,Female,Respiratory Infection,Antibiotics and Rest,800,3,No,Stable,4,Clínica Médica / Pneumologia,baixa
-27,67,Male,Prostate Cancer,Radiation Therapy,20000,10,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-28,35,Female,Childbirth,Delivery and Postnatal Care,12000,4,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-29,50,Male,Kidney Stones,Lithotripsy,6000,5,No,Recovered,3,Clínica Médica,baixa
-30,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,6,No,Stable,4,Clínica Médica,baixa
-31,48,Female,Heart Disease,Angioplasty,15000,7,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-32,65,Male,Diabetes,Insulin Therapy,2000,5,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-33,30,Female,Fractured Arm,X-Ray and Splint,500,3,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-34,70,Male,Stroke,CT Scan and Medication,10000,9,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-35,55,Female,Cancer,Surgery and Chemotherapy,25000,12,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-36,68,Male,Hypertension,Medication and Counseling,1000,4,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-37,45,Female,Appendicitis,Appendectomy,8000,6,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-38,40,Male,Fractured Leg,Cast and Physical Therapy,3000,8,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-39,78,Female,Heart Attack,Cardiac Catheterization,18000,10,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-40,25,Male,Allergic Reaction,Epinephrine Injection,100,3,No,Recovered,5,Clínica Médica,baixa
-41,52,Female,Respiratory Infection,Antibiotics and Rest,800,4,No,Stable,4,Clínica Médica / Pneumologia,baixa
-42,58,Male,Prostate Cancer,Radiation Therapy,20000,11,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-43,32,Female,Childbirth,Delivery and Postnatal Care,12000,5,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-44,55,Male,Kidney Stones,Lithotripsy,6000,6,No,Recovered,3,Clínica Médica,baixa
-45,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,7,No,Stable,4,Clínica Médica,baixa
-46,55,Female,Heart Disease,Angioplasty,15000,8,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-47,62,Male,Diabetes,Insulin Therapy,2000,6,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-48,35,Female,Fractured Arm,X-Ray and Splint,500,4,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-49,78,Male,Stroke,CT Scan and Medication,10000,10,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-50,53,Female,Cancer,Surgery and Chemotherapy,25000,13,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-51,72,Male,Hypertension,Medication and Counseling,1000,5,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-52,60,Female,Appendicitis,Appendectomy,8000,7,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-53,45,Male,Fractured Leg,Cast and Physical Therapy,3000,9,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-54,75,Female,Heart Attack,Cardiac Catheterization,18000,11,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-55,28,Male,Allergic Reaction,Epinephrine Injection,100,4,No,Recovered,5,Clínica Médica,baixa
-56,52,Female,Respiratory Infection,Antibiotics and Rest,800,5,No,Stable,4,Clínica Médica / Pneumologia,baixa
-57,67,Male,Prostate Cancer,Radiation Therapy,20000,12,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-58,35,Female,Childbirth,Delivery and Postnatal Care,12000,6,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-59,50,Male,Kidney Stones,Lithotripsy,6000,7,No,Recovered,3,Clínica Médica,baixa
-61,48,Female,Heart Disease,Angioplasty,15000,9,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-62,65,Male,Diabetes,Insulin Therapy,2000,7,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-63,30,Female,Fractured Arm,X-Ray and Splint,500,5,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-64,70,Male,Stroke,CT Scan and Medication,10000,11,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-65,55,Female,Cancer,Surgery and Chemotherapy,25000,14,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-66,68,Male,Hypertension,Medication and Counseling,1000,6,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-67,45,Female,Appendicitis,Appendectomy,8000,8,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-68,40,Male,Fractured Leg,Cast and Physical Therapy,3000,10,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-69,78,Female,Heart Attack,Cardiac Catheterization,18000,12,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-70,25,Male,Allergic Reaction,Epinephrine Injection,100,5,No,Recovered,5,Clínica Médica,baixa
-71,52,Female,Respiratory Infection,Antibiotics and Rest,800,6,No,Stable,4,Clínica Médica / Pneumologia,baixa
-72,58,Male,Prostate Cancer,Radiation Therapy,20000,13,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-73,32,Female,Childbirth,Delivery and Postnatal Care,12000,7,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-74,55,Male,Kidney Stones,Lithotripsy,6000,8,No,Recovered,3,Clínica Médica,baixa
-75,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,9,No,Stable,4,Clínica Médica,baixa
-76,55,Female,Heart Disease,Angioplasty,15000,10,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-77,62,Male,Diabetes,Insulin Therapy,2000,8,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-78,35,Female,Fractured Arm,X-Ray and Splint,500,6,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-79,78,Male,Stroke,CT Scan and Medication,10000,12,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-80,53,Female,Cancer,Surgery and Chemotherapy,25000,15,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-81,72,Male,Hypertension,Medication and Counseling,1000,7,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-82,60,Female,Appendicitis,Appendectomy,8000,9,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-83,45,Male,Fractured Leg,Cast and Physical Therapy,3000,11,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-84,75,Female,Heart Attack,Cardiac Catheterization,18000,13,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-85,28,Male,Allergic Reaction,Epinephrine Injection,100,6,No,Recovered,5,Clínica Médica,baixa
-86,52,Female,Respiratory Infection,Antibiotics and Rest,800,7,No,Stable,4,Clínica Médica / Pneumologia,baixa
-87,67,Male,Prostate Cancer,Radiation Therapy,20000,14,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-88,35,Female,Childbirth,Delivery and Postnatal Care,12000,8,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-89,50,Male,Kidney Stones,Lithotripsy,6000,9,No,Recovered,3,Clínica Médica,baixa
-90,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,10,No,Stable,4,Clínica Médica,baixa
-91,48,Female,Heart Disease,Angioplasty,15000,11,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-92,65,Male,Diabetes,Insulin Therapy,2000,9,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-93,30,Female,Fractured Arm,X-Ray and Splint,500,7,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-94,70,Male,Stroke,CT Scan and Medication,10000,13,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-95,55,Female,Cancer,Surgery and Chemotherapy,25000,16,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-96,68,Male,Hypertension,Medication and Counseling,1000,8,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-97,45,Female,Appendicitis,Appendectomy,8000,10,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-98,40,Male,Fractured Leg,Cast and Physical Therapy,3000,12,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-99,78,Female,Heart Attack,Cardiac Catheterization,18000,14,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-100,25,Male,Allergic Reaction,Epinephrine Injection,100,7,No,Recovered,5,Clínica Médica,baixa
-101,52,Female,Respiratory Infection,Antibiotics and Rest,800,8,No,Stable,4,Clínica Médica / Pneumologia,baixa
-102,58,Male,Prostate Cancer,Radiation Therapy,20000,15,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-103,32,Female,Childbirth,Delivery and Postnatal Care,12000,9,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-104,55,Male,Kidney Stones,Lithotripsy,6000,10,No,Recovered,3,Clínica Médica,baixa
-105,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,11,No,Stable,4,Clínica Médica,baixa
-106,55,Female,Heart Disease,Angioplasty,15000,12,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-107,62,Male,Diabetes,Insulin Therapy,2000,10,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-108,35,Female,Fractured Arm,X-Ray and Splint,500,8,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-109,78,Male,Stroke,CT Scan and Medication,10000,14,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-110,53,Female,Cancer,Surgery and Chemotherapy,25000,17,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-111,72,Male,Hypertension,Medication and Counseling,1000,9,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-112,60,Female,Appendicitis,Appendectomy,8000,11,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-113,45,Male,Fractured Leg,Cast and Physical Therapy,3000,13,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-114,75,Female,Heart Attack,Cardiac Catheterization,18000,15,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-115,28,Male,Allergic Reaction,Epinephrine Injection,100,8,No,Recovered,5,Clínica Médica,baixa
-116,52,Female,Respiratory Infection,Antibiotics and Rest,800,9,No,Stable,4,Clínica Médica / Pneumologia,baixa
-117,67,Male,Prostate Cancer,Radiation Therapy,20000,16,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-118,35,Female,Childbirth,Delivery and Postnatal Care,12000,10,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-119,50,Male,Kidney Stones,Lithotripsy,6000,11,No,Recovered,3,Clínica Médica,baixa
-120,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,12,No,Stable,4,Clínica Médica,baixa
-122,65,Male,Diabetes,Insulin Therapy,2000,11,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-123,30,Female,Fractured Arm,X-Ray and Splint,500,9,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-124,70,Male,Stroke,CT Scan and Medication,10000,15,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-125,55,Female,Cancer,Surgery and Chemotherapy,25000,18,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-126,68,Male,Hypertension,Medication and Counseling,1000,10,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-127,45,Female,Appendicitis,Appendectomy,8000,12,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-128,40,Male,Fractured Leg,Cast and Physical Therapy,3000,14,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-129,78,Female,Heart Attack,Cardiac Catheterization,18000,16,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-130,25,Male,Allergic Reaction,Epinephrine Injection,100,9,No,Recovered,5,Clínica Médica,baixa
-131,52,Female,Respiratory Infection,Antibiotics and Rest,800,10,No,Stable,4,Clínica Médica / Pneumologia,baixa
-132,58,Male,Prostate Cancer,Radiation Therapy,20000,17,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-133,32,Female,Childbirth,Delivery and Postnatal Care,12000,11,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-134,55,Male,Kidney Stones,Lithotripsy,6000,12,No,Recovered,3,Clínica Médica,baixa
-135,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,13,No,Stable,4,Clínica Médica,baixa
-136,55,Female,Heart Disease,Angioplasty,15000,14,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-137,62,Male,Diabetes,Insulin Therapy,2000,12,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-138,35,Female,Fractured Arm,X-Ray and Splint,500,10,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-139,78,Male,Stroke,CT Scan and Medication,10000,16,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-140,53,Female,Cancer,Surgery and Chemotherapy,25000,19,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-141,72,Male,Hypertension,Medication and Counseling,1000,11,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-142,60,Female,Appendicitis,Appendectomy,8000,13,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-143,45,Male,Fractured Leg,Cast and Physical Therapy,3000,15,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-144,75,Female,Heart Attack,Cardiac Catheterization,18000,17,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-145,28,Male,Allergic Reaction,Epinephrine Injection,100,10,No,Recovered,5,Clínica Médica,baixa
-146,52,Female,Respiratory Infection,Antibiotics and Rest,800,11,No,Stable,4,Clínica Médica / Pneumologia,baixa
-147,67,Male,Prostate Cancer,Radiation Therapy,20000,18,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-148,35,Female,Childbirth,Delivery and Postnatal Care,12000,12,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-149,50,Male,Kidney Stones,Lithotripsy,6000,13,No,Recovered,3,Clínica Médica,baixa
-150,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,14,No,Stable,4,Clínica Médica,baixa
-151,48,Female,Heart Disease,Angioplasty,15000,15,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-152,65,Male,Diabetes,Insulin Therapy,2000,13,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-153,30,Female,Fractured Arm,X-Ray and Splint,500,11,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-154,70,Male,Stroke,CT Scan and Medication,10000,17,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-155,55,Female,Cancer,Surgery and Chemotherapy,25000,20,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-156,68,Male,Hypertension,Medication and Counseling,1000,12,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-157,45,Female,Appendicitis,Appendectomy,8000,14,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-158,40,Male,Fractured Leg,Cast and Physical Therapy,3000,16,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-159,78,Female,Heart Attack,Cardiac Catheterization,18000,18,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-160,25,Male,Allergic Reaction,Epinephrine Injection,100,11,No,Recovered,5,Clínica Médica,baixa
-161,52,Female,Respiratory Infection,Antibiotics and Rest,800,12,No,Stable,4,Clínica Médica / Pneumologia,baixa
-162,58,Male,Prostate Cancer,Radiation Therapy,20000,19,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-163,32,Female,Childbirth,Delivery and Postnatal Care,12000,13,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-164,55,Male,Kidney Stones,Lithotripsy,6000,14,No,Recovered,3,Clínica Médica,baixa
-165,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,15,No,Stable,4,Clínica Médica,baixa
-166,55,Female,Heart Disease,Angioplasty,15000,16,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-167,62,Male,Diabetes,Insulin Therapy,2000,14,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-168,35,Female,Fractured Arm,X-Ray and Splint,500,12,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-169,78,Male,Stroke,CT Scan and Medication,10000,18,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-170,53,Female,Cancer,Surgery and Chemotherapy,25000,21,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-171,72,Male,Hypertension,Medication and Counseling,1000,13,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-172,60,Female,Appendicitis,Appendectomy,8000,15,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-173,45,Male,Fractured Leg,Cast and Physical Therapy,3000,17,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-174,75,Female,Heart Attack,Cardiac Catheterization,18000,19,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-175,28,Male,Allergic Reaction,Epinephrine Injection,100,12,No,Recovered,5,Clínica Médica,baixa
-176,52,Female,Respiratory Infection,Antibiotics and Rest,800,13,No,Stable,4,Clínica Médica / Pneumologia,baixa
-177,67,Male,Prostate Cancer,Radiation Therapy,20000,20,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-178,35,Female,Childbirth,Delivery and Postnatal Care,12000,14,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-179,50,Male,Kidney Stones,Lithotripsy,6000,15,No,Recovered,3,Clínica Médica,baixa
-180,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,16,No,Stable,4,Clínica Médica,baixa
-181,48,Female,Heart Disease,Angioplasty,15000,17,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-183,30,Female,Fractured Arm,X-Ray and Splint,500,13,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-184,70,Male,Stroke,CT Scan and Medication,10000,19,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-185,55,Female,Cancer,Surgery and Chemotherapy,25000,22,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-186,68,Male,Hypertension,Medication and Counseling,1000,14,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-187,45,Female,Appendicitis,Appendectomy,8000,16,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-188,40,Male,Fractured Leg,Cast and Physical Therapy,3000,18,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-189,78,Female,Heart Attack,Cardiac Catheterization,18000,20,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-190,25,Male,Allergic Reaction,Epinephrine Injection,100,13,No,Recovered,5,Clínica Médica,baixa
-191,52,Female,Respiratory Infection,Antibiotics and Rest,800,14,No,Stable,4,Clínica Médica / Pneumologia,baixa
-192,58,Male,Prostate Cancer,Radiation Therapy,20000,21,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-193,32,Female,Childbirth,Delivery and Postnatal Care,12000,15,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-194,55,Male,Kidney Stones,Lithotripsy,6000,16,No,Recovered,3,Clínica Médica,baixa
-195,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,17,No,Stable,4,Clínica Médica,baixa
-196,55,Female,Heart Disease,Angioplasty,15000,18,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-197,62,Male,Diabetes,Insulin Therapy,2000,16,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-198,35,Female,Fractured Arm,X-Ray and Splint,500,14,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-199,78,Male,Stroke,CT Scan and Medication,10000,20,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-200,53,Female,Cancer,Surgery and Chemotherapy,25000,23,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-201,72,Male,Hypertension,Medication and Counseling,1000,15,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-202,60,Female,Appendicitis,Appendectomy,8000,17,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-203,45,Male,Fractured Leg,Cast and Physical Therapy,3000,19,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-204,75,Female,Heart Attack,Cardiac Catheterization,18000,21,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-205,28,Male,Allergic Reaction,Epinephrine Injection,100,14,No,Recovered,5,Clínica Médica,baixa
-206,52,Female,Respiratory Infection,Antibiotics and Rest,800,15,No,Stable,4,Clínica Médica / Pneumologia,baixa
-207,67,Male,Prostate Cancer,Radiation Therapy,20000,22,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-208,35,Female,Childbirth,Delivery and Postnatal Care,12000,16,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-209,50,Male,Kidney Stones,Lithotripsy,6000,17,No,Recovered,3,Clínica Médica,baixa
-210,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,18,No,Stable,4,Clínica Médica,baixa
-211,48,Female,Heart Disease,Angioplasty,15000,19,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-212,65,Male,Diabetes,Insulin Therapy,2000,17,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-213,30,Female,Fractured Arm,X-Ray and Splint,500,15,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-214,70,Male,Stroke,CT Scan and Medication,10000,21,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-215,55,Female,Cancer,Surgery and Chemotherapy,25000,24,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-216,68,Male,Hypertension,Medication and Counseling,1000,16,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-217,45,Female,Appendicitis,Appendectomy,8000,18,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-218,40,Male,Fractured Leg,Cast and Physical Therapy,3000,20,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-219,78,Female,Heart Attack,Cardiac Catheterization,18000,22,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-220,25,Male,Allergic Reaction,Epinephrine Injection,100,15,No,Recovered,5,Clínica Médica,baixa
-221,52,Female,Respiratory Infection,Antibiotics and Rest,800,16,No,Stable,4,Clínica Médica / Pneumologia,baixa
-222,58,Male,Prostate Cancer,Radiation Therapy,20000,23,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-223,32,Female,Childbirth,Delivery and Postnatal Care,12000,17,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-224,55,Male,Kidney Stones,Lithotripsy,6000,18,No,Recovered,3,Clínica Médica,baixa
-225,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,19,No,Stable,4,Clínica Médica,baixa
-226,55,Female,Heart Disease,Angioplasty,15000,20,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-227,62,Male,Diabetes,Insulin Therapy,2000,18,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-228,35,Female,Fractured Arm,X-Ray and Splint,500,16,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-229,78,Male,Stroke,CT Scan and Medication,10000,22,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-230,53,Female,Cancer,Surgery and Chemotherapy,25000,25,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-231,72,Male,Hypertension,Medication and Counseling,1000,17,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-232,60,Female,Appendicitis,Appendectomy,8000,19,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-233,45,Male,Fractured Leg,Cast and Physical Therapy,3000,21,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-234,75,Female,Heart Attack,Cardiac Catheterization,18000,23,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-235,28,Male,Allergic Reaction,Epinephrine Injection,100,16,No,Recovered,5,Clínica Médica,baixa
-236,52,Female,Respiratory Infection,Antibiotics and Rest,800,17,No,Stable,4,Clínica Médica / Pneumologia,baixa
-237,67,Male,Prostate Cancer,Radiation Therapy,20000,24,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-238,35,Female,Childbirth,Delivery and Postnatal Care,12000,18,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-239,50,Male,Kidney Stones,Lithotripsy,6000,19,No,Recovered,3,Clínica Médica,baixa
-240,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,20,No,Stable,4,Clínica Médica,baixa
-241,48,Female,Heart Disease,Angioplasty,15000,21,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-242,65,Male,Diabetes,Insulin Therapy,2000,19,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-244,70,Male,Stroke,CT Scan and Medication,10000,23,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-245,55,Female,Cancer,Surgery and Chemotherapy,25000,26,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-246,68,Male,Hypertension,Medication and Counseling,1000,18,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-247,45,Female,Appendicitis,Appendectomy,8000,20,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-248,40,Male,Fractured Leg,Cast and Physical Therapy,3000,22,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-249,78,Female,Heart Attack,Cardiac Catheterization,18000,24,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-250,25,Male,Allergic Reaction,Epinephrine Injection,100,17,No,Recovered,5,Clínica Médica,baixa
-251,52,Female,Respiratory Infection,Antibiotics and Rest,800,18,No,Stable,4,Clínica Médica / Pneumologia,baixa
-252,58,Male,Prostate Cancer,Radiation Therapy,20000,25,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-253,32,Female,Childbirth,Delivery and Postnatal Care,12000,19,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-254,55,Male,Kidney Stones,Lithotripsy,6000,20,No,Recovered,3,Clínica Médica,baixa
-255,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,21,No,Stable,4,Clínica Médica,baixa
-256,55,Female,Heart Disease,Angioplasty,15000,22,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-257,62,Male,Diabetes,Insulin Therapy,2000,20,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-258,35,Female,Fractured Arm,X-Ray and Splint,500,18,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-259,78,Male,Stroke,CT Scan and Medication,10000,24,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-260,53,Female,Cancer,Surgery and Chemotherapy,25000,27,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-261,72,Male,Hypertension,Medication and Counseling,1000,19,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-262,60,Female,Appendicitis,Appendectomy,8000,21,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-263,45,Male,Fractured Leg,Cast and Physical Therapy,3000,23,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-264,75,Female,Heart Attack,Cardiac Catheterization,18000,25,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-265,28,Male,Allergic Reaction,Epinephrine Injection,100,18,No,Recovered,5,Clínica Médica,baixa
-266,52,Female,Respiratory Infection,Antibiotics and Rest,800,19,No,Stable,4,Clínica Médica / Pneumologia,baixa
-267,67,Male,Prostate Cancer,Radiation Therapy,20000,26,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-268,35,Female,Childbirth,Delivery and Postnatal Care,12000,20,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-269,50,Male,Kidney Stones,Lithotripsy,6000,21,No,Recovered,3,Clínica Médica,baixa
-270,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,22,No,Stable,4,Clínica Médica,baixa
-271,48,Female,Heart Disease,Angioplasty,15000,23,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-272,65,Male,Diabetes,Insulin Therapy,2000,21,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-273,30,Female,Fractured Arm,X-Ray and Splint,500,19,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-274,70,Male,Stroke,CT Scan and Medication,10000,25,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-275,55,Female,Cancer,Surgery and Chemotherapy,25000,28,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-276,68,Male,Hypertension,Medication and Counseling,1000,20,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-277,45,Female,Appendicitis,Appendectomy,8000,22,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-278,40,Male,Fractured Leg,Cast and Physical Therapy,3000,24,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-279,78,Female,Heart Attack,Cardiac Catheterization,18000,26,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-280,25,Male,Allergic Reaction,Epinephrine Injection,100,19,No,Recovered,5,Clínica Médica,baixa
-281,52,Female,Respiratory Infection,Antibiotics and Rest,800,20,No,Stable,4,Clínica Médica / Pneumologia,baixa
-282,58,Male,Prostate Cancer,Radiation Therapy,20000,27,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-283,32,Female,Childbirth,Delivery and Postnatal Care,12000,21,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-284,55,Male,Kidney Stones,Lithotripsy,6000,22,No,Recovered,3,Clínica Médica,baixa
-285,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,23,No,Stable,4,Clínica Médica,baixa
-286,55,Female,Heart Disease,Angioplasty,15000,24,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-287,62,Male,Diabetes,Insulin Therapy,2000,22,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-288,35,Female,Fractured Arm,X-Ray and Splint,500,20,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-289,78,Male,Stroke,CT Scan and Medication,10000,26,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-290,53,Female,Cancer,Surgery and Chemotherapy,25000,29,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-291,72,Male,Hypertension,Medication and Counseling,1000,21,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-292,60,Female,Appendicitis,Appendectomy,8000,23,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-293,45,Male,Fractured Leg,Cast and Physical Therapy,3000,25,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-294,75,Female,Heart Attack,Cardiac Catheterization,18000,27,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-296,52,Female,Respiratory Infection,Antibiotics and Rest,800,21,No,Stable,4,Clínica Médica / Pneumologia,baixa
-297,67,Male,Prostate Cancer,Radiation Therapy,20000,28,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-298,35,Female,Childbirth,Delivery and Postnatal Care,12000,22,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-299,50,Male,Kidney Stones,Lithotripsy,6000,23,No,Recovered,3,Clínica Médica,baixa
-300,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,24,No,Stable,4,Clínica Médica,baixa
-301,48,Female,Heart Disease,Angioplasty,15000,25,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-302,65,Male,Diabetes,Insulin Therapy,2000,23,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-303,30,Female,Fractured Arm,X-Ray and Splint,500,21,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-304,70,Male,Stroke,CT Scan and Medication,10000,27,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-305,55,Female,Cancer,Surgery and Chemotherapy,25000,30,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-306,68,Male,Hypertension,Medication and Counseling,1000,22,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-307,45,Female,Appendicitis,Appendectomy,8000,24,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-308,40,Male,Fractured Leg,Cast and Physical Therapy,3000,26,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-309,78,Female,Heart Attack,Cardiac Catheterization,18000,28,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-310,25,Male,Allergic Reaction,Epinephrine Injection,100,21,No,Recovered,5,Clínica Médica,baixa
-311,52,Female,Respiratory Infection,Antibiotics and Rest,800,22,No,Stable,4,Clínica Médica / Pneumologia,baixa
-312,58,Male,Prostate Cancer,Radiation Therapy,20000,29,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-313,32,Female,Childbirth,Delivery and Postnatal Care,12000,23,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-314,55,Male,Kidney Stones,Lithotripsy,6000,24,No,Recovered,3,Clínica Médica,baixa
-315,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,25,No,Stable,4,Clínica Médica,baixa
-316,55,Female,Heart Disease,Angioplasty,15000,26,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-317,62,Male,Diabetes,Insulin Therapy,2000,24,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-318,35,Female,Fractured Arm,X-Ray and Splint,500,22,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-319,78,Male,Stroke,CT Scan and Medication,10000,28,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-320,53,Female,Cancer,Surgery and Chemotherapy,25000,31,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-321,72,Male,Hypertension,Medication and Counseling,1000,23,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-322,60,Female,Appendicitis,Appendectomy,8000,25,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-323,45,Male,Fractured Leg,Cast and Physical Therapy,3000,27,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-324,75,Female,Heart Attack,Cardiac Catheterization,18000,29,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-325,28,Male,Allergic Reaction,Epinephrine Injection,100,22,No,Recovered,5,Clínica Médica,baixa
-326,52,Female,Respiratory Infection,Antibiotics and Rest,800,23,No,Stable,4,Clínica Médica / Pneumologia,baixa
-327,67,Male,Prostate Cancer,Radiation Therapy,20000,30,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-328,35,Female,Childbirth,Delivery and Postnatal Care,12000,24,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-329,50,Male,Kidney Stones,Lithotripsy,6000,25,No,Recovered,3,Clínica Médica,baixa
-330,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,26,No,Stable,4,Clínica Médica,baixa
-331,48,Female,Heart Disease,Angioplasty,15000,27,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-332,65,Male,Diabetes,Insulin Therapy,2000,25,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-333,30,Female,Fractured Arm,X-Ray and Splint,500,23,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-334,70,Male,Stroke,CT Scan and Medication,10000,29,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-335,55,Female,Cancer,Surgery and Chemotherapy,25000,32,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-336,68,Male,Hypertension,Medication and Counseling,1000,24,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-337,45,Female,Appendicitis,Appendectomy,8000,26,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-338,40,Male,Fractured Leg,Cast and Physical Therapy,3000,28,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-339,78,Female,Heart Attack,Cardiac Catheterization,18000,30,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-340,25,Male,Allergic Reaction,Epinephrine Injection,100,23,No,Recovered,5,Clínica Médica,baixa
-341,52,Female,Respiratory Infection,Antibiotics and Rest,800,24,No,Stable,4,Clínica Médica / Pneumologia,baixa
-342,58,Male,Prostate Cancer,Radiation Therapy,20000,31,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-343,32,Female,Childbirth,Delivery and Postnatal Care,12000,25,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-344,55,Male,Kidney Stones,Lithotripsy,6000,26,No,Recovered,3,Clínica Médica,baixa
-345,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,27,No,Stable,4,Clínica Médica,baixa
-346,55,Female,Heart Disease,Angioplasty,15000,28,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-347,62,Male,Diabetes,Insulin Therapy,2000,26,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-348,35,Female,Fractured Arm,X-Ray and Splint,500,24,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-349,78,Male,Stroke,CT Scan and Medication,10000,30,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-350,53,Female,Cancer,Surgery and Chemotherapy,25000,33,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-351,72,Male,Hypertension,Medication and Counseling,1000,25,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-352,60,Female,Appendicitis,Appendectomy,8000,27,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-353,45,Male,Fractured Leg,Cast and Physical Therapy,3000,29,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-354,75,Female,Heart Attack,Cardiac Catheterization,18000,31,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-355,28,Male,Allergic Reaction,Epinephrine Injection,100,24,No,Recovered,5,Clínica Médica,baixa
-357,67,Male,Prostate Cancer,Radiation Therapy,20000,32,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-358,35,Female,Childbirth,Delivery and Postnatal Care,12000,26,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-359,50,Male,Kidney Stones,Lithotripsy,6000,27,No,Recovered,3,Clínica Médica,baixa
-360,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,28,No,Stable,4,Clínica Médica,baixa
-361,48,Female,Heart Disease,Angioplasty,15000,29,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-362,65,Male,Diabetes,Insulin Therapy,2000,27,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-363,30,Female,Fractured Arm,X-Ray and Splint,500,25,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-364,70,Male,Stroke,CT Scan and Medication,10000,31,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-365,55,Female,Cancer,Surgery and Chemotherapy,25000,34,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-366,68,Male,Hypertension,Medication and Counseling,1000,26,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-367,45,Female,Appendicitis,Appendectomy,8000,28,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-368,40,Male,Fractured Leg,Cast and Physical Therapy,3000,30,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-369,78,Female,Heart Attack,Cardiac Catheterization,18000,32,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-370,25,Male,Allergic Reaction,Epinephrine Injection,100,25,No,Recovered,5,Clínica Médica,baixa
-371,52,Female,Respiratory Infection,Antibiotics and Rest,800,26,No,Stable,4,Clínica Médica / Pneumologia,baixa
-372,58,Male,Prostate Cancer,Radiation Therapy,20000,33,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-373,32,Female,Childbirth,Delivery and Postnatal Care,12000,27,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-374,55,Male,Kidney Stones,Lithotripsy,6000,28,No,Recovered,3,Clínica Médica,baixa
-375,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,29,No,Stable,4,Clínica Médica,baixa
-376,55,Female,Heart Disease,Angioplasty,15000,30,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-377,62,Male,Diabetes,Insulin Therapy,2000,28,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-378,35,Female,Fractured Arm,X-Ray and Splint,500,26,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-379,78,Male,Stroke,CT Scan and Medication,10000,33,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-380,53,Female,Cancer,Surgery and Chemotherapy,25000,35,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-381,72,Male,Hypertension,Medication and Counseling,1000,27,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-382,60,Female,Appendicitis,Appendectomy,8000,29,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-383,45,Male,Fractured Leg,Cast and Physical Therapy,3000,31,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-384,75,Female,Heart Attack,Cardiac Catheterization,18000,33,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-385,28,Male,Allergic Reaction,Epinephrine Injection,100,26,No,Recovered,5,Clínica Médica,baixa
-386,52,Female,Respiratory Infection,Antibiotics and Rest,800,27,No,Stable,4,Clínica Médica / Pneumologia,baixa
-387,67,Male,Prostate Cancer,Radiation Therapy,20000,34,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-388,35,Female,Childbirth,Delivery and Postnatal Care,12000,28,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-389,50,Male,Kidney Stones,Lithotripsy,6000,29,No,Recovered,3,Clínica Médica,baixa
-390,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,30,No,Stable,4,Clínica Médica,baixa
-391,48,Female,Heart Disease,Angioplasty,15000,31,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-392,65,Male,Diabetes,Insulin Therapy,2000,29,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-393,30,Female,Fractured Arm,X-Ray and Splint,500,27,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-394,70,Male,Stroke,CT Scan and Medication,10000,34,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-395,55,Female,Cancer,Surgery and Chemotherapy,25000,36,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-396,68,Male,Hypertension,Medication and Counseling,1000,28,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-397,45,Female,Appendicitis,Appendectomy,8000,30,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-398,40,Male,Fractured Leg,Cast and Physical Therapy,3000,32,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-399,78,Female,Heart Attack,Cardiac Catheterization,18000,34,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-400,25,Male,Allergic Reaction,Epinephrine Injection,100,27,No,Recovered,5,Clínica Médica,baixa
-401,52,Female,Respiratory Infection,Antibiotics and Rest,800,28,No,Stable,4,Clínica Médica / Pneumologia,baixa
-402,58,Male,Prostate Cancer,Radiation Therapy,20000,35,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-403,32,Female,Childbirth,Delivery and Postnatal Care,12000,29,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-404,55,Male,Kidney Stones,Lithotripsy,6000,30,No,Recovered,3,Clínica Médica,baixa
-405,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,31,No,Stable,4,Clínica Médica,baixa
-406,55,Female,Heart Disease,Angioplasty,15000,32,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-407,62,Male,Diabetes,Insulin Therapy,2000,30,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-408,35,Female,Fractured Arm,X-Ray and Splint,500,28,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-409,78,Male,Stroke,CT Scan and Medication,10000,35,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-410,53,Female,Cancer,Surgery and Chemotherapy,25000,37,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-411,72,Male,Hypertension,Medication and Counseling,1000,29,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-412,60,Female,Appendicitis,Appendectomy,8000,31,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-413,45,Male,Fractured Leg,Cast and Physical Therapy,3000,33,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-414,75,Female,Heart Attack,Cardiac Catheterization,18000,35,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-415,28,Male,Allergic Reaction,Epinephrine Injection,100,28,No,Recovered,5,Clínica Médica,baixa
-416,52,Female,Respiratory Infection,Antibiotics and Rest,800,29,No,Stable,4,Clínica Médica / Pneumologia,baixa
-418,35,Female,Childbirth,Delivery and Postnatal Care,12000,30,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-419,50,Male,Kidney Stones,Lithotripsy,6000,31,No,Recovered,3,Clínica Médica,baixa
-420,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,32,No,Stable,4,Clínica Médica,baixa
-421,48,Female,Heart Disease,Angioplasty,15000,33,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-422,65,Male,Diabetes,Insulin Therapy,2000,31,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-423,30,Female,Fractured Arm,X-Ray and Splint,500,29,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-424,70,Male,Stroke,CT Scan and Medication,10000,36,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-425,55,Female,Cancer,Surgery and Chemotherapy,25000,38,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-426,68,Male,Hypertension,Medication and Counseling,1000,30,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-427,45,Female,Appendicitis,Appendectomy,8000,32,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-428,40,Male,Fractured Leg,Cast and Physical Therapy,3000,34,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-429,78,Female,Heart Attack,Cardiac Catheterization,18000,36,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-430,25,Male,Allergic Reaction,Epinephrine Injection,100,29,No,Recovered,5,Clínica Médica,baixa
-431,52,Female,Respiratory Infection,Antibiotics and Rest,800,30,No,Stable,4,Clínica Médica / Pneumologia,baixa
-432,58,Male,Prostate Cancer,Radiation Therapy,20000,37,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-433,32,Female,Childbirth,Delivery and Postnatal Care,12000,31,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-434,55,Male,Kidney Stones,Lithotripsy,6000,32,No,Recovered,3,Clínica Médica,baixa
-435,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,33,No,Stable,4,Clínica Médica,baixa
-436,55,Female,Heart Disease,Angioplasty,15000,34,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-437,62,Male,Diabetes,Insulin Therapy,2000,32,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-438,35,Female,Fractured Arm,X-Ray and Splint,500,30,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-439,78,Male,Stroke,CT Scan and Medication,10000,37,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-440,53,Female,Cancer,Surgery and Chemotherapy,25000,39,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-441,72,Male,Hypertension,Medication and Counseling,1000,31,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-442,60,Female,Appendicitis,Appendectomy,8000,33,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-443,45,Male,Fractured Leg,Cast and Physical Therapy,3000,35,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-444,75,Female,Heart Attack,Cardiac Catheterization,18000,37,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-445,28,Male,Allergic Reaction,Epinephrine Injection,100,30,No,Recovered,5,Clínica Médica,baixa
-446,52,Female,Respiratory Infection,Antibiotics and Rest,800,31,No,Stable,4,Clínica Médica / Pneumologia,baixa
-447,67,Male,Prostate Cancer,Radiation Therapy,20000,38,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-448,35,Female,Childbirth,Delivery and Postnatal Care,12000,32,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-449,50,Male,Kidney Stones,Lithotripsy,6000,33,No,Recovered,3,Clínica Médica,baixa
-450,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,34,No,Stable,4,Clínica Médica,baixa
-451,48,Female,Heart Disease,Angioplasty,15000,35,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-452,65,Male,Diabetes,Insulin Therapy,2000,33,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-453,30,Female,Fractured Arm,X-Ray and Splint,500,31,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-454,70,Male,Stroke,CT Scan and Medication,10000,38,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-455,55,Female,Cancer,Surgery and Chemotherapy,25000,40,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-456,68,Male,Hypertension,Medication and Counseling,1000,32,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-457,45,Female,Appendicitis,Appendectomy,8000,34,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-458,40,Male,Fractured Leg,Cast and Physical Therapy,3000,36,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-459,78,Female,Heart Attack,Cardiac Catheterization,18000,38,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-460,25,Male,Allergic Reaction,Epinephrine Injection,100,31,No,Recovered,5,Clínica Médica,baixa
-461,52,Female,Respiratory Infection,Antibiotics and Rest,800,32,No,Stable,4,Clínica Médica / Pneumologia,baixa
-462,58,Male,Prostate Cancer,Radiation Therapy,20000,39,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-463,32,Female,Childbirth,Delivery and Postnatal Care,12000,33,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-464,55,Male,Kidney Stones,Lithotripsy,6000,34,No,Recovered,3,Clínica Médica,baixa
-465,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,35,No,Stable,4,Clínica Médica,baixa
-466,55,Female,Heart Disease,Angioplasty,15000,36,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-467,62,Male,Diabetes,Insulin Therapy,2000,34,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-468,35,Female,Fractured Arm,X-Ray and Splint,500,32,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-469,78,Male,Stroke,CT Scan and Medication,10000,39,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-470,53,Female,Cancer,Surgery and Chemotherapy,25000,41,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-471,72,Male,Hypertension,Medication and Counseling,1000,33,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-472,60,Female,Appendicitis,Appendectomy,8000,35,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-473,45,Male,Fractured Leg,Cast and Physical Therapy,3000,37,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-474,75,Female,Heart Attack,Cardiac Catheterization,18000,39,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-475,28,Male,Allergic Reaction,Epinephrine Injection,100,32,No,Recovered,5,Clínica Médica,baixa
-476,52,Female,Respiratory Infection,Antibiotics and Rest,800,33,No,Stable,4,Clínica Médica / Pneumologia,baixa
-477,67,Male,Prostate Cancer,Radiation Therapy,20000,40,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-479,50,Male,Kidney Stones,Lithotripsy,6000,35,No,Recovered,3,Clínica Médica,baixa
-480,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,36,No,Stable,4,Clínica Médica,baixa
-481,48,Female,Heart Disease,Angioplasty,15000,37,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-482,65,Male,Diabetes,Insulin Therapy,2000,35,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-483,30,Female,Fractured Arm,X-Ray and Splint,500,33,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-484,70,Male,Stroke,CT Scan and Medication,10000,40,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-485,55,Female,Cancer,Surgery and Chemotherapy,25000,42,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-486,68,Male,Hypertension,Medication and Counseling,1000,34,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-487,45,Female,Appendicitis,Appendectomy,8000,36,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-488,40,Male,Fractured Leg,Cast and Physical Therapy,3000,38,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-489,78,Female,Heart Attack,Cardiac Catheterization,18000,40,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-490,25,Male,Allergic Reaction,Epinephrine Injection,100,33,No,Recovered,5,Clínica Médica,baixa
-491,52,Female,Respiratory Infection,Antibiotics and Rest,800,34,No,Stable,4,Clínica Médica / Pneumologia,baixa
-492,58,Male,Prostate Cancer,Radiation Therapy,20000,41,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-493,32,Female,Childbirth,Delivery and Postnatal Care,12000,35,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-494,55,Male,Kidney Stones,Lithotripsy,6000,36,No,Recovered,3,Clínica Médica,baixa
-495,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,37,No,Stable,4,Clínica Médica,baixa
-496,55,Female,Heart Disease,Angioplasty,15000,38,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-497,62,Male,Diabetes,Insulin Therapy,2000,36,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-498,35,Female,Fractured Arm,X-Ray and Splint,500,34,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-499,78,Male,Stroke,CT Scan and Medication,10000,41,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-500,53,Female,Cancer,Surgery and Chemotherapy,25000,43,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-501,72,Male,Hypertension,Medication and Counseling,1000,35,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-502,60,Female,Appendicitis,Appendectomy,8000,37,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-503,45,Male,Fractured Leg,Cast and Physical Therapy,3000,39,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-504,75,Female,Heart Attack,Cardiac Catheterization,18000,41,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-505,28,Male,Allergic Reaction,Epinephrine Injection,100,34,No,Recovered,5,Clínica Médica,baixa
-506,52,Female,Respiratory Infection,Antibiotics and Rest,800,35,No,Stable,4,Clínica Médica / Pneumologia,baixa
-507,67,Male,Prostate Cancer,Radiation Therapy,20000,42,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-508,35,Female,Childbirth,Delivery and Postnatal Care,12000,36,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-509,50,Male,Kidney Stones,Lithotripsy,6000,37,No,Recovered,3,Clínica Médica,baixa
-510,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,38,No,Stable,4,Clínica Médica,baixa
-511,48,Female,Heart Disease,Angioplasty,15000,39,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-512,65,Male,Diabetes,Insulin Therapy,2000,37,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-513,30,Female,Fractured Arm,X-Ray and Splint,500,35,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-514,70,Male,Stroke,CT Scan and Medication,10000,42,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-515,55,Female,Cancer,Surgery and Chemotherapy,25000,44,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-516,68,Male,Hypertension,Medication and Counseling,1000,36,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-517,45,Female,Appendicitis,Appendectomy,8000,38,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-518,40,Male,Fractured Leg,Cast and Physical Therapy,3000,40,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-519,78,Female,Heart Attack,Cardiac Catheterization,18000,42,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-520,25,Male,Allergic Reaction,Epinephrine Injection,100,35,No,Recovered,5,Clínica Médica,baixa
-521,52,Female,Respiratory Infection,Antibiotics and Rest,800,36,No,Stable,4,Clínica Médica / Pneumologia,baixa
-522,58,Male,Prostate Cancer,Radiation Therapy,20000,43,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-523,32,Female,Childbirth,Delivery and Postnatal Care,12000,37,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-524,55,Male,Kidney Stones,Lithotripsy,6000,38,No,Recovered,3,Clínica Médica,baixa
-525,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,39,No,Stable,4,Clínica Médica,baixa
-526,55,Female,Heart Disease,Angioplasty,15000,40,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-527,62,Male,Diabetes,Insulin Therapy,2000,38,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-528,35,Female,Fractured Arm,X-Ray and Splint,500,36,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-529,78,Male,Stroke,CT Scan and Medication,10000,43,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-530,53,Female,Cancer,Surgery and Chemotherapy,25000,45,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-531,72,Male,Hypertension,Medication and Counseling,1000,38,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-532,60,Female,Appendicitis,Appendectomy,8000,39,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-533,45,Male,Fractured Leg,Cast and Physical Therapy,3000,41,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-534,75,Female,Heart Attack,Cardiac Catheterization,18000,43,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-535,28,Male,Allergic Reaction,Epinephrine Injection,100,36,No,Recovered,5,Clínica Médica,baixa
-536,52,Female,Respiratory Infection,Antibiotics and Rest,800,37,No,Stable,4,Clínica Médica / Pneumologia,baixa
-537,67,Male,Prostate Cancer,Radiation Therapy,20000,44,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-538,35,Female,Childbirth,Delivery and Postnatal Care,12000,38,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-540,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,40,No,Stable,4,Clínica Médica,baixa
-541,48,Female,Heart Disease,Angioplasty,15000,41,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-542,65,Male,Diabetes,Insulin Therapy,2000,39,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-543,30,Female,Fractured Arm,X-Ray and Splint,500,37,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-544,70,Male,Stroke,CT Scan and Medication,10000,44,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-545,55,Female,Cancer,Surgery and Chemotherapy,25000,46,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-546,68,Male,Hypertension,Medication and Counseling,1000,40,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-547,45,Female,Appendicitis,Appendectomy,8000,42,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-548,40,Male,Fractured Leg,Cast and Physical Therapy,3000,42,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-549,78,Female,Heart Attack,Cardiac Catheterization,18000,44,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-550,25,Male,Allergic Reaction,Epinephrine Injection,100,37,No,Recovered,5,Clínica Médica,baixa
-551,52,Female,Respiratory Infection,Antibiotics and Rest,800,38,No,Stable,4,Clínica Médica / Pneumologia,baixa
-552,58,Male,Prostate Cancer,Radiation Therapy,20000,45,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-553,32,Female,Childbirth,Delivery and Postnatal Care,12000,39,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-554,55,Male,Kidney Stones,Lithotripsy,6000,40,No,Recovered,3,Clínica Médica,baixa
-555,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,41,No,Stable,4,Clínica Médica,baixa
-556,55,Female,Heart Disease,Angioplasty,15000,42,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-557,62,Male,Diabetes,Insulin Therapy,2000,40,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-558,35,Female,Fractured Arm,X-Ray and Splint,500,38,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-559,78,Male,Stroke,CT Scan and Medication,10000,45,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-560,53,Female,Cancer,Surgery and Chemotherapy,25000,47,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-561,72,Male,Hypertension,Medication and Counseling,1000,41,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-562,60,Female,Appendicitis,Appendectomy,8000,43,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-563,45,Male,Fractured Leg,Cast and Physical Therapy,3000,43,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-564,75,Female,Heart Attack,Cardiac Catheterization,18000,45,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-565,28,Male,Allergic Reaction,Epinephrine Injection,100,38,No,Recovered,5,Clínica Médica,baixa
-566,52,Female,Respiratory Infection,Antibiotics and Rest,800,39,No,Stable,4,Clínica Médica / Pneumologia,baixa
-567,67,Male,Prostate Cancer,Radiation Therapy,20000,46,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-568,35,Female,Childbirth,Delivery and Postnatal Care,12000,40,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-569,50,Male,Kidney Stones,Lithotripsy,6000,41,No,Recovered,3,Clínica Médica,baixa
-570,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,42,No,Stable,4,Clínica Médica,baixa
-571,48,Female,Heart Disease,Angioplasty,15000,43,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-572,65,Male,Diabetes,Insulin Therapy,2000,41,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-573,30,Female,Fractured Arm,X-Ray and Splint,500,39,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-574,70,Male,Stroke,CT Scan and Medication,10000,46,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-575,55,Female,Cancer,Surgery and Chemotherapy,25000,48,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-576,68,Male,Hypertension,Medication and Counseling,1000,42,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-577,45,Female,Appendicitis,Appendectomy,8000,44,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-578,40,Male,Fractured Leg,Cast and Physical Therapy,3000,44,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-579,78,Female,Heart Attack,Cardiac Catheterization,18000,46,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-580,25,Male,Allergic Reaction,Epinephrine Injection,100,39,No,Recovered,5,Clínica Médica,baixa
-581,52,Female,Respiratory Infection,Antibiotics and Rest,800,40,No,Stable,4,Clínica Médica / Pneumologia,baixa
-582,58,Male,Prostate Cancer,Radiation Therapy,20000,47,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-583,32,Female,Childbirth,Delivery and Postnatal Care,12000,41,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-584,55,Male,Kidney Stones,Lithotripsy,6000,42,No,Recovered,3,Clínica Médica,baixa
-585,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,43,No,Stable,4,Clínica Médica,baixa
-586,55,Female,Heart Disease,Angioplasty,15000,44,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-587,62,Male,Diabetes,Insulin Therapy,2000,42,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-588,35,Female,Fractured Arm,X-Ray and Splint,500,40,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-589,78,Male,Stroke,CT Scan and Medication,10000,47,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-590,53,Female,Cancer,Surgery and Chemotherapy,25000,49,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-591,72,Male,Hypertension,Medication and Counseling,1000,43,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-592,60,Female,Appendicitis,Appendectomy,8000,45,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-593,45,Male,Fractured Leg,Cast and Physical Therapy,3000,45,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-594,75,Female,Heart Attack,Cardiac Catheterization,18000,47,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-595,28,Male,Allergic Reaction,Epinephrine Injection,100,40,No,Recovered,5,Clínica Médica,baixa
-596,52,Female,Respiratory Infection,Antibiotics and Rest,800,41,No,Stable,4,Clínica Médica / Pneumologia,baixa
-597,67,Male,Prostate Cancer,Radiation Therapy,20000,48,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-598,35,Female,Childbirth,Delivery and Postnatal Care,12000,42,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-599,50,Male,Kidney Stones,Lithotripsy,6000,43,No,Recovered,3,Clínica Médica,baixa
-601,48,Female,Heart Disease,Angioplasty,15000,45,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-602,65,Male,Diabetes,Insulin Therapy,2000,43,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-603,30,Female,Fractured Arm,X-Ray and Splint,500,41,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-604,70,Male,Stroke,CT Scan and Medication,10000,48,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-605,55,Female,Cancer,Surgery and Chemotherapy,25000,50,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-606,68,Male,Hypertension,Medication and Counseling,1000,44,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-607,45,Female,Appendicitis,Appendectomy,8000,46,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-608,40,Male,Fractured Leg,Cast and Physical Therapy,3000,46,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-609,78,Female,Heart Attack,Cardiac Catheterization,18000,48,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-610,25,Male,Allergic Reaction,Epinephrine Injection,100,41,No,Recovered,5,Clínica Médica,baixa
-611,52,Female,Respiratory Infection,Antibiotics and Rest,800,42,No,Stable,4,Clínica Médica / Pneumologia,baixa
-612,58,Male,Prostate Cancer,Radiation Therapy,20000,49,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-613,32,Female,Childbirth,Delivery and Postnatal Care,12000,43,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-614,55,Male,Kidney Stones,Lithotripsy,6000,44,No,Recovered,3,Clínica Médica,baixa
-615,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,45,No,Stable,4,Clínica Médica,baixa
-616,55,Female,Heart Disease,Angioplasty,15000,46,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-617,62,Male,Diabetes,Insulin Therapy,2000,44,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-618,35,Female,Fractured Arm,X-Ray and Splint,500,42,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-619,78,Male,Stroke,CT Scan and Medication,10000,49,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-620,53,Female,Cancer,Surgery and Chemotherapy,25000,51,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-621,72,Male,Hypertension,Medication and Counseling,1000,45,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-622,60,Female,Appendicitis,Appendectomy,8000,47,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-623,45,Male,Fractured Leg,Cast and Physical Therapy,3000,47,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-624,75,Female,Heart Attack,Cardiac Catheterization,18000,49,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-625,28,Male,Allergic Reaction,Epinephrine Injection,100,42,No,Recovered,5,Clínica Médica,baixa
-626,52,Female,Respiratory Infection,Antibiotics and Rest,800,43,No,Stable,4,Clínica Médica / Pneumologia,baixa
-627,67,Male,Prostate Cancer,Radiation Therapy,20000,50,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-628,35,Female,Childbirth,Delivery and Postnatal Care,12000,44,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-629,50,Male,Kidney Stones,Lithotripsy,6000,45,No,Recovered,3,Clínica Médica,baixa
-630,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,46,No,Stable,4,Clínica Médica,baixa
-631,48,Female,Heart Disease,Angioplasty,15000,47,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-632,65,Male,Diabetes,Insulin Therapy,2000,45,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-633,30,Female,Fractured Arm,X-Ray and Splint,500,43,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-634,70,Male,Stroke,CT Scan and Medication,10000,50,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-635,55,Female,Cancer,Surgery and Chemotherapy,25000,52,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-636,68,Male,Hypertension,Medication and Counseling,1000,46,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-637,45,Female,Appendicitis,Appendectomy,8000,48,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-638,40,Male,Fractured Leg,Cast and Physical Therapy,3000,48,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-639,78,Female,Heart Attack,Cardiac Catheterization,18000,50,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-640,25,Male,Allergic Reaction,Epinephrine Injection,100,43,No,Recovered,5,Clínica Médica,baixa
-641,52,Female,Respiratory Infection,Antibiotics and Rest,800,44,No,Stable,4,Clínica Médica / Pneumologia,baixa
-642,58,Male,Prostate Cancer,Radiation Therapy,20000,51,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-643,32,Female,Childbirth,Delivery and Postnatal Care,12000,45,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-644,55,Male,Kidney Stones,Lithotripsy,6000,46,No,Recovered,3,Clínica Médica,baixa
-645,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,47,No,Stable,4,Clínica Médica,baixa
-646,55,Female,Heart Disease,Angioplasty,15000,48,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-647,62,Male,Diabetes,Insulin Therapy,2000,46,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-648,35,Female,Fractured Arm,X-Ray and Splint,500,44,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-649,78,Male,Stroke,CT Scan and Medication,10000,51,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-650,53,Female,Cancer,Surgery and Chemotherapy,25000,53,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-651,72,Male,Hypertension,Medication and Counseling,1000,47,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-652,60,Female,Appendicitis,Appendectomy,8000,49,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-653,45,Male,Fractured Leg,Cast and Physical Therapy,3000,49,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-654,75,Female,Heart Attack,Cardiac Catheterization,18000,51,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-655,28,Male,Allergic Reaction,Epinephrine Injection,100,44,No,Recovered,5,Clínica Médica,baixa
-656,52,Female,Respiratory Infection,Antibiotics and Rest,800,45,No,Stable,4,Clínica Médica / Pneumologia,baixa
-657,67,Male,Prostate Cancer,Radiation Therapy,20000,52,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-658,35,Female,Childbirth,Delivery and Postnatal Care,12000,46,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-659,50,Male,Kidney Stones,Lithotripsy,6000,47,No,Recovered,3,Clínica Médica,baixa
-660,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,48,No,Stable,4,Clínica Médica,baixa
-662,65,Male,Diabetes,Insulin Therapy,2000,47,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-663,30,Female,Fractured Arm,X-Ray and Splint,500,45,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-664,70,Male,Stroke,CT Scan and Medication,10000,52,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-665,55,Female,Cancer,Surgery and Chemotherapy,25000,54,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-666,68,Male,Hypertension,Medication and Counseling,1000,48,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-667,45,Female,Appendicitis,Appendectomy,8000,50,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-668,40,Male,Fractured Leg,Cast and Physical Therapy,3000,50,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-669,78,Female,Heart Attack,Cardiac Catheterization,18000,52,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-670,25,Male,Allergic Reaction,Epinephrine Injection,100,45,No,Recovered,5,Clínica Médica,baixa
-671,52,Female,Respiratory Infection,Antibiotics and Rest,800,46,No,Stable,4,Clínica Médica / Pneumologia,baixa
-672,58,Male,Prostate Cancer,Radiation Therapy,20000,53,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-673,32,Female,Childbirth,Delivery and Postnatal Care,12000,47,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-674,55,Male,Kidney Stones,Lithotripsy,6000,48,No,Recovered,3,Clínica Médica,baixa
-675,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,49,No,Stable,4,Clínica Médica,baixa
-676,55,Female,Heart Disease,Angioplasty,15000,50,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-677,62,Male,Diabetes,Insulin Therapy,2000,48,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-678,35,Female,Fractured Arm,X-Ray and Splint,500,46,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-679,78,Male,Stroke,CT Scan and Medication,10000,53,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-680,53,Female,Cancer,Surgery and Chemotherapy,25000,55,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-681,72,Male,Hypertension,Medication and Counseling,1000,49,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-682,60,Female,Appendicitis,Appendectomy,8000,51,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-683,45,Male,Fractured Leg,Cast and Physical Therapy,3000,51,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-684,75,Female,Heart Attack,Cardiac Catheterization,18000,53,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-685,28,Male,Allergic Reaction,Epinephrine Injection,100,46,No,Recovered,5,Clínica Médica,baixa
-686,52,Female,Respiratory Infection,Antibiotics and Rest,800,47,No,Stable,4,Clínica Médica / Pneumologia,baixa
-687,67,Male,Prostate Cancer,Radiation Therapy,20000,54,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-688,35,Female,Childbirth,Delivery and Postnatal Care,12000,48,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-689,50,Male,Kidney Stones,Lithotripsy,6000,49,No,Recovered,3,Clínica Médica,baixa
-690,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,50,No,Stable,4,Clínica Médica,baixa
-691,48,Female,Heart Disease,Angioplasty,15000,51,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-692,65,Male,Diabetes,Insulin Therapy,2000,49,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-693,30,Female,Fractured Arm,X-Ray and Splint,500,47,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-694,70,Male,Stroke,CT Scan and Medication,10000,54,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-695,55,Female,Cancer,Surgery and Chemotherapy,25000,56,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-696,68,Male,Hypertension,Medication and Counseling,1000,50,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-697,45,Female,Appendicitis,Appendectomy,8000,52,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-698,40,Male,Fractured Leg,Cast and Physical Therapy,3000,52,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-699,78,Female,Heart Attack,Cardiac Catheterization,18000,54,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-700,25,Male,Allergic Reaction,Epinephrine Injection,100,47,No,Recovered,5,Clínica Médica,baixa
-701,52,Female,Respiratory Infection,Antibiotics and Rest,800,48,No,Stable,4,Clínica Médica / Pneumologia,baixa
-702,58,Male,Prostate Cancer,Radiation Therapy,20000,55,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-703,32,Female,Childbirth,Delivery and Postnatal Care,12000,49,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-704,55,Male,Kidney Stones,Lithotripsy,6000,50,No,Recovered,3,Clínica Médica,baixa
-705,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,51,No,Stable,4,Clínica Médica,baixa
-706,55,Female,Heart Disease,Angioplasty,15000,52,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-707,62,Male,Diabetes,Insulin Therapy,2000,50,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-708,35,Female,Fractured Arm,X-Ray and Splint,500,48,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-709,78,Male,Stroke,CT Scan and Medication,10000,55,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-710,53,Female,Cancer,Surgery and Chemotherapy,25000,57,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-711,72,Male,Hypertension,Medication and Counseling,1000,51,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-712,60,Female,Appendicitis,Appendectomy,8000,53,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-713,45,Male,Fractured Leg,Cast and Physical Therapy,3000,53,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-714,75,Female,Heart Attack,Cardiac Catheterization,18000,55,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-715,28,Male,Allergic Reaction,Epinephrine Injection,100,48,No,Recovered,5,Clínica Médica,baixa
-716,52,Female,Respiratory Infection,Antibiotics and Rest,800,49,No,Stable,4,Clínica Médica / Pneumologia,baixa
-717,67,Male,Prostate Cancer,Radiation Therapy,20000,56,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-718,35,Female,Childbirth,Delivery and Postnatal Care,12000,50,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-719,50,Male,Kidney Stones,Lithotripsy,6000,51,No,Recovered,3,Clínica Médica,baixa
-720,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,52,No,Stable,4,Clínica Médica,baixa
-721,48,Female,Heart Disease,Angioplasty,15000,53,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-723,30,Female,Fractured Arm,X-Ray and Splint,500,49,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-724,70,Male,Stroke,CT Scan and Medication,10000,56,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-725,55,Female,Cancer,Surgery and Chemotherapy,25000,58,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-726,68,Male,Hypertension,Medication and Counseling,1000,52,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-727,45,Female,Appendicitis,Appendectomy,8000,54,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-728,40,Male,Fractured Leg,Cast and Physical Therapy,3000,54,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-729,78,Female,Heart Attack,Cardiac Catheterization,18000,56,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-730,25,Male,Allergic Reaction,Epinephrine Injection,100,49,No,Recovered,5,Clínica Médica,baixa
-731,52,Female,Respiratory Infection,Antibiotics and Rest,800,50,No,Stable,4,Clínica Médica / Pneumologia,baixa
-732,58,Male,Prostate Cancer,Radiation Therapy,20000,57,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-733,32,Female,Childbirth,Delivery and Postnatal Care,12000,51,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-734,55,Male,Kidney Stones,Lithotripsy,6000,52,No,Recovered,3,Clínica Médica,baixa
-735,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,53,No,Stable,4,Clínica Médica,baixa
-736,55,Female,Heart Disease,Angioplasty,15000,54,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-737,62,Male,Diabetes,Insulin Therapy,2000,52,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-738,35,Female,Fractured Arm,X-Ray and Splint,500,50,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-739,78,Male,Stroke,CT Scan and Medication,10000,57,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-740,53,Female,Cancer,Surgery and Chemotherapy,25000,59,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-741,72,Male,Hypertension,Medication and Counseling,1000,53,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-742,60,Female,Appendicitis,Appendectomy,8000,55,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-743,45,Male,Fractured Leg,Cast and Physical Therapy,3000,55,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-744,75,Female,Heart Attack,Cardiac Catheterization,18000,57,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-745,28,Male,Allergic Reaction,Epinephrine Injection,100,50,No,Recovered,5,Clínica Médica,baixa
-746,52,Female,Respiratory Infection,Antibiotics and Rest,800,51,No,Stable,4,Clínica Médica / Pneumologia,baixa
-747,67,Male,Prostate Cancer,Radiation Therapy,20000,58,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-748,35,Female,Childbirth,Delivery and Postnatal Care,12000,52,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-749,50,Male,Kidney Stones,Lithotripsy,6000,53,No,Recovered,3,Clínica Médica,baixa
-750,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,54,No,Stable,4,Clínica Médica,baixa
-751,48,Female,Heart Disease,Angioplasty,15000,55,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-752,65,Male,Diabetes,Insulin Therapy,2000,53,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-753,30,Female,Fractured Arm,X-Ray and Splint,500,51,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-754,70,Male,Stroke,CT Scan and Medication,10000,58,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-755,55,Female,Cancer,Surgery and Chemotherapy,25000,60,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-756,68,Male,Hypertension,Medication and Counseling,1000,54,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-757,45,Female,Appendicitis,Appendectomy,8000,56,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-758,40,Male,Fractured Leg,Cast and Physical Therapy,3000,56,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-759,78,Female,Heart Attack,Cardiac Catheterization,18000,58,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-760,25,Male,Allergic Reaction,Epinephrine Injection,100,51,No,Recovered,5,Clínica Médica,baixa
-761,52,Female,Respiratory Infection,Antibiotics and Rest,800,52,No,Stable,4,Clínica Médica / Pneumologia,baixa
-762,58,Male,Prostate Cancer,Radiation Therapy,20000,59,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-763,32,Female,Childbirth,Delivery and Postnatal Care,12000,53,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-764,55,Male,Kidney Stones,Lithotripsy,6000,54,No,Recovered,3,Clínica Médica,baixa
-765,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,55,No,Stable,4,Clínica Médica,baixa
-766,55,Female,Heart Disease,Angioplasty,15000,56,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-767,62,Male,Diabetes,Insulin Therapy,2000,54,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-768,35,Female,Fractured Arm,X-Ray and Splint,500,52,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-769,78,Male,Stroke,CT Scan and Medication,10000,59,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-770,53,Female,Cancer,Surgery and Chemotherapy,25000,61,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-771,72,Male,Hypertension,Medication and Counseling,1000,55,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-772,60,Female,Appendicitis,Appendectomy,8000,57,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-773,45,Male,Fractured Leg,Cast and Physical Therapy,3000,57,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-774,75,Female,Heart Attack,Cardiac Catheterization,18000,59,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-775,28,Male,Allergic Reaction,Epinephrine Injection,100,52,No,Recovered,5,Clínica Médica,baixa
-776,52,Female,Respiratory Infection,Antibiotics and Rest,800,53,No,Stable,4,Clínica Médica / Pneumologia,baixa
-777,67,Male,Prostate Cancer,Radiation Therapy,20000,60,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-778,35,Female,Childbirth,Delivery and Postnatal Care,12000,54,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-779,50,Male,Kidney Stones,Lithotripsy,6000,55,No,Recovered,3,Clínica Médica,baixa
-780,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,56,No,Stable,4,Clínica Médica,baixa
-781,48,Female,Heart Disease,Angioplasty,15000,57,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-782,65,Male,Diabetes,Insulin Therapy,2000,55,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-783,30,Female,Fractured Arm,X-Ray and Splint,500,53,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-785,55,Female,Cancer,Surgery and Chemotherapy,25000,62,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-786,68,Male,Hypertension,Medication and Counseling,1000,56,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-787,45,Female,Appendicitis,Appendectomy,8000,58,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-788,40,Male,Fractured Leg,Cast and Physical Therapy,3000,58,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-789,78,Female,Heart Attack,Cardiac Catheterization,18000,60,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-790,25,Male,Allergic Reaction,Epinephrine Injection,100,53,No,Recovered,5,Clínica Médica,baixa
-791,52,Female,Respiratory Infection,Antibiotics and Rest,800,54,No,Stable,4,Clínica Médica / Pneumologia,baixa
-792,58,Male,Prostate Cancer,Radiation Therapy,20000,61,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-793,32,Female,Childbirth,Delivery and Postnatal Care,12000,55,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-794,55,Male,Kidney Stones,Lithotripsy,6000,56,No,Recovered,3,Clínica Médica,baixa
-795,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,57,No,Stable,4,Clínica Médica,baixa
-796,55,Female,Heart Disease,Angioplasty,15000,58,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-797,62,Male,Diabetes,Insulin Therapy,2000,56,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-798,35,Female,Fractured Arm,X-Ray and Splint,500,54,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-799,78,Male,Stroke,CT Scan and Medication,10000,61,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-800,53,Female,Cancer,Surgery and Chemotherapy,25000,63,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-801,72,Male,Hypertension,Medication and Counseling,1000,57,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-802,60,Female,Appendicitis,Appendectomy,8000,59,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-803,45,Male,Fractured Leg,Cast and Physical Therapy,3000,59,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-804,75,Female,Heart Attack,Cardiac Catheterization,18000,61,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-805,28,Male,Allergic Reaction,Epinephrine Injection,100,54,No,Recovered,5,Clínica Médica,baixa
-806,52,Female,Respiratory Infection,Antibiotics and Rest,800,55,No,Stable,4,Clínica Médica / Pneumologia,baixa
-807,67,Male,Prostate Cancer,Radiation Therapy,20000,62,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-808,35,Female,Childbirth,Delivery and Postnatal Care,12000,56,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-809,50,Male,Kidney Stones,Lithotripsy,6000,57,No,Recovered,3,Clínica Médica,baixa
-810,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,58,No,Stable,4,Clínica Médica,baixa
-811,48,Female,Heart Disease,Angioplasty,15000,59,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-812,65,Male,Diabetes,Insulin Therapy,2000,57,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-813,30,Female,Fractured Arm,X-Ray and Splint,500,55,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-814,70,Male,Stroke,CT Scan and Medication,10000,62,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-815,55,Female,Cancer,Surgery and Chemotherapy,25000,64,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-816,68,Male,Hypertension,Medication and Counseling,1000,58,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-817,45,Female,Appendicitis,Appendectomy,8000,60,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-818,40,Male,Fractured Leg,Cast and Physical Therapy,3000,60,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-819,78,Female,Heart Attack,Cardiac Catheterization,18000,62,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-820,25,Male,Allergic Reaction,Epinephrine Injection,100,55,No,Recovered,5,Clínica Médica,baixa
-821,52,Female,Respiratory Infection,Antibiotics and Rest,800,56,No,Stable,4,Clínica Médica / Pneumologia,baixa
-822,58,Male,Prostate Cancer,Radiation Therapy,20000,63,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-823,32,Female,Childbirth,Delivery and Postnatal Care,12000,57,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-824,55,Male,Kidney Stones,Lithotripsy,6000,58,No,Recovered,3,Clínica Médica,baixa
-825,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,59,No,Stable,4,Clínica Médica,baixa
-826,55,Female,Heart Disease,Angioplasty,15000,60,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-827,62,Male,Diabetes,Insulin Therapy,2000,58,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-828,35,Female,Fractured Arm,X-Ray and Splint,500,56,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-829,78,Male,Stroke,CT Scan and Medication,10000,63,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-830,53,Female,Cancer,Surgery and Chemotherapy,25000,65,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-831,72,Male,Hypertension,Medication and Counseling,1000,59,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-832,60,Female,Appendicitis,Appendectomy,8000,61,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-833,45,Male,Fractured Leg,Cast and Physical Therapy,3000,61,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-834,75,Female,Heart Attack,Cardiac Catheterization,18000,63,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-835,28,Male,Allergic Reaction,Epinephrine Injection,100,56,No,Recovered,5,Clínica Médica,baixa
-836,52,Female,Respiratory Infection,Antibiotics and Rest,800,57,No,Stable,4,Clínica Médica / Pneumologia,baixa
-837,67,Male,Prostate Cancer,Radiation Therapy,20000,64,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-838,35,Female,Childbirth,Delivery and Postnatal Care,12000,58,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-839,50,Male,Kidney Stones,Lithotripsy,6000,59,No,Recovered,3,Clínica Médica,baixa
-840,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,60,No,Stable,4,Clínica Médica,baixa
-841,48,Female,Heart Disease,Angioplasty,15000,61,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-842,65,Male,Diabetes,Insulin Therapy,2000,59,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-843,30,Female,Fractured Arm,X-Ray and Splint,500,57,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-844,70,Male,Stroke,CT Scan and Medication,10000,64,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-846,68,Male,Hypertension,Medication and Counseling,1000,60,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-847,45,Female,Appendicitis,Appendectomy,8000,62,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-848,40,Male,Fractured Leg,Cast and Physical Therapy,3000,62,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-849,78,Female,Heart Attack,Cardiac Catheterization,18000,64,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-850,25,Male,Allergic Reaction,Epinephrine Injection,100,57,No,Recovered,5,Clínica Médica,baixa
-851,52,Female,Respiratory Infection,Antibiotics and Rest,800,58,No,Stable,4,Clínica Médica / Pneumologia,baixa
-852,58,Male,Prostate Cancer,Radiation Therapy,20000,65,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-853,32,Female,Childbirth,Delivery and Postnatal Care,12000,59,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-854,55,Male,Kidney Stones,Lithotripsy,6000,60,No,Recovered,3,Clínica Médica,baixa
-855,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,61,No,Stable,4,Clínica Médica,baixa
-856,55,Female,Heart Disease,Angioplasty,15000,62,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-857,62,Male,Diabetes,Insulin Therapy,2000,60,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-858,35,Female,Fractured Arm,X-Ray and Splint,500,58,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-859,78,Male,Stroke,CT Scan and Medication,10000,65,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-860,53,Female,Cancer,Surgery and Chemotherapy,25000,67,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-861,72,Male,Hypertension,Medication and Counseling,1000,61,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-862,60,Female,Appendicitis,Appendectomy,8000,63,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-863,45,Male,Fractured Leg,Cast and Physical Therapy,3000,63,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-864,75,Female,Heart Attack,Cardiac Catheterization,18000,65,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-865,28,Male,Allergic Reaction,Epinephrine Injection,100,58,No,Recovered,5,Clínica Médica,baixa
-866,52,Female,Respiratory Infection,Antibiotics and Rest,800,59,No,Stable,4,Clínica Médica / Pneumologia,baixa
-867,67,Male,Prostate Cancer,Radiation Therapy,20000,66,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-868,35,Female,Childbirth,Delivery and Postnatal Care,12000,60,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-869,50,Male,Kidney Stones,Lithotripsy,6000,61,No,Recovered,3,Clínica Médica,baixa
-870,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,62,No,Stable,4,Clínica Médica,baixa
-871,48,Female,Heart Disease,Angioplasty,15000,63,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-872,65,Male,Diabetes,Insulin Therapy,2000,61,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-873,30,Female,Fractured Arm,X-Ray and Splint,500,59,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-874,70,Male,Stroke,CT Scan and Medication,10000,66,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-875,55,Female,Cancer,Surgery and Chemotherapy,25000,68,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-876,68,Male,Hypertension,Medication and Counseling,1000,62,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-877,45,Female,Appendicitis,Appendectomy,8000,64,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-878,40,Male,Fractured Leg,Cast and Physical Therapy,3000,64,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-879,78,Female,Heart Attack,Cardiac Catheterization,18000,66,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-880,25,Male,Allergic Reaction,Epinephrine Injection,100,59,No,Recovered,5,Clínica Médica,baixa
-881,52,Female,Respiratory Infection,Antibiotics and Rest,800,60,No,Stable,4,Clínica Médica / Pneumologia,baixa
-882,58,Male,Prostate Cancer,Radiation Therapy,20000,67,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-883,32,Female,Childbirth,Delivery and Postnatal Care,12000,61,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-884,55,Male,Kidney Stones,Lithotripsy,6000,62,No,Recovered,3,Clínica Médica,baixa
-885,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,63,No,Stable,4,Clínica Médica,baixa
-886,55,Female,Heart Disease,Angioplasty,15000,64,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-887,62,Male,Diabetes,Insulin Therapy,2000,62,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-888,35,Female,Fractured Arm,X-Ray and Splint,500,60,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-889,78,Male,Stroke,CT Scan and Medication,10000,67,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-890,53,Female,Cancer,Surgery and Chemotherapy,25000,69,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-891,72,Male,Hypertension,Medication and Counseling,1000,63,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-892,60,Female,Appendicitis,Appendectomy,8000,65,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-893,45,Male,Fractured Leg,Cast and Physical Therapy,3000,65,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-894,75,Female,Heart Attack,Cardiac Catheterization,18000,67,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-895,28,Male,Allergic Reaction,Epinephrine Injection,100,60,No,Recovered,5,Clínica Médica,baixa
-896,52,Female,Respiratory Infection,Antibiotics and Rest,800,61,No,Stable,4,Clínica Médica / Pneumologia,baixa
-897,67,Male,Prostate Cancer,Radiation Therapy,20000,68,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-898,35,Female,Childbirth,Delivery and Postnatal Care,12000,62,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-899,50,Male,Kidney Stones,Lithotripsy,6000,63,No,Recovered,3,Clínica Médica,baixa
-900,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,64,No,Stable,4,Clínica Médica,baixa
-901,48,Female,Heart Disease,Angioplasty,15000,65,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-902,65,Male,Diabetes,Insulin Therapy,2000,63,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-903,30,Female,Fractured Arm,X-Ray and Splint,500,61,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-904,70,Male,Stroke,CT Scan and Medication,10000,68,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-905,55,Female,Cancer,Surgery and Chemotherapy,25000,70,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-907,45,Female,Appendicitis,Appendectomy,8000,66,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-908,40,Male,Fractured Leg,Cast and Physical Therapy,3000,66,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-909,78,Female,Heart Attack,Cardiac Catheterization,18000,68,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-910,25,Male,Allergic Reaction,Epinephrine Injection,100,61,No,Recovered,5,Clínica Médica,baixa
-911,52,Female,Respiratory Infection,Antibiotics and Rest,800,62,No,Stable,4,Clínica Médica / Pneumologia,baixa
-912,58,Male,Prostate Cancer,Radiation Therapy,20000,69,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-913,32,Female,Childbirth,Delivery and Postnatal Care,12000,63,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-914,55,Male,Kidney Stones,Lithotripsy,6000,64,No,Recovered,3,Clínica Médica,baixa
-915,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,65,No,Stable,4,Clínica Médica,baixa
-916,55,Female,Heart Disease,Angioplasty,15000,66,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-917,62,Male,Diabetes,Insulin Therapy,2000,64,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-918,35,Female,Fractured Arm,X-Ray and Splint,500,62,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-919,78,Male,Stroke,CT Scan and Medication,10000,69,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-920,53,Female,Cancer,Surgery and Chemotherapy,25000,71,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-921,72,Male,Hypertension,Medication and Counseling,1000,65,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-922,60,Female,Appendicitis,Appendectomy,8000,67,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-923,45,Male,Fractured Leg,Cast and Physical Therapy,3000,67,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-924,75,Female,Heart Attack,Cardiac Catheterization,18000,69,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-925,28,Male,Allergic Reaction,Epinephrine Injection,100,62,No,Recovered,5,Clínica Médica,baixa
-926,52,Female,Respiratory Infection,Antibiotics and Rest,800,63,No,Stable,4,Clínica Médica / Pneumologia,baixa
-927,67,Male,Prostate Cancer,Radiation Therapy,20000,70,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-928,35,Female,Childbirth,Delivery and Postnatal Care,12000,64,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-929,50,Male,Kidney Stones,Lithotripsy,6000,65,No,Recovered,3,Clínica Médica,baixa
-930,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,66,No,Stable,4,Clínica Médica,baixa
-931,48,Female,Heart Disease,Angioplasty,15000,67,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-932,65,Male,Diabetes,Insulin Therapy,2000,65,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-933,30,Female,Fractured Arm,X-Ray and Splint,500,63,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-934,70,Male,Stroke,CT Scan and Medication,10000,70,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-935,55,Female,Cancer,Surgery and Chemotherapy,25000,72,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-936,68,Male,Hypertension,Medication and Counseling,1000,66,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-937,45,Female,Appendicitis,Appendectomy,8000,68,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-938,40,Male,Fractured Leg,Cast and Physical Therapy,3000,68,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-939,78,Female,Heart Attack,Cardiac Catheterization,18000,70,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-940,25,Male,Allergic Reaction,Epinephrine Injection,100,63,No,Recovered,5,Clínica Médica,baixa
-941,52,Female,Respiratory Infection,Antibiotics and Rest,800,64,No,Stable,4,Clínica Médica / Pneumologia,baixa
-942,58,Male,Prostate Cancer,Radiation Therapy,20000,71,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-943,32,Female,Childbirth,Delivery and Postnatal Care,12000,65,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-944,55,Male,Kidney Stones,Lithotripsy,6000,66,No,Recovered,3,Clínica Médica,baixa
-945,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,67,No,Stable,4,Clínica Médica,baixa
-946,55,Female,Heart Disease,Angioplasty,15000,68,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-947,62,Male,Diabetes,Insulin Therapy,2000,66,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-948,35,Female,Fractured Arm,X-Ray and Splint,500,64,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-949,78,Male,Stroke,CT Scan and Medication,10000,71,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-950,53,Female,Cancer,Surgery and Chemotherapy,25000,73,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-951,72,Male,Hypertension,Medication and Counseling,1000,67,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-952,60,Female,Appendicitis,Appendectomy,8000,69,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-953,45,Male,Fractured Leg,Cast and Physical Therapy,3000,69,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-954,75,Female,Heart Attack,Cardiac Catheterization,18000,71,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-955,28,Male,Allergic Reaction,Epinephrine Injection,100,64,No,Recovered,5,Clínica Médica,baixa
-956,52,Female,Respiratory Infection,Antibiotics and Rest,800,65,No,Stable,4,Clínica Médica / Pneumologia,baixa
-957,67,Male,Prostate Cancer,Radiation Therapy,20000,72,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-958,35,Female,Childbirth,Delivery and Postnatal Care,12000,66,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-959,50,Male,Kidney Stones,Lithotripsy,6000,67,No,Recovered,3,Clínica Médica,baixa
-960,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,68,No,Stable,4,Clínica Médica,baixa
-961,48,Female,Heart Disease,Angioplasty,15000,69,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-962,65,Male,Diabetes,Insulin Therapy,2000,67,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-963,30,Female,Fractured Arm,X-Ray and Splint,500,65,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-964,70,Male,Stroke,CT Scan and Medication,10000,72,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-965,55,Female,Cancer,Surgery and Chemotherapy,25000,74,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-966,68,Male,Hypertension,Medication and Counseling,1000,68,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-968,40,Male,Fractured Leg,Cast and Physical Therapy,3000,70,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-969,78,Female,Heart Attack,Cardiac Catheterization,18000,72,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-970,25,Male,Allergic Reaction,Epinephrine Injection,100,65,No,Recovered,5,Clínica Médica,baixa
-971,52,Female,Respiratory Infection,Antibiotics and Rest,800,66,No,Stable,4,Clínica Médica / Pneumologia,baixa
-972,58,Male,Prostate Cancer,Radiation Therapy,20000,73,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-973,32,Female,Childbirth,Delivery and Postnatal Care,12000,67,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-974,55,Male,Kidney Stones,Lithotripsy,6000,68,No,Recovered,3,Clínica Médica,baixa
-975,65,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,69,No,Stable,4,Clínica Médica,baixa
-976,55,Female,Heart Disease,Angioplasty,15000,70,Yes,Recovered,3,Cardiologia / Pronto-Socorro,prioritario
-977,62,Male,Diabetes,Insulin Therapy,2000,68,No,Stable,4,Clínica Médica / Endocrinologia,prioritario
-978,35,Female,Fractured Arm,X-Ray and Splint,500,66,Yes,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-979,78,Male,Stroke,CT Scan and Medication,10000,73,No,Stable,2,Neurologia / Pronto-Socorro,emergencia
-980,53,Female,Cancer,Surgery and Chemotherapy,25000,75,Yes,Recovered,4,Oncologia / Clínica Médica,prioritario
-981,72,Male,Hypertension,Medication and Counseling,1000,69,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-982,60,Female,Appendicitis,Appendectomy,8000,71,Yes,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-983,45,Male,Fractured Leg,Cast and Physical Therapy,3000,71,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-984,75,Female,Heart Attack,Cardiac Catheterization,18000,73,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-985,28,Male,Allergic Reaction,Epinephrine Injection,100,67,No,Recovered,5,Clínica Médica,baixa
-986,52,Female,Respiratory Infection,Antibiotics and Rest,800,68,No,Stable,4,Clínica Médica / Pneumologia,baixa
-987,67,Male,Prostate Cancer,Radiation Therapy,20000,74,No,Recovered,3,Oncologia / Clínica Médica,prioritario
-988,35,Female,Childbirth,Delivery and Postnatal Care,12000,68,No,Recovered,4,Obstetrícia / Pronto-Socorro,emergencia
-989,50,Male,Kidney Stones,Lithotripsy,6000,69,No,Recovered,3,Clínica Médica,baixa
-990,60,Female,Osteoarthritis,Physical Therapy and Pain Management,4000,70,No,Stable,4,Clínica Médica,baixa
-991,48,Female,Heart Disease,Angioplasty,15000,71,Yes,Recovered,4,Cardiologia / Pronto-Socorro,prioritario
-992,65,Male,Diabetes,Insulin Therapy,2000,69,No,Stable,3,Clínica Médica / Endocrinologia,prioritario
-993,30,Female,Fractured Arm,X-Ray and Splint,500,67,No,Recovered,5,Ortopedia / Pronto Atendimento,prioritario
-994,70,Male,Stroke,CT Scan and Medication,10000,74,Yes,Stable,2,Neurologia / Pronto-Socorro,emergencia
-995,55,Female,Cancer,Surgery and Chemotherapy,25000,76,No,Recovered,4,Oncologia / Clínica Médica,prioritario
-996,68,Male,Hypertension,Medication and Counseling,1000,70,No,Stable,4,Cardiologia / Pronto-Socorro,prioritario
-997,45,Female,Appendicitis,Appendectomy,8000,72,No,Recovered,3,Cirurgia / Pronto-Socorro,emergencia
-998,40,Male,Fractured Leg,Cast and Physical Therapy,3000,72,No,Recovered,4,Ortopedia / Pronto Atendimento,prioritario
-999,78,Female,Heart Attack,Cardiac Catheterization,18000,74,Yes,Stable,2,Cardiologia / Pronto-Socorro,prioritario
-1000,25,Male,Allergic Reaction,Epinephrine Injection,100,68,No,Recovered,5,Clínica Médica,baixa
+disease,fever,cough,fatigue,difficulty_breathing,age,gender,blood_pressure,cholesterol_level,outcome,area_recomendada,nivel_urgencia
+Influenza,Yes,No,Yes,Yes,19,Female,Low,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Common Cold,No,Yes,Yes,No,25,Female,Normal,Normal,Negative,Clínica Médica / Pneumologia,baixa
+Eczema,No,Yes,Yes,No,25,Female,Normal,Normal,Negative,Dermatologia / Clínica Médica,baixa
+Asthma,Yes,Yes,No,Yes,25,Male,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Asthma,Yes,Yes,No,Yes,25,Male,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Eczema,Yes,No,No,No,25,Female,Normal,Normal,Positive,Dermatologia / Clínica Médica,baixa
+Influenza,Yes,Yes,Yes,Yes,25,Female,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Influenza,Yes,Yes,Yes,Yes,25,Female,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Hyperthyroidism,No,Yes,No,No,28,Female,Normal,Normal,Negative,Clínica Médica / Endocrinologia,prioritario
+Hyperthyroidism,No,Yes,No,No,28,Female,Normal,Normal,Negative,Clínica Médica / Endocrinologia,prioritario
+Asthma,Yes,No,No,Yes,28,Male,High,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Allergic Rhinitis,No,Yes,Yes,No,29,Female,Normal,Low,Negative,Clínica Médica,baixa
+Anxiety Disorders,No,Yes,No,No,29,Female,Normal,High,Negative,Clínica Médica,baixa
+Common Cold,No,No,No,No,29,Female,Low,Normal,Negative,Clínica Médica / Pneumologia,baixa
+Diabetes,No,No,No,No,29,Male,Low,Normal,Negative,Clínica Médica / Endocrinologia,prioritario
+Gastroenteritis,No,Yes,No,No,29,Female,Normal,Normal,Negative,Clínica Médica,baixa
+Pancreatitis,Yes,No,No,No,29,Female,High,Normal,Negative,Cirurgia / Pronto-Socorro,emergencia
+Rheumatoid Arthritis,No,Yes,Yes,Yes,29,Female,High,High,Negative,Ortopedia / Pronto Atendimento,emergencia
+Depression,Yes,Yes,Yes,Yes,29,Male,High,Normal,Positive,Clínica Médica,emergencia
+Liver Cancer,Yes,Yes,Yes,Yes,29,Female,Normal,Normal,Positive,Oncologia / Clínica Médica,emergencia
+Stroke,Yes,Yes,Yes,Yes,29,Female,Normal,Normal,Positive,Neurologia / Pronto-Socorro,emergencia
+Urinary Tract Infection,Yes,Yes,Yes,No,29,Male,High,High,Positive,Clínica Médica,baixa
+Dengue Fever,Yes,No,Yes,No,30,Female,Normal,Normal,Negative,Clínica Médica,baixa
+Dengue Fever,Yes,No,Yes,No,30,Female,Normal,Normal,Negative,Clínica Médica,baixa
+Eczema,No,Yes,Yes,No,30,Male,High,High,Negative,Dermatologia / Clínica Médica,baixa
+Gastroenteritis,Yes,Yes,Yes,No,30,Male,High,High,Negative,Clínica Médica,baixa
+Hepatitis,Yes,Yes,Yes,Yes,30,Male,High,Normal,Negative,Clínica Médica,emergencia
+Kidney Cancer,No,No,Yes,No,30,Male,Normal,Normal,Negative,Oncologia / Clínica Médica,prioritario
+Migraine,Yes,No,No,No,30,Female,Normal,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Migraine,No,Yes,Yes,No,30,Female,Normal,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Muscular Dystrophy,No,No,Yes,No,30,Male,High,High,Negative,Clínica Médica,baixa
+Sinusitis,No,Yes,Yes,No,30,Male,Normal,Normal,Negative,Clínica Médica / Pneumologia,baixa
+Ulcerative Colitis,Yes,Yes,No,No,30,Female,Normal,Normal,Negative,Clínica Médica,baixa
+Ulcerative Colitis,No,Yes,Yes,No,30,Female,Normal,Normal,Negative,Clínica Médica,baixa
+Asthma,Yes,Yes,No,Yes,30,Female,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Asthma,Yes,Yes,No,Yes,30,Female,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Asthma,Yes,Yes,Yes,Yes,30,Female,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Bipolar Disorder,No,No,Yes,No,30,Female,High,High,Positive,Clínica Médica,baixa
+Bronchitis,Yes,Yes,No,Yes,30,Female,Low,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Bronchitis,Yes,Yes,Yes,Yes,30,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Bronchitis,Yes,Yes,Yes,Yes,30,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Cerebral Palsy,No,No,Yes,Yes,30,Female,Normal,Normal,Positive,Neurologia / Pronto-Socorro,emergencia
+Colorectal Cancer,No,No,Yes,No,30,Female,Normal,High,Positive,Oncologia / Clínica Médica,prioritario
+Eczema,Yes,No,No,No,30,Male,High,High,Positive,Dermatologia / Clínica Médica,baixa
+Hypertensive Heart Disease,No,No,Yes,No,30,Female,High,High,Positive,Cardiologia / Pronto-Socorro,prioritario
+Influenza,Yes,Yes,Yes,No,30,Male,High,Normal,Positive,Clínica Médica / Pneumologia,baixa
+Influenza,Yes,Yes,Yes,Yes,30,Female,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Multiple Sclerosis,No,No,Yes,No,30,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Myocardial Infarction (Heart...,Yes,Yes,Yes,Yes,30,Female,High,High,Positive,Cardiologia / Pronto-Socorro,emergencia
+Urinary Tract Infection (UTI),Yes,No,No,No,30,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Asthma,No,No,No,Yes,31,Male,Normal,Low,Negative,Clínica Médica / Pneumologia,emergencia
+Osteoporosis,No,No,No,Yes,31,Male,Low,Normal,Negative,Ortopedia / Pronto Atendimento,emergencia
+Common Cold,Yes,No,Yes,Yes,31,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Migraine,Yes,No,No,No,31,Female,Normal,Normal,Positive,Neurologia / Pronto-Socorro,emergencia
+Pneumonia,Yes,No,Yes,Yes,32,Female,High,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Allergic Rhinitis,No,No,Yes,No,35,Female,Normal,Low,Negative,Clínica Médica,baixa
+Asthma,No,Yes,Yes,Yes,35,Female,Normal,High,Negative,Clínica Médica / Pneumologia,emergencia
+Asthma,Yes,Yes,Yes,Yes,35,Female,Normal,Normal,Negative,Clínica Médica / Pneumologia,emergencia
+Asthma,No,Yes,Yes,Yes,35,Female,High,Normal,Negative,Clínica Médica / Pneumologia,emergencia
+Asthma,No,Yes,Yes,Yes,35,Female,High,Normal,Negative,Clínica Médica / Pneumologia,emergencia
+Atherosclerosis,No,No,Yes,No,35,Male,Normal,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Chronic Obstructive Pulmonary...,Yes,Yes,Yes,Yes,35,Male,Normal,Normal,Negative,Clínica Médica / Pneumologia,emergencia
+Common Cold,Yes,Yes,Yes,No,35,Male,High,Normal,Negative,Clínica Médica / Pneumologia,baixa
+Eczema,No,Yes,No,No,35,Male,High,Normal,Negative,Dermatologia / Clínica Médica,baixa
+Epilepsy,No,No,Yes,No,35,Male,High,High,Negative,Neurologia / Pronto-Socorro,emergencia
+Hypertension,Yes,Yes,Yes,No,35,Female,High,Normal,Negative,Cardiologia / Pronto-Socorro,prioritario
+Hyperthyroidism,Yes,Yes,Yes,No,35,Female,Normal,Normal,Negative,Clínica Médica / Endocrinologia,prioritario
+Obsessive-Compulsive Disorde...,No,No,Yes,No,35,Male,Normal,Normal,Negative,Clínica Médica,baixa
+Pneumonia,Yes,Yes,Yes,Yes,35,Female,Normal,Normal,Negative,Clínica Médica / Pneumologia,emergencia
+Pneumonia,Yes,Yes,Yes,Yes,35,Female,Normal,Normal,Negative,Clínica Médica / Pneumologia,emergencia
+Psoriasis,Yes,No,No,No,35,Female,Normal,Low,Negative,Dermatologia / Clínica Médica,baixa
+Psoriasis,No,Yes,Yes,No,35,Female,Normal,Low,Negative,Dermatologia / Clínica Médica,baixa
+Rubella,Yes,No,Yes,No,35,Female,High,Normal,Negative,Clínica Médica,baixa
+Rubella,Yes,No,Yes,No,35,Female,High,Normal,Negative,Clínica Médica,baixa
+Urinary Tract Infection (UTI),No,Yes,Yes,No,35,Male,High,High,Negative,Clínica Médica,baixa
+Asthma,Yes,Yes,No,Yes,35,Male,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Asthma,Yes,Yes,No,Yes,35,Male,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Cirrhosis,No,No,Yes,No,35,Female,Normal,High,Positive,Clínica Médica,baixa
+Conjunctivitis (Pink Eye),No,Yes,No,No,35,Female,High,High,Positive,Clínica Médica,baixa
+Depression,No,No,Yes,No,35,Female,Normal,High,Positive,Clínica Médica,baixa
+Gastroenteritis,Yes,No,Yes,Yes,35,Male,Low,High,Positive,Clínica Médica,emergencia
+Hyperthyroidism,Yes,Yes,Yes,No,35,Male,High,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Hyperthyroidism,Yes,Yes,Yes,No,35,Male,High,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Kidney Cancer,No,No,Yes,No,35,Male,High,High,Positive,Oncologia / Clínica Médica,prioritario
+Liver Cancer,No,No,Yes,No,35,Female,High,High,Positive,Oncologia / Clínica Médica,prioritario
+Liver Disease,No,No,Yes,No,35,Male,High,High,Positive,Clínica Médica,baixa
+Malaria,Yes,No,No,No,35,Male,High,High,Positive,Clínica Médica,baixa
+Malaria,Yes,No,No,No,35,Male,High,High,Positive,Clínica Médica,baixa
+Migraine,No,Yes,Yes,No,35,Male,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Migraine,Yes,No,No,No,35,Male,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Pancreatitis,No,No,Yes,No,35,Male,Normal,High,Positive,Cirurgia / Pronto-Socorro,emergencia
+Rheumatoid Arthritis,Yes,Yes,Yes,No,35,Male,Normal,Low,Positive,Ortopedia / Pronto Atendimento,prioritario
+Rheumatoid Arthritis,No,No,Yes,No,35,Female,Normal,Low,Positive,Ortopedia / Pronto Atendimento,prioritario
+Spina Bifida,No,No,Yes,No,35,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Ulcerative Colitis,No,No,Yes,No,35,Male,High,High,Positive,Clínica Médica,baixa
+Ulcerative Colitis,Yes,No,No,No,35,Male,High,High,Positive,Clínica Médica,baixa
+Urinary Tract Infection,Yes,No,Yes,No,35,Female,Normal,High,Positive,Clínica Médica,baixa
+Allergic Rhinitis,No,Yes,No,No,38,Female,Low,Normal,Negative,Clínica Médica,baixa
+Depression,No,No,No,No,38,Female,Normal,High,Negative,Clínica Médica,baixa
+Gastroenteritis,No,No,No,No,38,Male,Normal,Low,Negative,Clínica Médica,baixa
+Influenza,No,No,No,No,38,Male,Normal,Normal,Negative,Clínica Médica / Pneumologia,baixa
+Kidney Disease,No,No,Yes,No,38,Female,Low,Normal,Negative,Clínica Médica,baixa
+Liver Cancer,Yes,Yes,No,No,38,Female,High,Normal,Negative,Oncologia / Clínica Médica,prioritario
+Liver Disease,No,Yes,No,Yes,38,Male,Low,Normal,Negative,Clínica Médica,emergencia
+Osteoporosis,No,Yes,No,No,38,Female,Normal,High,Negative,Ortopedia / Pronto Atendimento,prioritario
+Stroke,Yes,Yes,No,No,38,Female,High,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Anxiety Disorders,Yes,No,Yes,Yes,38,Male,High,High,Positive,Clínica Médica,emergencia
+Diabetes,Yes,No,Yes,Yes,38,Male,High,Low,Positive,Clínica Médica / Endocrinologia,emergencia
+Migraine,Yes,Yes,No,No,38,Male,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Osteoarthritis,Yes,Yes,Yes,No,38,Male,High,High,Positive,Ortopedia / Pronto Atendimento,prioritario
+Pneumonia,Yes,Yes,Yes,Yes,38,Male,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Klinefelter Syndrome,No,No,Yes,No,39,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Acne,No,No,Yes,No,40,Male,Normal,Normal,Negative,Dermatologia / Clínica Médica,baixa
+Brain Tumor,No,No,Yes,No,40,Male,Normal,Normal,Negative,Oncologia / Clínica Médica,prioritario
+Bronchitis,No,Yes,No,Yes,40,Female,Normal,Normal,Negative,Clínica Médica / Pneumologia,emergencia
+Cystic Fibrosis,No,No,Yes,Yes,40,Male,High,High,Negative,Clínica Médica / Pneumologia,emergencia
+Diabetes,Yes,No,No,No,40,Female,High,High,Negative,Clínica Médica / Endocrinologia,prioritario
+Glaucoma,No,No,Yes,No,40,Male,High,Normal,Negative,Clínica Médica,baixa
+Osteoarthritis,No,No,Yes,No,40,Male,High,Normal,Negative,Ortopedia / Pronto Atendimento,prioritario
+Rabies,Yes,Yes,No,No,40,Female,High,Normal,Negative,Clínica Médica,baixa
+Rabies,Yes,Yes,No,No,40,Female,High,Normal,Negative,Clínica Médica,baixa
+Asthma,Yes,No,Yes,No,40,Male,Low,Normal,Positive,Clínica Médica / Pneumologia,baixa
+Asthma,Yes,Yes,No,Yes,40,Female,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Asthma,Yes,Yes,No,Yes,40,Female,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Asthma,No,No,Yes,Yes,40,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Asthma,Yes,No,Yes,Yes,40,Male,Normal,High,Positive,Clínica Médica / Pneumologia,emergencia
+Asthma,Yes,No,Yes,Yes,40,Male,Normal,High,Positive,Clínica Médica / Pneumologia,emergencia
+Chickenpox,No,Yes,No,No,40,Male,Normal,High,Positive,Clínica Médica,baixa
+Chickenpox,No,Yes,No,No,40,Male,Normal,High,Positive,Clínica Médica,baixa
+Coronary Artery Disease,No,No,Yes,No,40,Female,High,High,Positive,Cardiologia / Pronto-Socorro,prioritario
+"Eating Disorders (Anorexia,...",No,No,Yes,No,40,Female,High,High,Positive,Clínica Médica,baixa
+Fibromyalgia,No,No,Yes,No,40,Female,High,High,Positive,Clínica Médica,baixa
+Gastroenteritis,Yes,Yes,Yes,No,40,Male,High,High,Positive,Clínica Médica,baixa
+Hemophilia,No,No,Yes,No,40,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Hyperthyroidism,No,No,Yes,No,40,Male,High,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Hypoglycemia,No,No,Yes,No,40,Female,High,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Lymphoma,No,Yes,No,No,40,Female,Normal,High,Positive,Oncologia / Clínica Médica,prioritario
+Pneumonia,Yes,Yes,Yes,Yes,40,Female,Normal,High,Positive,Clínica Médica / Pneumologia,emergencia
+Psoriasis,No,Yes,Yes,No,40,Male,High,Normal,Positive,Dermatologia / Clínica Médica,baixa
+Psoriasis,Yes,No,No,No,40,Male,High,Normal,Positive,Dermatologia / Clínica Médica,baixa
+Psoriasis,No,Yes,No,No,40,Female,Normal,High,Positive,Dermatologia / Clínica Médica,baixa
+Tuberculosis,Yes,Yes,Yes,Yes,40,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Tuberculosis,Yes,Yes,Yes,Yes,40,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Anxiety Disorders,No,No,No,No,42,Male,Low,Normal,Negative,Clínica Médica,baixa
+Common Cold,Yes,Yes,No,No,42,Female,High,High,Negative,Clínica Médica / Pneumologia,baixa
+Depression,Yes,No,No,Yes,42,Male,High,Normal,Negative,Clínica Médica,emergencia
+Influenza,No,Yes,No,No,42,Female,Normal,High,Negative,Clínica Médica / Pneumologia,baixa
+Kidney Cancer,Yes,No,No,No,42,Female,Normal,Normal,Negative,Oncologia / Clínica Médica,prioritario
+Liver Cancer,Yes,No,Yes,Yes,42,Male,Normal,Low,Negative,Oncologia / Clínica Médica,emergencia
+Liver Disease,Yes,No,No,Yes,42,Female,Normal,Normal,Negative,Clínica Médica,emergencia
+Lung Cancer,Yes,No,Yes,Yes,42,Male,Normal,Low,Negative,Oncologia / Clínica Médica,emergencia
+Migraine,Yes,Yes,Yes,No,42,Male,High,High,Negative,Neurologia / Pronto-Socorro,emergencia
+Osteoarthritis,No,No,Yes,No,42,Male,Normal,Low,Negative,Ortopedia / Pronto Atendimento,prioritario
+Stroke,Yes,No,Yes,No,42,Male,Normal,Low,Negative,Neurologia / Pronto-Socorro,emergencia
+Urinary Tract Infection,No,Yes,Yes,Yes,42,Female,Normal,Low,Negative,Clínica Médica,emergencia
+Diabetes,Yes,Yes,Yes,No,42,Male,High,Normal,Positive,Clínica Médica / Endocrinologia,prioritario
+Hypothyroidism,Yes,Yes,Yes,No,42,Female,High,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Hypothyroidism,Yes,Yes,Yes,No,42,Female,High,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Kidney Disease,Yes,No,Yes,No,42,Female,High,Low,Positive,Clínica Médica,baixa
+Pneumonia,No,Yes,Yes,Yes,43,Female,High,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Allergic Rhinitis,No,Yes,Yes,No,45,Male,High,Normal,Negative,Clínica Médica,baixa
+Autism Spectrum Disorder (ASD),No,No,Yes,No,45,Male,Normal,Normal,Negative,Clínica Médica,baixa
+Crohn's Disease,Yes,No,Yes,No,45,Male,High,Normal,Negative,Clínica Médica,baixa
+Hepatitis,Yes,No,Yes,No,45,Female,High,High,Negative,Clínica Médica,baixa
+Hepatitis,Yes,No,Yes,No,45,Female,High,High,Negative,Clínica Médica,baixa
+Hyperglycemia,No,No,Yes,No,45,Male,Normal,Normal,Negative,Clínica Médica / Endocrinologia,prioritario
+Kidney Cancer,No,Yes,Yes,Yes,45,Male,Normal,Low,Negative,Oncologia / Clínica Médica,emergencia
+Kidney Disease,Yes,Yes,No,No,45,Male,Normal,High,Negative,Clínica Médica,baixa
+Melanoma,Yes,No,Yes,No,45,Male,High,Normal,Negative,Oncologia / Clínica Médica,prioritario
+Migraine,No,No,No,No,45,Female,Low,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Ovarian Cancer,No,No,Yes,No,45,Male,Normal,Normal,Negative,Oncologia / Clínica Médica,prioritario
+Pancreatitis,No,Yes,Yes,Yes,45,Male,Normal,Low,Negative,Cirurgia / Pronto-Socorro,emergencia
+Rheumatoid Arthritis,Yes,No,No,No,45,Male,Normal,Normal,Negative,Ortopedia / Pronto Atendimento,prioritario
+Stroke,No,No,Yes,No,45,Male,Normal,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Turner Syndrome,No,No,Yes,No,45,Male,High,High,Negative,Clínica Médica,baixa
+Turner Syndrome,No,No,Yes,No,45,Male,High,High,Negative,Clínica Médica,baixa
+Urinary Tract Infection,No,No,No,No,45,Female,Low,Normal,Negative,Clínica Médica,baixa
+Zika Virus,No,Yes,Yes,No,45,Female,High,High,Negative,Clínica Médica,baixa
+Zika Virus,No,Yes,Yes,No,45,Female,High,High,Negative,Clínica Médica,baixa
+Allergic Rhinitis,Yes,Yes,Yes,No,45,Male,High,Normal,Positive,Clínica Médica,baixa
+Anxiety Disorders,Yes,Yes,Yes,No,45,Male,High,Normal,Positive,Clínica Médica,baixa
+Asthma,Yes,Yes,No,Yes,45,Male,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Asthma,Yes,Yes,No,Yes,45,Male,Normal,Normal,Positive,Clínica Médica / Pneumologia,emergencia
+Cataracts,No,No,Yes,No,45,Female,Normal,High,Positive,Clínica Médica,baixa
+Crohn's Disease,No,No,Yes,No,45,Female,High,High,Positive,Clínica Médica,baixa
+Crohn's Disease,Yes,Yes,Yes,No,45,Female,High,High,Positive,Clínica Médica,baixa
+Depression,No,No,Yes,No,45,Female,High,High,Positive,Clínica Médica,baixa
+Diabetes,Yes,No,Yes,No,45,Female,High,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Diabetes,No,Yes,Yes,No,45,Male,Normal,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Hypertension,Yes,No,Yes,No,45,Male,Normal,High,Positive,Cardiologia / Pronto-Socorro,prioritario
+Hypothyroidism,No,No,Yes,No,45,Female,High,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Liver Disease,Yes,Yes,Yes,No,45,Female,Normal,High,Positive,Clínica Médica,baixa
+Multiple Sclerosis,Yes,No,No,No,45,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Multiple Sclerosis,Yes,No,No,No,45,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Osteoarthritis,Yes,No,Yes,Yes,45,Male,High,Normal,Positive,Ortopedia / Pronto Atendimento,emergencia
+Osteoporosis,Yes,Yes,Yes,No,45,Female,Normal,High,Positive,Ortopedia / Pronto Atendimento,prioritario
+Pneumocystis Pneumonia (PCP),Yes,Yes,Yes,No,45,Female,High,High,Positive,Clínica Médica / Pneumologia,baixa
+Pneumonia,Yes,Yes,Yes,Yes,45,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Scoliosis,No,No,No,No,45,Female,High,High,Positive,Ortopedia / Pronto Atendimento,prioritario
+Sickle Cell Anemia,No,No,Yes,No,45,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Tetanus,No,No,Yes,No,45,Male,Normal,High,Positive,Clínica Médica,baixa
+Tetanus,No,No,Yes,No,45,Male,Normal,High,Positive,Clínica Médica,baixa
+Hypertension,No,No,No,No,48,Female,Low,High,Negative,Cardiologia / Pronto-Socorro,prioritario
+Hypothyroidism,No,No,Yes,No,48,Male,Normal,High,Negative,Clínica Médica / Endocrinologia,prioritario
+Hypothyroidism,No,No,Yes,No,48,Male,Normal,High,Negative,Clínica Médica / Endocrinologia,prioritario
+Allergic Rhinitis,Yes,No,No,No,50,Male,High,High,Negative,Clínica Médica,baixa
+Anemia,No,No,Yes,No,50,Male,Normal,Normal,Negative,Clínica Médica,baixa
+Anxiety Disorders,No,No,Yes,No,50,Male,Normal,Normal,Negative,Clínica Médica,baixa
+Cholera,Yes,No,Yes,Yes,50,Female,High,High,Negative,Clínica Médica,emergencia
+Cholera,Yes,No,Yes,Yes,50,Female,High,High,Negative,Clínica Médica,emergencia
+Crohn's Disease,Yes,Yes,Yes,No,50,Male,Normal,High,Negative,Clínica Médica,baixa
+Crohn's Disease,No,No,Yes,No,50,Male,Normal,High,Negative,Clínica Médica,baixa
+Depression,No,Yes,Yes,No,50,Female,Low,Low,Negative,Clínica Médica,baixa
+Diabetes,No,Yes,No,No,50,Male,Normal,High,Negative,Clínica Médica / Endocrinologia,prioritario
+Endometriosis,Yes,No,No,No,50,Male,High,Normal,Negative,Clínica Médica,baixa
+Hypertension,No,Yes,No,No,50,Female,Normal,Low,Negative,Cardiologia / Pronto-Socorro,prioritario
+Hypothyroidism,Yes,Yes,Yes,No,50,Male,Normal,High,Negative,Clínica Médica / Endocrinologia,prioritario
+Kidney Cancer,No,Yes,No,No,50,Male,Low,High,Negative,Oncologia / Clínica Médica,prioritario
+Kidney Disease,No,Yes,No,Yes,50,Male,Normal,Normal,Negative,Clínica Médica,emergencia
+Pancreatitis,No,Yes,No,No,50,Male,Low,High,Negative,Cirurgia / Pronto-Socorro,emergencia
+Rheumatoid Arthritis,No,Yes,No,No,50,Female,Low,Normal,Negative,Ortopedia / Pronto Atendimento,prioritario
+Sepsis,Yes,Yes,Yes,No,50,Male,Normal,Normal,Negative,Clínica Médica,baixa
+Sleep Apnea,Yes,No,Yes,Yes,50,Male,High,High,Negative,Clínica Médica / Pneumologia,emergencia
+Urinary Tract Infection,Yes,Yes,No,Yes,50,Male,High,Normal,Negative,Clínica Médica,emergencia
+Asthma,Yes,Yes,Yes,Yes,50,Female,Normal,High,Positive,Clínica Médica / Pneumologia,emergencia
+Bronchitis,Yes,Yes,Yes,Yes,50,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Down Syndrome,No,No,Yes,No,50,Female,High,High,Positive,Clínica Médica,baixa
+Ebola Virus,Yes,Yes,Yes,Yes,50,Male,Normal,Normal,Positive,Clínica Médica,emergencia
+Ebola Virus,Yes,Yes,Yes,Yes,50,Male,Normal,Normal,Positive,Clínica Médica,emergencia
+Eczema,No,Yes,No,No,50,Female,High,High,Positive,Dermatologia / Clínica Médica,baixa
+Gastroenteritis,Yes,Yes,Yes,Yes,50,Female,High,Normal,Positive,Clínica Médica,emergencia
+Klinefelter Syndrome,No,No,Yes,No,50,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Liver Cancer,No,Yes,Yes,Yes,50,Male,High,High,Positive,Oncologia / Clínica Médica,emergencia
+Lyme Disease,Yes,No,No,No,50,Male,Normal,High,Positive,Clínica Médica,baixa
+Lyme Disease,Yes,No,No,No,50,Male,Normal,High,Positive,Clínica Médica,baixa
+Pancreatic Cancer,No,No,Yes,No,50,Female,High,High,Positive,Oncologia / Clínica Médica,prioritario
+Pneumothorax,No,No,Yes,Yes,50,Female,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Stroke,No,Yes,Yes,Yes,50,Male,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Ulcerative Colitis,No,Yes,Yes,No,50,Female,Normal,High,Positive,Clínica Médica,baixa
+Hypertension,Yes,Yes,No,No,52,Male,Normal,Low,Negative,Cardiologia / Pronto-Socorro,prioritario
+Multiple Sclerosis,No,Yes,Yes,No,52,Male,Normal,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Multiple Sclerosis,No,Yes,Yes,No,52,Male,Normal,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Appendicitis,Yes,No,Yes,No,55,Male,Normal,Normal,Negative,Cirurgia / Pronto-Socorro,emergencia
+Bronchitis,No,No,Yes,Yes,55,Male,High,High,Negative,Clínica Médica / Pneumologia,emergencia
+Bronchitis,Yes,Yes,Yes,Yes,55,Male,High,Normal,Negative,Clínica Médica / Pneumologia,emergencia
+Common Cold,Yes,No,Yes,Yes,55,Male,Normal,Low,Negative,Clínica Médica / Pneumologia,emergencia
+Diabetes,No,Yes,No,No,55,Female,Normal,High,Negative,Clínica Médica / Endocrinologia,prioritario
+Esophageal Cancer,No,No,Yes,No,55,Male,Normal,Normal,Negative,Oncologia / Clínica Médica,prioritario
+HIV/AIDS,Yes,No,No,No,55,Female,High,High,Negative,Clínica Médica,baixa
+HIV/AIDS,Yes,No,No,No,55,Female,High,High,Negative,Clínica Médica,baixa
+Hypertension,No,Yes,No,No,55,Female,Normal,Low,Negative,Cardiologia / Pronto-Socorro,prioritario
+Liver Disease,No,Yes,Yes,No,55,Male,High,Low,Negative,Clínica Médica,baixa
+Marfan Syndrome,No,No,Yes,No,55,Male,High,High,Negative,Clínica Médica,baixa
+Migraine,No,Yes,Yes,Yes,55,Female,Normal,Low,Negative,Neurologia / Pronto-Socorro,emergencia
+Osteoporosis,No,No,Yes,No,55,Male,High,Normal,Negative,Ortopedia / Pronto Atendimento,prioritario
+Parkinson's Disease,No,No,Yes,No,55,Female,Normal,Low,Negative,Neurologia / Pronto-Socorro,emergencia
+Parkinson's Disease,No,No,Yes,No,55,Female,Normal,Low,Negative,Neurologia / Pronto-Socorro,emergencia
+Anxiety Disorders,Yes,Yes,No,No,55,Female,Normal,Low,Positive,Clínica Médica,baixa
+Coronary Artery Disease,No,No,Yes,No,55,Female,Normal,Normal,Positive,Cardiologia / Pronto-Socorro,prioritario
+Coronary Artery Disease,No,No,Yes,No,55,Female,Normal,Normal,Positive,Cardiologia / Pronto-Socorro,prioritario
+Hemorrhoids,No,No,No,No,55,Female,High,High,Positive,Clínica Médica,baixa
+Hypertension,Yes,No,Yes,No,55,Male,High,Normal,Positive,Cardiologia / Pronto-Socorro,prioritario
+Hypothyroidism,No,No,Yes,No,55,Female,High,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Osteoarthritis,Yes,Yes,No,No,55,Female,High,High,Positive,Ortopedia / Pronto Atendimento,prioritario
+Osteoporosis,Yes,No,Yes,Yes,55,Male,High,Low,Positive,Ortopedia / Pronto Atendimento,emergencia
+Osteoporosis,No,Yes,Yes,No,55,Female,Normal,Normal,Positive,Ortopedia / Pronto Atendimento,prioritario
+Osteoporosis,Yes,No,Yes,No,55,Female,Normal,Normal,Positive,Ortopedia / Pronto Atendimento,prioritario
+Osteoporosis,Yes,No,Yes,No,55,Female,Normal,Normal,Positive,Ortopedia / Pronto Atendimento,prioritario
+Polycystic Ovary Syndrome (PCOS),Yes,Yes,No,No,55,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Systemic Lupus Erythematosus...,No,Yes,Yes,No,55,Female,High,High,Positive,Clínica Médica,baixa
+Typhoid Fever,No,Yes,No,No,55,Male,Normal,Low,Positive,Clínica Médica,baixa
+Typhoid Fever,No,Yes,No,No,55,Male,Normal,Low,Positive,Clínica Médica,baixa
+Influenza,Yes,Yes,Yes,Yes,56,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Pneumonia,Yes,Yes,No,Yes,57,Male,Normal,High,Negative,Clínica Médica / Pneumologia,emergencia
+Breast Cancer,No,No,Yes,No,60,Male,High,High,Negative,Oncologia / Clínica Médica,prioritario
+Coronary Artery Disease,Yes,Yes,No,No,60,Male,High,High,Negative,Cardiologia / Pronto-Socorro,prioritario
+Coronary Artery Disease,Yes,Yes,No,No,60,Male,High,High,Negative,Cardiologia / Pronto-Socorro,prioritario
+Hyperthyroidism,No,No,Yes,No,60,Male,Normal,Normal,Negative,Clínica Médica / Endocrinologia,prioritario
+Measles,Yes,Yes,No,No,60,Female,High,Normal,Negative,Clínica Médica,baixa
+Measles,Yes,Yes,No,No,60,Female,High,Normal,Negative,Clínica Médica,baixa
+Osteoarthritis,No,Yes,No,Yes,60,Female,Normal,Normal,Negative,Ortopedia / Pronto Atendimento,emergencia
+Osteomyelitis,No,No,Yes,No,60,Male,Normal,Normal,Negative,Ortopedia / Pronto Atendimento,prioritario
+Osteoporosis,Yes,No,No,No,60,Male,High,High,Negative,Ortopedia / Pronto Atendimento,prioritario
+Osteoporosis,No,Yes,No,No,60,Male,High,High,Negative,Ortopedia / Pronto Atendimento,prioritario
+Osteoporosis,No,Yes,No,No,60,Male,High,High,Negative,Ortopedia / Pronto Atendimento,prioritario
+Polio,Yes,Yes,Yes,No,60,Male,Normal,Normal,Negative,Clínica Médica,baixa
+Asthma,Yes,Yes,Yes,Yes,60,Female,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Chronic Kidney Disease,No,No,Yes,No,60,Female,Normal,High,Positive,Clínica Médica,baixa
+Hemophilia,No,No,Yes,No,60,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Hepatitis B,No,Yes,Yes,No,60,Male,Normal,Low,Positive,Clínica Médica,baixa
+Hepatitis B,No,Yes,Yes,No,60,Male,Normal,Low,Positive,Clínica Médica,baixa
+Hypertension,No,No,Yes,No,60,Female,High,Normal,Positive,Cardiologia / Pronto-Socorro,prioritario
+Hypertension,Yes,No,Yes,No,60,Male,High,Normal,Positive,Cardiologia / Pronto-Socorro,prioritario
+Hypertension,No,No,No,No,60,Female,High,High,Positive,Cardiologia / Pronto-Socorro,prioritario
+Kidney Cancer,Yes,Yes,Yes,No,60,Female,High,Normal,Positive,Oncologia / Clínica Médica,prioritario
+Kidney Disease,Yes,Yes,Yes,Yes,60,Female,High,High,Positive,Clínica Médica,emergencia
+Osteoporosis,Yes,No,Yes,No,60,Male,High,Normal,Positive,Ortopedia / Pronto Atendimento,prioritario
+Pancreatitis,Yes,Yes,Yes,No,60,Female,High,Normal,Positive,Cirurgia / Pronto-Socorro,emergencia
+Parkinson's Disease,Yes,Yes,No,No,60,Male,High,Normal,Positive,Neurologia / Pronto-Socorro,emergencia
+Parkinson's Disease,Yes,Yes,No,No,60,Male,High,Normal,Positive,Neurologia / Pronto-Socorro,emergencia
+Prader-Willi Syndrome,No,No,Yes,No,60,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Rheumatoid Arthritis,No,No,Yes,No,60,Female,High,High,Positive,Ortopedia / Pronto Atendimento,prioritario
+Thyroid Cancer,No,No,Yes,No,60,Female,High,High,Positive,Oncologia / Clínica Médica,prioritario
+Tuberculosis,Yes,Yes,Yes,No,60,Female,High,High,Positive,Clínica Médica / Pneumologia,baixa
+Bladder Cancer,No,No,Yes,No,65,Male,Normal,Normal,Negative,Oncologia / Clínica Médica,prioritario
+Diabetes,No,No,Yes,No,65,Male,Normal,High,Negative,Clínica Médica / Endocrinologia,prioritario
+Otitis Media (Ear Infection),Yes,Yes,Yes,No,65,Male,Normal,Normal,Negative,Clínica Médica,baixa
+Stroke,Yes,No,Yes,No,65,Female,High,Low,Negative,Neurologia / Pronto-Socorro,emergencia
+Stroke,Yes,No,Yes,No,65,Female,High,Low,Negative,Neurologia / Pronto-Socorro,emergencia
+Tourette Syndrome,No,No,Yes,No,65,Male,High,High,Negative,Clínica Médica,baixa
+Urinary Tract Infection (UTI),Yes,No,Yes,No,65,Male,High,Normal,Negative,Clínica Médica,baixa
+Alzheimer's Disease,No,Yes,No,No,65,Male,Normal,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Alzheimer's Disease,No,Yes,No,No,65,Male,Normal,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Alzheimer's Disease,No,No,Yes,No,65,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Bronchitis,Yes,No,Yes,Yes,65,Male,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Chronic Obstructive Pulmonary Disease (COPD),Yes,No,Yes,Yes,65,Female,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Chronic Obstructive Pulmonary Disease (COPD),Yes,No,Yes,Yes,65,Female,High,High,Positive,Clínica Médica / Pneumologia,emergencia
+Dementia,No,No,Yes,No,65,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Diabetes,Yes,Yes,Yes,No,65,Female,Normal,High,Positive,Clínica Médica / Endocrinologia,prioritario
+Diverticulitis,No,No,Yes,No,65,Female,High,High,Positive,Cirurgia / Pronto-Socorro,emergencia
+Liver Cancer,Yes,Yes,Yes,No,65,Female,High,High,Positive,Oncologia / Clínica Médica,prioritario
+Lung Cancer,Yes,Yes,Yes,No,65,Female,High,High,Positive,Oncologia / Clínica Médica,prioritario
+Lung Cancer,Yes,No,Yes,No,65,Female,Normal,High,Positive,Oncologia / Clínica Médica,prioritario
+Mumps,No,No,Yes,No,65,Male,Normal,High,Positive,Clínica Médica,baixa
+Mumps,No,No,Yes,No,65,Male,Normal,High,Positive,Clínica Médica,baixa
+Osteoporosis,No,Yes,Yes,No,65,Female,High,High,Positive,Ortopedia / Pronto Atendimento,prioritario
+Stroke,Yes,Yes,Yes,No,65,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Alzheimer's Disease,Yes,No,Yes,No,70,Female,High,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Alzheimer's Disease,Yes,No,Yes,No,70,Female,High,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Cholecystitis,No,No,Yes,No,70,Male,Normal,Normal,Negative,Cirurgia / Pronto-Socorro,emergencia
+Chronic Obstructive Pulmonary Disease (COPD),No,Yes,Yes,Yes,70,Male,Normal,High,Negative,Clínica Médica / Pneumologia,emergencia
+Chronic Obstructive Pulmonary Disease (COPD),No,Yes,Yes,Yes,70,Male,Normal,High,Negative,Clínica Médica / Pneumologia,emergencia
+Osteoporosis,Yes,No,No,No,70,Male,Normal,Normal,Negative,Ortopedia / Pronto Atendimento,prioritario
+Parkinson's Disease,No,No,Yes,No,70,Male,Normal,Normal,Negative,Neurologia / Pronto-Socorro,emergencia
+Prostate Cancer,Yes,Yes,No,No,70,Male,High,Normal,Negative,Oncologia / Clínica Médica,prioritario
+Schizophrenia,No,Yes,Yes,No,70,Male,Normal,Normal,Negative,Clínica Médica,baixa
+Gout,Yes,No,Yes,No,70,Female,Normal,High,Positive,Ortopedia / Pronto Atendimento,prioritario
+Migraine,No,No,Yes,No,70,Female,Normal,Normal,Positive,Neurologia / Pronto-Socorro,emergencia
+Stroke,No,Yes,No,No,70,Male,Normal,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Stroke,No,Yes,No,No,70,Male,Normal,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Testicular Cancer,No,No,Yes,No,70,Female,High,High,Positive,Oncologia / Clínica Médica,prioritario
+Tonsillitis,Yes,Yes,Yes,No,70,Female,High,High,Positive,Clínica Médica / Pneumologia,baixa
+Williams Syndrome,No,No,Yes,No,70,Female,Normal,Normal,Positive,Clínica Médica,baixa
+Stroke,Yes,No,Yes,No,80,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Stroke,Yes,No,Yes,No,80,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Stroke,Yes,No,Yes,No,85,Male,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Stroke,Yes,No,Yes,No,85,Male,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Stroke,Yes,No,Yes,No,90,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia
+Stroke,Yes,No,Yes,No,90,Female,High,High,Positive,Neurologia / Pronto-Socorro,emergencia

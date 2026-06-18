@@ -83,13 +83,19 @@ class TestShowTriageResult:
         patient = {
             "age": 45,
             "gender": "Masculino",
-            "primary_condition": "Dor no Coração",
+            "selected_symptoms": ["Febre", "Tosse"],
+            "blood_pressure": "Normal",
+            "cholesterol_level": "High",
+            "smokes": True,
+            "drinks_alcohol": False,
             "symptom_duration_days": 2,
             "has_chronic_disease": False,
             "chronic_detail": "",
         }
+        diseases = [("Pneumonia", 0.32), ("Bronchitis", 0.18)]
         show_triage_result(
             patient,
+            diseases,
             "Cardiologia / Pronto-Socorro",
             "prioritario",
             "modelo_ia (Árvore de Decisão)",
@@ -97,6 +103,7 @@ class TestShowTriageResult:
         output = capture_console[0].getvalue()
         assert "Cardiologia" in output
         assert "PRIORITARIO" in output or "prioritario" in output.lower()
+        assert "Pneumonia" in output
 
 
 class TestShowLoading:

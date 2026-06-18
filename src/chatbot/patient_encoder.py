@@ -1,104 +1,80 @@
 """
 Codificador de dados do paciente para entrada do modelo (B21).
 
-Converte o dict coletado pelo chatbot em vetor numérico [Age, Gender, Condition]
-usando os mesmos mapeamentos do treinamento (encoding_maps.json).
+Converte o dict coletado pelo chatbot no vetor numérico esperado pelo modelo
+de doença, na ordem de FEATURE_COLS (train_model.py):
+
+    [age, gender, fever, cough, fatigue, difficulty_breathing,
+     blood_pressure, cholesterol_level]
+
+Usa os mesmos mapeamentos do treinamento (encoding_maps.json). Hábitos
+(álcool/fumo) NÃO entram aqui — são aplicados como regras pós-modelo
+(ver chatbot/lifestyle_rules.py).
 """
 
 import json
 import pathlib
 
-from .recommended_area_rules import (
-    KEYWORDS_APPENDICITIS,
-    KEYWORDS_CANCER,
-    KEYWORDS_CARDIAC,
-    KEYWORDS_DIABETES,
-    KEYWORDS_FRACTURE,
-    KEYWORDS_NEUROLOGICAL,
-    KEYWORDS_PREGNANCY,
-    KEYWORDS_RESPIRATORY,
-    KEYWORDS_SKIN,
-)
-from .conversation import CONDITIONS
-
 ROOT_DIR      = pathlib.Path(__file__).parent.parent.parent
 ENCODING_MAPS = ROOT_DIR / "dataset" / "processed" / "encoding_maps.json"
 
-# Mapeamento gênero do chatbot → rótulo do dataset (alinhado a encoding_maps.json)
+# Ordem das features — deve casar com FEATURE_COLS em train_model.py
+FEATURE_ORDER = [
+    "age", "gender", "fever", "cough", "fatigue",
+    "difficulty_breathing", "blood_pressure", "cholesterol_level",
+]
+
+# Gênero do chatbot → rótulo do dataset (alinhado a encoding_maps.json)
 GENDER_CHATBOT_TO_DATASET: dict[str, str] = {
     "Feminino":                      "Female",
     "Masculino":                     "Male",
-    "Outro / Prefiro não informar":  "Female",  # default documentado — dataset só tem Female/Male
+    "Outro / Prefiro não informar":  "Female",  # default — dataset só tem Female/Male
 }
 
-# Mapeamento opções do chatbot → Condition do dataset Kaggle
-CHATBOT_TO_DATASET_CONDITION: dict[str, str] = {
-    CONDITIONS[0]: "Heart Disease",       # Dor cardíaca / peito
-    CONDITIONS[1]: "Stroke",             # AVC / neurológico
-    CONDITIONS[2]: "Fractured Arm",       # Fratura / trauma
-    CONDITIONS[3]: "Respiratory Infection",  # Gripe / respiratório
-    CONDITIONS[4]: "Childbirth",          # Complicação na gravidez
-    CONDITIONS[5]: "Diabetes",            # Diabetes / glicose
-    CONDITIONS[6]: "Allergic Reaction",    # Pele — condição mais próxima no dataset
+# Níveis de saúde do chatbot (PT) → rótulo do dataset (Low/Normal/High)
+HEALTH_LEVEL_TO_DATASET: dict[str, str] = {
+    "baixa": "Low", "baixo": "Low", "low": "Low",
+    "normal": "Normal",
+    "alta": "High", "alto": "High", "high": "High",
+    "não sei": "Normal", "nao sei": "Normal", "": "Normal",
 }
-
-# Tabela de keywords para texto livre (opção "Other")
-_KEYWORD_TO_CONDITION: list[tuple[tuple[str, ...], str]] = [
-    (KEYWORDS_NEUROLOGICAL,  "Stroke"),
-    (KEYWORDS_PREGNANCY,     "Childbirth"),
-    (KEYWORDS_APPENDICITIS,  "Appendicitis"),
-    (KEYWORDS_CARDIAC,       "Heart Disease"),
-    (KEYWORDS_FRACTURE,      "Fractured Arm"),
-    (KEYWORDS_DIABETES,      "Diabetes"),
-    (KEYWORDS_CANCER,        "Cancer"),
-    (KEYWORDS_RESPIRATORY,   "Respiratory Infection"),
-    (KEYWORDS_SKIN,          "Allergic Reaction"),
-]
-
-# Condition padrão quando nenhuma keyword é encontrada
-DEFAULT_CONDITION = "Hypertension"  # Clínica Médica no dataset
 
 
 def _load_encoding_maps() -> dict:
-    """Carrega mapeamentos label→int do B10."""
+    """Carrega mapeamentos label→int gerados pelo encode_dataset.py."""
     with open(ENCODING_MAPS, encoding="utf-8") as fh:
         return json.load(fh)
 
 
-def _resolve_dataset_condition(primary_condition: str) -> str:
-    """
-    Converte a condição informada pelo paciente para o rótulo do dataset.
+def _yes_no(value: bool) -> str:
+    """Converte bool do chatbot para o rótulo do dataset."""
+    return "Yes" if value else "No"
 
-    Opções fixas do chatbot usam CHATBOT_TO_DATASET_CONDITION;
-    texto livre (Other) usa heurística por keywords.
-    """
-    if primary_condition in CHATBOT_TO_DATASET_CONDITION:
-        return CHATBOT_TO_DATASET_CONDITION[primary_condition]
 
-    normalized = primary_condition.lower().strip()
-    for keywords, condition in _KEYWORD_TO_CONDITION:
-        if any(kw in normalized for kw in keywords):
-            return condition
-
-    return DEFAULT_CONDITION
+def _health_level(value: str) -> str:
+    """Normaliza o nível de pressão/colesterol para Low/Normal/High."""
+    return HEALTH_LEVEL_TO_DATASET.get(str(value).strip().lower(), "Normal")
 
 
 def encode_patient_data(patient_data: dict) -> list[int]:
     """
-    Retorna vetor [Age, Gender_encoded, Condition_encoded] para o modelo.
+    Retorna o vetor numérico de features na ordem de FEATURE_ORDER.
 
-    Usa encoding_maps.json para garantir mesma codificação do treinamento.
+    Usa encoding_maps.json para garantir a mesma codificação do treinamento.
     """
     maps = _load_encoding_maps()
 
-    age = int(patient_data["age"])
+    gender_label = GENDER_CHATBOT_TO_DATASET.get(patient_data["gender"], "Female")
 
-    gender_label = GENDER_CHATBOT_TO_DATASET.get(
-        patient_data["gender"], "Female"
-    )
-    gender_encoded = maps["Gender"][gender_label]
+    encoded = {
+        "age":                  int(patient_data["age"]),
+        "gender":               maps["gender"][gender_label],
+        "fever":                maps["fever"][_yes_no(patient_data.get("has_fever", False))],
+        "cough":                maps["cough"][_yes_no(patient_data.get("has_cough", False))],
+        "fatigue":              maps["fatigue"][_yes_no(patient_data.get("has_fatigue", False))],
+        "difficulty_breathing": maps["difficulty_breathing"][_yes_no(patient_data.get("has_difficulty_breathing", False))],
+        "blood_pressure":       maps["blood_pressure"][_health_level(patient_data.get("blood_pressure", "Normal"))],
+        "cholesterol_level":    maps["cholesterol_level"][_health_level(patient_data.get("cholesterol_level", "Normal"))],
+    }
 
-    condition_label = _resolve_dataset_condition(patient_data["primary_condition"])
-    condition_encoded = maps["Condition"][condition_label]
-
-    return [age, gender_encoded, condition_encoded]
+    return [encoded[col] for col in FEATURE_ORDER]
