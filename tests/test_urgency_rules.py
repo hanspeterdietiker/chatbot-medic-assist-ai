@@ -7,6 +7,9 @@ from chatbot.urgency_triage_rules import (
     apply_rules,
     apply_urgency_rules,
     get_base_urgency,
+    has_emergency_signal,
+    has_urgency_signal,
+    is_immediate_emergency,
     URGENCIA_BAIXA,
     URGENCIA_PRIORITARIO,
     URGENCIA_EMERGENCIA,
@@ -18,9 +21,14 @@ from chatbot.recommended_area_rules import (
 )
 
 
-def _patient(condition, age=40, conscious=True, breathing=True, pain=False, fever=False):
-    """Helper para montar patient_data com defaults razoáveis."""
-    return {
+def _patient(condition, age=40, conscious=True, breathing=True, pain=False,
+             fever=False, alert_signals=None):
+    """Helper para montar patient_data com defaults razoáveis.
+
+    alert_signals: lista de flags de sinal de alerta a marcar como True
+    (ex.: ["has_seizure"], ["has_dizziness"]).
+    """
+    data = {
         "primary_condition": condition,
         "age": age,
         "is_conscious": conscious,
@@ -28,6 +36,9 @@ def _patient(condition, age=40, conscious=True, breathing=True, pain=False, feve
         "has_intense_pain": pain,
         "has_fever": fever,
     }
+    for flag in (alert_signals or []):
+        data[flag] = True
+    return data
 
 
 # ---------------------------------------------------------------------------
@@ -173,3 +184,51 @@ class TestEscalateUrgencyNaoVerificaEmergencia:
         p = _patient("Respiratory Infection")
         _, urgency = apply_rules(p)
         assert urgency == URGENCIA_BAIXA
+
+
+# ---------------------------------------------------------------------------
+# Sinais de alerta — fluxo de validação emergência (🔴) vs urgência (🟡)
+# ---------------------------------------------------------------------------
+
+class TestDetectoresDeSinais:
+    def test_sinal_emergencia_detectado(self):
+        assert has_emergency_signal(_patient("Flu", alert_signals=["has_seizure"]))
+
+    def test_sinal_urgencia_detectado(self):
+        assert has_urgency_signal(_patient("Flu", alert_signals=["has_dizziness"]))
+
+    def test_sem_sinais_nao_detecta(self):
+        p = _patient("Flu")
+        assert not has_emergency_signal(p)
+        assert not has_urgency_signal(p)
+
+    def test_emergencia_e_imediata(self):
+        assert is_immediate_emergency(_patient("Flu", alert_signals=["has_severe_bleeding"]))
+
+    def test_sinal_urgencia_nao_e_emergencia_imediata(self):
+        assert not is_immediate_emergency(_patient("Flu", alert_signals=["has_palpitations"]))
+
+
+class TestEscaladaPorSinaisDeAlerta:
+    def test_sinal_emergencia_forca_emergencia(self):
+        # Condição baixa + sinal 🔴 → emergência imediata + Pronto-Socorro
+        area, urgency = apply_rules(_patient("Flu", alert_signals=["has_seizure"]))
+        assert area == AREA_PRONTO_SOCORRO
+        assert urgency == URGENCIA_EMERGENCIA
+
+    def test_sinal_urgencia_escala_baixa_para_prioritario(self):
+        p = _patient("Flu", alert_signals=["has_persistent_vomiting"])
+        assert apply_urgency_rules(p) == URGENCIA_PRIORITARIO
+
+    def test_sinal_urgencia_nao_escala_acima_de_prioritario(self):
+        # Já prioritário por condição → sinal 🟡 não muda
+        p = _patient("Heart Disease", alert_signals=["has_dizziness"])
+        assert apply_urgency_rules(p) == URGENCIA_PRIORITARIO
+
+    def test_sinal_emergencia_prevalece_sobre_condicao_baixa(self):
+        p = _patient("Skin Disease", alert_signals=["has_unilateral_weakness"])
+        assert apply_urgency_rules(p) == URGENCIA_EMERGENCIA
+
+    def test_sem_sinais_mantem_comportamento_atual(self):
+        p = _patient("Skin Disease")
+        assert apply_urgency_rules(p) == URGENCIA_BAIXA
