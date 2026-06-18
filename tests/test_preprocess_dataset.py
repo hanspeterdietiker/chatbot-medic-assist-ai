@@ -90,13 +90,15 @@ class TestDatasetProcessado:
         validos = {"baixa", "prioritario", "emergencia"}
         assert set(df["nivel_urgencia"].unique()).issubset(validos)
 
-    def test_todas_especialidades_presentes(self, csv_path):
+    def test_especialidades_principais_presentes(self, csv_path):
+        # O dataset Disease Symptoms and Patient Profile não traz doenças
+        # obstétricas; validamos as especialidades que de fato ocorrem.
         df = pd.read_csv(csv_path)
         areas = set(df["area_recomendada"].unique())
         esperadas = {
             "Cardiologia / Pronto-Socorro",
             "Neurologia / Pronto-Socorro",
             "Ortopedia / Pronto Atendimento",
-            "Obstetrícia / Pronto-Socorro",
+            "Clínica Médica / Pneumologia",
         }
         assert esperadas.issubset(areas), f"Áreas faltando: {esperadas - areas}"

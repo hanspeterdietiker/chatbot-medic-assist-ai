@@ -1,16 +1,20 @@
 """
 Script de treinamento e avaliação dos modelos de classificação (B15–B20).
 
-Treina Árvore de Decisão (B15) e Random Forest (B16) para prever:
-  - area_recomendada  (área hospitalar sugerida)
-  - nivel_urgencia    (baixa, prioritario, emergencia)
+Treina Árvore de Decisão (B15) e Random Forest (B16) para prever a
+**doença provável** (`disease`) a partir de sintomas e perfil de saúde.
 
-Usa apenas Age, Gender e Condition como features — variáveis disponíveis
-na triagem via chatbot. Colunas pós-atendimento (Procedure, Cost, Outcome)
-são excluídas para evitar data leakage na inferência.
+Features disponíveis na triagem via chatbot:
+  age, gender, fever, cough, fatigue, difficulty_breathing,
+  blood_pressure, cholesterol_level
 
-Métricas (B17–B19): acurácia, matriz de confusão e classification_report.
-Modelos salvos em models/ (B20).
+A área recomendada e o nível de urgência NÃO são alvos do modelo: são
+derivados da doença prevista por regras clínicas (chatbot/model_predictor.py),
+o que faz hábitos (álcool/fumo) refletirem de forma coerente nos três.
+
+Como há muitas doenças (116) e poucas amostras por classe, reportamos
+acurácia **top-1** e **top-5** — esta última é a métrica relevante para
+sugerir "doenças prováveis".
 
 Uso:
     python src/train_model.py
@@ -30,7 +34,7 @@ try:
     import joblib
     from sklearn.tree import DecisionTreeClassifier
     from sklearn.ensemble import RandomForestClassifier
-    from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+    from sklearn.metrics import accuracy_score, classification_report
 except ImportError:
     print("scikit-learn não encontrado. Execute: pip install scikit-learn")
     sys.exit(1)
@@ -42,94 +46,81 @@ TRAIN_CSV     = PROCESSED_DIR / "hospital-data-train.csv"
 TEST_CSV      = PROCESSED_DIR / "hospital-data-test.csv"
 ENCODING_MAPS = PROCESSED_DIR / "encoding_maps.json"
 
-# Features disponíveis na triagem — idade, gênero e condição principal
-FEATURE_COLS = ["Age", "Gender", "Condition"]
+# Features disponíveis na triagem — sintomas multi-seleção + perfil de saúde
+FEATURE_COLS = [
+    "age", "gender", "fever", "cough", "fatigue",
+    "difficulty_breathing", "blood_pressure", "cholesterol_level",
+]
 
-# Colunas-alvo: dois problemas de classificação independentes
-TARGET_AREA    = "area_recomendada"
-TARGET_URGENCY = "nivel_urgencia"
+# Alvo único: doença provável
+TARGET_DISEASE = "disease"
 
-# Semente fixa para reprodutibilidade entre execuções e comparação DT vs RF
+# Quantas doenças prováveis o chatbot exibe (top-N)
+TOP_K = 5
+
+# Semente fixa para reprodutibilidade e comparação DT vs RF
 RANDOM_STATE = 42
 
-# Nomes dos algoritmos para arquivos e metadados
 ALGO_DECISION_TREE = "decision_tree"
 ALGO_RANDOM_FOREST = "random_forest"
 
 
 def _load_splits() -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Carrega conjuntos de treino e teste gerados pelo B11."""
+    """Carrega conjuntos de treino e teste gerados pelo split_dataset.py."""
     if not TRAIN_CSV.exists() or not TEST_CSV.exists():
         print("Conjuntos treino/teste não encontrados. Execute: python src/split_dataset.py")
         sys.exit(1)
     return pd.read_csv(TRAIN_CSV), pd.read_csv(TEST_CSV)
 
 
-def _evaluate_model(
-    model_area,
-    model_urgency,
-    X_test: pd.DataFrame,
-    y_area_test: pd.Series,
-    y_urgency_test: pd.Series,
-) -> dict:
+def _top_k_accuracy(model, X_test: pd.DataFrame, y_test: pd.Series, k: int) -> float:
     """
-    Calcula métricas de avaliação (B17–B19) no conjunto de teste.
+    Fração de exemplos cuja classe verdadeira está entre as k mais prováveis.
 
-    Retorna dict com acurácia, matrizes de confusão e classification_report
-    para área e urgência — serializável em JSON.
+    Implementação manual (em vez de top_k_accuracy_score) para tolerar rótulos
+    de teste ausentes do treino — comuns quando há muitas classes raras.
     """
-    pred_area    = model_area.predict(X_test)
-    pred_urgency = model_urgency.predict(X_test)
+    proba = model.predict_proba(X_test)
+    classes = list(model.classes_)
+    hits = 0
+    for probs, true_label in zip(proba, y_test):
+        top_idx = probs.argsort()[::-1][:k]
+        top_labels = {classes[i] for i in top_idx}
+        if true_label in top_labels:
+            hits += 1
+    return round(hits / len(y_test), 4) if len(y_test) else 0.0
 
-    acc_area    = accuracy_score(y_area_test, pred_area)
-    acc_urgency = accuracy_score(y_urgency_test, pred_urgency)
 
+def _evaluate_model(model, X_test: pd.DataFrame, y_test: pd.Series) -> dict:
+    """Calcula acurácia top-1, top-5 e classification_report (B17–B19)."""
+    pred = model.predict(X_test)
     return {
         "accuracy": {
-            "area_recomendada": round(float(acc_area), 4),
-            "nivel_urgencia":   round(float(acc_urgency), 4),
-            "media":            round(float((acc_area + acc_urgency) / 2), 4),
+            "top1": round(float(accuracy_score(y_test, pred)), 4),
+            f"top{TOP_K}": _top_k_accuracy(model, X_test, y_test, TOP_K),
         },
-        "confusion_matrix": {
-            "area_recomendada": confusion_matrix(y_area_test, pred_area).tolist(),
-            "nivel_urgencia":   confusion_matrix(y_urgency_test, pred_urgency).tolist(),
-        },
-        "classification_report": {
-            "area_recomendada": classification_report(
-                y_area_test, pred_area, output_dict=True, zero_division=0
-            ),
-            "nivel_urgencia": classification_report(
-                y_urgency_test, pred_urgency, output_dict=True, zero_division=0
-            ),
-        },
+        "classification_report": classification_report(
+            y_test, pred, output_dict=True, zero_division=0
+        ),
     }
 
 
 def _train_and_save(
     algo_name: str,
-    model_area,
-    model_urgency,
+    model,
     X_train: pd.DataFrame,
-    y_area_train: pd.Series,
-    y_urgency_train: pd.Series,
+    y_train: pd.Series,
     X_test: pd.DataFrame,
-    y_area_test: pd.Series,
-    y_urgency_test: pd.Series,
+    y_test: pd.Series,
 ) -> dict:
-    """
-    Treina par de modelos (área + urgência), salva .joblib e retorna métricas.
-    """
-    model_area.fit(X_train, y_area_train)
-    model_urgency.fit(X_train, y_urgency_train)
+    """Treina o modelo de doença, salva .joblib e retorna métricas."""
+    model.fit(X_train, y_train)
+    joblib.dump(model, MODELS_DIR / f"{algo_name}_disease.joblib")
 
-    joblib.dump(model_area,    MODELS_DIR / f"{algo_name}_area.joblib")
-    joblib.dump(model_urgency, MODELS_DIR / f"{algo_name}_urgency.joblib")
-
-    metrics = _evaluate_model(model_area, model_urgency, X_test, y_area_test, y_urgency_test)
+    metrics = _evaluate_model(model, X_test, y_test)
     metrics["algorithm"] = algo_name
 
-    metrics_path = MODELS_DIR / f"metrics_{algo_name}.json"
-    with open(metrics_path, "w", encoding="utf-8") as fh:
+    with open(MODELS_DIR / f"metrics_{algo_name}.json", "w", encoding="utf-8") as fh:
         json.dump(metrics, fh, indent=2, ensure_ascii=False)
 
     return metrics
@@ -142,39 +133,35 @@ def main() -> None:
 
     X_train = train_df[FEATURE_COLS]
     X_test  = test_df[FEATURE_COLS]
-    y_area_train    = train_df[TARGET_AREA]
-    y_urgency_train = train_df[TARGET_URGENCY]
-    y_area_test     = test_df[TARGET_AREA]
-    y_urgency_test  = test_df[TARGET_URGENCY]
+    y_train = train_df[TARGET_DISEASE]
+    y_test  = test_df[TARGET_DISEASE]
 
     # B15 — Árvore de Decisão: interpretável, adequada para apresentação A3
-    dt_area = DecisionTreeClassifier(random_state=RANDOM_STATE)
-    dt_urgency = DecisionTreeClassifier(random_state=RANDOM_STATE)
     metrics_dt = _train_and_save(
-        ALGO_DECISION_TREE, dt_area, dt_urgency,
-        X_train, y_area_train, y_urgency_train,
-        X_test, y_area_test, y_urgency_test,
+        ALGO_DECISION_TREE,
+        DecisionTreeClassifier(random_state=RANDOM_STATE),
+        X_train, y_train, X_test, y_test,
     )
 
-    # B16 — Random Forest: ensemble para comparação com Árvore de Decisão
-    rf_area = RandomForestClassifier(random_state=RANDOM_STATE, n_estimators=100)
-    rf_urgency = RandomForestClassifier(random_state=RANDOM_STATE, n_estimators=100)
+    # B16 — Random Forest: ensemble para comparação
     metrics_rf = _train_and_save(
-        ALGO_RANDOM_FOREST, rf_area, rf_urgency,
-        X_train, y_area_train, y_urgency_train,
-        X_test, y_area_test, y_urgency_test,
+        ALGO_RANDOM_FOREST,
+        RandomForestClassifier(random_state=RANDOM_STATE, n_estimators=100),
+        X_train, y_train, X_test, y_test,
     )
 
-    # Seleciona algoritmo com maior acurácia média para uso no chatbot (B21)
+    # Seleciona algoritmo com maior acurácia top-5 (métrica de "doença provável")
+    topk = f"top{TOP_K}"
     best = (
         ALGO_DECISION_TREE
-        if metrics_dt["accuracy"]["media"] >= metrics_rf["accuracy"]["media"]
+        if metrics_dt["accuracy"][topk] >= metrics_rf["accuracy"][topk]
         else ALGO_RANDOM_FOREST
     )
 
     metadata = {
         "feature_columns": FEATURE_COLS,
-        "target_columns": [TARGET_AREA, TARGET_URGENCY],
+        "target": TARGET_DISEASE,
+        "top_k": TOP_K,
         "random_state": RANDOM_STATE,
         "best_algorithm": best,
         "comparison": {
@@ -188,8 +175,8 @@ def main() -> None:
         json.dump(metadata, fh, indent=2, ensure_ascii=False)
 
     print("Modelos treinados e salvos em:", MODELS_DIR)
-    print(f"  Árvore de Decisão — acurácia média: {metrics_dt['accuracy']['media']}")
-    print(f"  Random Forest      — acurácia média: {metrics_rf['accuracy']['media']}")
+    print(f"  Árvore de Decisão — top1: {metrics_dt['accuracy']['top1']} | {topk}: {metrics_dt['accuracy'][topk]}")
+    print(f"  Random Forest     — top1: {metrics_rf['accuracy']['top1']} | {topk}: {metrics_rf['accuracy'][topk]}")
     print(f"  Algoritmo selecionado para o chatbot: {best}")
 
 

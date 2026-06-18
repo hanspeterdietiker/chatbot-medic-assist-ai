@@ -75,8 +75,8 @@ class TestIntegridadeDataset:
         nulos = df.isnull().sum().sum()
         assert nulos == 0, f"Encontrados {nulos} valores nulos"
 
-    def test_patient_id_removido(self, encoded_output):
-        """Patient_ID não tem valor preditivo e deve ser descartado."""
+    def test_sem_patient_id(self, encoded_output):
+        """O dataset não possui identificador administrativo."""
         df, _ = encoded_output
         assert "Patient_ID" not in df.columns
 
@@ -112,20 +112,35 @@ class TestCodificacaoBinaria:
     def test_gender_female_zero_male_um(self, encoded_output):
         """Female=0 e Male=1 — mapa determinístico."""
         _, maps = encoded_output
-        assert maps["Gender"]["Female"] == 0
-        assert maps["Gender"]["Male"]   == 1
+        assert maps["gender"]["Female"] == 0
+        assert maps["gender"]["Male"]   == 1
 
-    def test_readmission_no_zero_yes_um(self, encoded_output):
-        """No=0, Yes=1 — mapa determinístico."""
+    def test_sintomas_no_zero_yes_um(self, encoded_output):
+        """Sintomas binários: No=0, Yes=1 — mapa determinístico."""
         _, maps = encoded_output
-        assert maps["Readmission"]["No"]  == 0
-        assert maps["Readmission"]["Yes"] == 1
+        for sintoma in ("fever", "cough", "fatigue", "difficulty_breathing"):
+            assert maps[sintoma]["No"]  == 0
+            assert maps[sintoma]["Yes"] == 1
 
     def test_outcome_dois_valores_numericos(self, encoded_output):
-        """Outcome deve ter exatamente 2 valores numéricos distintos."""
+        """outcome deve ter exatamente 2 valores numéricos distintos."""
         df, _ = encoded_output
-        assert len(df["Outcome"].unique()) == 2
-        assert df["Outcome"].dtype != object
+        assert len(df["outcome"].unique()) == 2
+        assert df["outcome"].dtype != object
+
+
+class TestCodificacaoSaude:
+    def test_ordem_low_normal_high(self):
+        """Low < Normal < High — proxies de saúde mantêm ordem clínica."""
+        from encode_dataset import HEALTH_ORDINAL
+        assert HEALTH_ORDINAL["Low"] < HEALTH_ORDINAL["Normal"] < HEALTH_ORDINAL["High"]
+
+    def test_pressao_e_colesterol_codificados(self, encoded_output):
+        """Pressão e colesterol viram inteiros 0/1/2."""
+        df, _ = encoded_output
+        for col in ("blood_pressure", "cholesterol_level"):
+            assert df[col].dtype != object
+            assert set(df[col].unique()).issubset({0, 1, 2})
 
 
 # ---------------------------------------------------------------------------
@@ -141,9 +156,9 @@ class TestArquivoMapeamentos:
         """Todas as colunas categóricas devem ter entrada no JSON de mapeamentos."""
         _, maps = encoded_output
         esperadas = {
-            "Gender", "Readmission", "Outcome",
-            "Condition", "Procedure",
-            "nivel_urgencia", "area_recomendada",
+            "gender", "fever", "cough", "fatigue", "difficulty_breathing",
+            "outcome", "blood_pressure", "cholesterol_level",
+            "nivel_urgencia", "disease", "area_recomendada",
         }
         faltando = esperadas - set(maps.keys())
         assert faltando == set(), f"Mapeamentos ausentes: {faltando}"

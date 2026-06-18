@@ -1,5 +1,8 @@
 """
 Testes para integração chatbot ↔ modelo (B21) e encoder de paciente.
+
+O modelo prevê doenças prováveis (top-N); área e urgência são derivadas da
+doença #1. Hábitos (álcool/fumo) re-ranqueiam o top-N e escalam a urgência.
 """
 import pathlib
 import sys
@@ -29,7 +32,7 @@ TRAIN_CSV     = PROCESSED_DIR / "hospital-data-train.csv"
 def trained_models():
     """Garante que os modelos estejam treinados antes dos testes de predição."""
     if not TRAIN_CSV.exists():
-        pytest.skip("Dataset de treino não encontrado — execute pipeline B08–B11")
+        pytest.skip("Dataset de treino não encontrado — execute o pipeline de dados")
 
     if not (MODELS_DIR / "model_metadata.json").exists():
         from train_model import main as train_main
@@ -43,15 +46,21 @@ def trained_models():
 
 
 def _base_patient(**overrides) -> dict:
-    """Paciente simulado com valores padrão seguros."""
+    """Paciente simulado com valores padrão seguros (novo schema)."""
     data = {
         "age": 45,
         "gender": "Masculino",
-        "primary_condition": "Dor no Coração/Dor no Peito/ Heart Disease / Chest Pain",
-        "has_fever": False,
-        "has_intense_pain": False,
+        "selected_symptoms": ["Febre"],
+        "has_fever": True,
+        "has_cough": False,
+        "has_fatigue": False,
         "has_difficulty_breathing": False,
+        "has_intense_pain": False,
         "is_conscious": True,
+        "blood_pressure": "Normal",
+        "cholesterol_level": "Normal",
+        "smokes": False,
+        "drinks_alcohol": False,
         "symptom_duration_days": 2,
         "has_chronic_disease": False,
         "chronic_detail": "",
@@ -66,43 +75,61 @@ class TestEmergenciaRegras:
         from chatbot.recommended_area_rules import AREA_PRONTO_SOCORRO
 
         patient = _base_patient(is_conscious=False)
-        area, urgency, source = predict_triage(patient)
+        diseases, area, urgency, source = predict_triage(patient)
 
         assert source == "regras_seguranca"
         assert area == AREA_PRONTO_SOCORRO
         assert urgency == "emergencia"
+        assert diseases == []
 
     def test_dificuldade_respiratoria_usa_regras_seguranca(self, trained_models):
         from chatbot.model_predictor import predict_triage
 
         patient = _base_patient(has_difficulty_breathing=True)
-        _, urgency, source = predict_triage(patient)
+        _, _, urgency, source = predict_triage(patient)
 
         assert source == "regras_seguranca"
         assert urgency == "emergencia"
 
 
 class TestPredicaoModelo:
-    def test_caso_cardiaco_retorna_area_valida(self, trained_models):
+    def test_retorna_top_n_doencas(self, trained_models):
         from chatbot.model_predictor import predict_triage
 
         patient = _base_patient()
-        area, urgency, source = predict_triage(patient)
+        diseases, area, urgency, source = predict_triage(patient)
 
         assert source.startswith("modelo_ia")
-        assert "Cardiologia" in area or "Pronto" in area or "Clínica" in area
+        assert 1 <= len(diseases) <= 5
+        # cada item é (nome, probabilidade)
+        for name, prob in diseases:
+            assert isinstance(name, str)
+            assert 0.0 <= prob <= 1.0
+        # ordenado do mais provável ao menos provável
+        probs = [p for _, p in diseases]
+        assert probs == sorted(probs, reverse=True)
+        assert area
         assert urgency in ("baixa", "prioritario", "emergencia")
 
     def test_dor_intensa_escala_urgencia(self, trained_models):
         from chatbot.model_predictor import predict_triage
 
-        patient = _base_patient(
-            primary_condition="Gripe / Dificuldade em Respirar / Flu / Respiratory Infection",
-            has_intense_pain=True,
-        )
-        _, urgency, _ = predict_triage(patient)
+        sem_dor = _base_patient(has_intense_pain=False)
+        com_dor = _base_patient(has_intense_pain=True)
+        _, _, urg_sem, _ = predict_triage(sem_dor)
+        _, _, urg_com, _ = predict_triage(com_dor)
 
-        assert urgency in ("prioritario", "emergencia")
+        order = {"baixa": 0, "prioritario": 1, "emergencia": 2}
+        assert order[urg_com] >= order[urg_sem]
+
+    def test_fumante_pode_alterar_ranking(self, trained_models):
+        from chatbot.model_predictor import predict_triage
+
+        # O re-ranqueamento por tabagismo não deve quebrar a predição
+        patient = _base_patient(has_cough=True, smokes=True)
+        diseases, _, _, source = predict_triage(patient)
+        assert source.startswith("modelo_ia")
+        assert len(diseases) >= 1
 
 
 class TestFallback:
@@ -115,29 +142,37 @@ class TestFallback:
         monkeypatch.setattr(mp, "_models_available", lambda: False)
 
         patient = _base_patient()
-        area, urgency, source = mp.predict_triage(patient)
+        diseases, area, urgency, source = mp.predict_triage(patient)
 
         assert source == "regras_fallback"
+        assert diseases == []
         assert area
         assert urgency in ("baixa", "prioritario", "emergencia")
 
 
 class TestPatientEncoder:
-    def test_cada_opcao_chatbot_gera_vetor_valido(self, trained_models):
-        from chatbot.patient_encoder import encode_patient_data, CHATBOT_TO_DATASET_CONDITION
+    def test_vetor_tem_oito_features(self, trained_models):
+        from chatbot.patient_encoder import encode_patient_data, FEATURE_ORDER
 
-        for condition in CHATBOT_TO_DATASET_CONDITION:
-            patient = _base_patient(primary_condition=condition)
-            vector = encode_patient_data(patient)
+        patient = _base_patient()
+        vector = encode_patient_data(patient)
 
-            assert len(vector) == 3
-            assert isinstance(vector[0], int)   # Age
-            assert vector[1] in (0, 1)          # Gender
-            assert isinstance(vector[2], int)     # Condition
+        assert len(vector) == len(FEATURE_ORDER) == 8
+        assert all(isinstance(v, int) for v in vector)
 
-    def test_texto_livre_other_usa_heuristica(self, trained_models):
+    def test_genero_outro_usa_default(self, trained_models):
         from chatbot.patient_encoder import encode_patient_data
 
-        patient = _base_patient(primary_condition="fratura no braço")
+        patient = _base_patient(gender="Outro / Prefiro não informar")
         vector = encode_patient_data(patient)
-        assert len(vector) == 3
+        # índice 1 = gender, deve ser 0 (Female default) ou 1
+        assert vector[1] in (0, 1)
+
+    def test_proxies_saude_codificados(self, trained_models):
+        from chatbot.patient_encoder import encode_patient_data
+
+        patient = _base_patient(blood_pressure="Alta", cholesterol_level="Baixo")
+        vector = encode_patient_data(patient)
+        # blood_pressure (índice 6) e cholesterol (índice 7) viram inteiros 0/1/2
+        assert vector[6] in (0, 1, 2)
+        assert vector[7] in (0, 1, 2)

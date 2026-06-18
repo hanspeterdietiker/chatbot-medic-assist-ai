@@ -157,6 +157,43 @@ def prompt_choice(prompt: str, options: list[str]) -> tuple[int, str]:
         _print_error(f"Digite um número entre 1 e {n}.")
 
 
+def prompt_multi_choice(
+    prompt: str,
+    options: list[str],
+    max_select: int = 5,
+) -> list[str]:
+    """
+    Exibe opções numeradas e permite selecionar várias (até max_select).
+
+    Aceita números separados por vírgula/espaço (ex.: "1, 3 4").
+    Enter sem nada = nenhuma opção selecionada.
+    """
+    console = get_console()
+    n = len(options)
+    console.print(f"[bold]{prompt}[/]")
+    console.print(f"  [dim](selecione até {max_select} — números separados por vírgula, ou Enter para nenhum)[/]")
+    for i, option in enumerate(options, 1):
+        console.print(f"  [cyan]{i}.[/] {option}")
+    while True:
+        raw = console.input("[bold cyan]Suas escolhas:[/] ").strip()
+        if raw == "":
+            return []
+        tokens = [t for t in raw.replace(",", " ").split() if t]
+        if not all(t.isdigit() and 1 <= int(t) <= n for t in tokens):
+            _print_error(f"Digite números entre 1 e {n}, separados por vírgula.")
+            continue
+        # Remove duplicatas preservando a ordem de seleção
+        seen: list[int] = []
+        for t in tokens:
+            idx = int(t) - 1
+            if idx not in seen:
+                seen.append(idx)
+        if len(seen) > max_select:
+            _print_error(f"Selecione no máximo {max_select} opções.")
+            continue
+        return [options[i] for i in seen]
+
+
 def prompt_yes_no(prompt: str) -> bool:
     """Pergunta sim/não com validação."""
     while True:
@@ -191,13 +228,24 @@ def _format_source_label(source: str) -> str:
     return FONTE_REGRAS_FALLBACK
 
 
+def _format_symptoms(patient_data: dict) -> str:
+    """Resumo legível dos sintomas selecionados."""
+    selected = patient_data.get("selected_symptoms")
+    if selected:
+        return ", ".join(selected)
+    return "Nenhum sintoma selecionado"
+
+
 def show_triage_result(
     patient_data: dict,
+    diseases: list[tuple[str, float]],
     recommended_area: str,
     urgency_level: str,
     source: str = "regras_fallback",
 ) -> None:
     """Exibe resultado final em painéis e tabelas coloridas (B22 + B26)."""
+    from .lifestyle_rules import lifestyle_factors
+
     console = get_console()
     urgency_key = urgency_level.lower()
 
@@ -214,8 +262,12 @@ def show_triage_result(
     data_table.add_column("Valor", style="white")
     data_table.add_row("Idade", f"{patient_data['age']} anos")
     data_table.add_row("Gênero", patient_data["gender"])
-    data_table.add_row("Condição principal", patient_data["primary_condition"])
-    data_table.add_row("Duração sintomas", f"{patient_data['symptom_duration_days']} dia(s)")
+    data_table.add_row("Sintomas", _format_symptoms(patient_data))
+    data_table.add_row("Pressão arterial", str(patient_data.get("blood_pressure", "Normal")))
+    data_table.add_row("Colesterol", str(patient_data.get("cholesterol_level", "Normal")))
+    habitos = lifestyle_factors(patient_data)
+    data_table.add_row("Hábitos", ", ".join(habitos) if habitos else "Nenhum informado")
+    data_table.add_row("Duração sintomas", f"{patient_data.get('symptom_duration_days', 0)} dia(s)")
     if patient_data.get("has_chronic_disease"):
         data_table.add_row("Doença crônica", patient_data.get("chronic_detail", ""))
 
@@ -224,6 +276,20 @@ def show_triage_result(
         title="[bold]Dados informados[/]",
         border_style="blue",
     ))
+
+    # Tabela de doenças prováveis (top-N) com probabilidade
+    if diseases:
+        disease_table = Table(box=None, padding=(0, 2))
+        disease_table.add_column("#", style="dim", justify="right")
+        disease_table.add_column("Possível doença", style="white")
+        disease_table.add_column("Probabilidade", style="cyan", justify="right")
+        for i, (name, prob) in enumerate(diseases, 1):
+            disease_table.add_row(str(i), name, f"{prob * 100:.1f}%")
+        console.print(Panel(
+            disease_table,
+            title="[bold]Possíveis doenças (apoio — NÃO é diagnóstico)[/]",
+            border_style="magenta",
+        ))
 
     # Badge de urgência colorido
     urgency_text = Text(urgency_key.upper(), style=urgency_style(urgency_key))

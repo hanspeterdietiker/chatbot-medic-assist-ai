@@ -44,23 +44,21 @@ TEST_SIZE = 0.2
 # essencial para comparar modelos (B15 vs B16) e reproduzir métricas (B17–B19).
 RANDOM_STATE = 42
 
-# Colunas-alvo do modelo — usadas na estratificação para manter a proporção
-# de cada combinação área+urgência nos conjuntos de treino e teste.
-STRATIFY_COLS = ["area_recomendada", "nivel_urgencia"]
+# Coluna-alvo do modelo — usada na estratificação para manter a proporção
+# de cada doença nos conjuntos de treino e teste.
+STRATIFY_COLS = ["disease"]
 
 
 def _build_stratify_key(df: pd.DataFrame) -> pd.Series:
     """
-    Cria chave composta area_recomendada + nivel_urgencia.
+    Cria a chave de estratificação a partir da doença (alvo do modelo).
 
-    Estratificar em ambas as colunas-alvo evita que classes raras fiquem
-    apenas no treino ou apenas no teste, o que distorceria as métricas.
+    Estratificar pela doença evita que classes raras fiquem apenas no treino
+    ou apenas no teste. Como o dataset tem muitas doenças com poucas amostras,
+    o split cai automaticamente em modo não-estratificado quando alguma classe
+    tiver menos de 2 registros (ver main).
     """
-    return (
-        df["area_recomendada"].astype(str)
-        + "_"
-        + df["nivel_urgencia"].astype(str)
-    )
+    return df["disease"].astype(str)
 
 
 def main() -> None:

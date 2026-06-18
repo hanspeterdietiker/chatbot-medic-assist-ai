@@ -4,13 +4,12 @@
   "train_ratio": 0.8,
   "random_state": 42,
   "stratify_columns": [
-    "area_recomendada",
-    "nivel_urgencia"
+    "disease"
   ],
-  "stratify_applied": true,
-  "total_rows": 984,
-  "train_rows": 787,
-  "test_rows": 197,
-  "train_percent": 80.0,
-  "test_percent": 20.0
+  "stratify_applied": false,
+  "total_rows": 349,
+  "train_rows": 279,
+  "test_rows": 70,
+  "train_percent": 79.9,
+  "test_percent": 20.1
 }

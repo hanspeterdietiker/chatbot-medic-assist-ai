@@ -1,6 +1,10 @@
 # Medic Assist AI
 
-Chatbot de apoio à triagem hospitalar que utiliza **classificação supervisionada** (Árvore de Decisão e Random Forest) para sugerir área hospitalar e nível de urgência, sem realizar diagnóstico ou prescrever medicamentos.
+Chatbot de apoio à triagem hospitalar que utiliza **classificação supervisionada** (Árvore de Decisão e Random Forest) para sugerir as **doenças mais prováveis (top-5)**, a **área hospitalar** e o **nível de urgência**, sem realizar diagnóstico ou prescrever medicamentos.
+
+O paciente informa **múltiplos sintomas** (multi-seleção), um **perfil de saúde** (pressão arterial e colesterol) e **hábitos de vida** (tabagismo e consumo de álcool). O modelo prevê a doença a partir dos sintomas e do perfil; **área e urgência são derivadas da doença prevista** por regras clínicas. Os hábitos são aplicados como **regras pós-modelo** que re-ranqueiam as doenças prováveis e podem escalar a urgência.
+
+> **Nota metodológica:** o dataset não contém colunas de álcool/fumo, por isso esses hábitos não são features de treino — entram como regras clínicas documentadas. Como a doença não é informada pelo paciente (apenas sintomas), o modelo aprende um problema realista; a acurácia **top-1** é naturalmente baixa (muitas doenças, poucos sintomas), sendo a acurácia **top-5** a métrica relevante para "doenças prováveis".
 
 **Trabalho A3 — UC Inteligência Artificial** | Documento completo: [docs/13-trabalho-a3.md](docs/13-trabalho-a3.md)
 
@@ -35,8 +39,9 @@ intelligence-ia-a3/
 │   └── chatbot/
 │       ├── conversation.py     # Fluxo guiado de perguntas
 │       ├── terminal_ui.py      # Interface visual (cores, loading, painéis)
-│       ├── model_predictor.py  # Predição ML + camada de segurança
+│       ├── model_predictor.py  # Predição da doença (top-5) + derivação área/urgência
 │       ├── patient_encoder.py  # Conversão chatbot → features do modelo
+│       ├── lifestyle_rules.py  # Regras de hábitos (álcool/fumo) pós-modelo
 │       ├── messages.py         # Textos de segurança e avisos
 │       ├── recommended_area_rules.py
 │       └── urgency_triage_rules.py
@@ -109,11 +114,15 @@ python src/main.py
 
 | Script                  | Entrada                              | Saída principal                          |
 | ----------------------- | ------------------------------------ | ---------------------------------------- |
-| preprocess_dataset.py   | dataset/raw/hospital-data-analysis.csv | dataset/processed/hospital-data-labeled.csv |
+| preprocess_dataset.py   | dataset/raw/disease-symptoms-patient-profile.csv | dataset/processed/hospital-data-labeled.csv |
 | encode_dataset.py       | hospital-data-labeled.csv            | hospital-data-encoded.csv, encoding_maps.json |
 | split_dataset.py        | hospital-data-encoded.csv            | hospital-data-train.csv, hospital-data-test.csv |
-| train_model.py          | train + test CSVs                    | models/*.joblib, metrics_*.json          |
-| main.py                 | Entrada interativa do usuário        | Triagem com área e urgência sugeridas    |
+| train_model.py          | train + test CSVs                    | models/*_disease.joblib, metrics_*.json (top-1/top-5) |
+| main.py                 | Entrada interativa do usuário        | Top-5 doenças prováveis + área + urgência |
+
+> **Dataset:** [Disease Symptoms and Patient Profile Dataset (Kaggle)](https://www.kaggle.com/datasets/uom190346a/disease-symptoms-and-patient-profile-dataset) — baixe o CSV e salve em `dataset/raw/disease-symptoms-patient-profile.csv`.
+>
+> **Features do modelo (8):** `age`, `gender`, `fever`, `cough`, `fatigue`, `difficulty_breathing`, `blood_pressure`, `cholesterol_level`. **Alvo:** `disease`.
 
 ---
 
@@ -128,11 +137,12 @@ pytest tests/ -v
 | test_preprocess_dataset.py | Integridade do dataset processado                     |
 | test_encode_dataset.py   | Codificação categórica e mapeamentos                  |
 | test_split_dataset.py    | Separação treino/teste 80/20                          |
-| test_train_model.py      | Artefatos e métricas dos modelos                      |
-| test_model_predictor.py  | Integração chatbot ↔ modelo e encoder                 |
+| test_train_model.py      | Artefatos e métricas (top-1/top-5) do modelo de doença |
+| test_model_predictor.py  | Integração chatbot ↔ modelo, encoder e top-N          |
 | test_terminal_ui.py      | Interface visual (cores, painéis, loading)            |
-| test_area_rules.py       | Regras de roteamento por condição e faixa etária      |
+| test_area_rules.py       | Regras de roteamento por doença e faixa etária        |
 | test_urgency_rules.py    | Escalada de nível de urgência                         |
+| test_lifestyle_rules.py  | Re-ranqueamento e escalada por hábitos (álcool/fumo)  |
 
 ---
 
@@ -158,6 +168,7 @@ Opcional: `NO_COLOR=1` desativa cores no terminal (acessibilidade).
 ## Limitações e avisos éticos
 
 - O sistema **não realiza diagnóstico médico** e **não prescreve medicamentos**.
+- As **doenças prováveis (top-5)** são apenas possibilidades de apoio à triagem, **não um diagnóstico**.
 - A recomendação é apenas apoio para triagem inicial.
 - A decisão clínica final cabe a profissionais de saúde.
 - Em emergências, ligue **192 (SAMU)**.
