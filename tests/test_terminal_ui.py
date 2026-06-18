@@ -133,3 +133,74 @@ class TestPromptValidation:
             lambda: type("C", (), {"input": lambda self, p: "25"})(),
         )
         assert prompt_text("Idade? ", validator=lambda x: x.isdigit()) == "25"
+
+
+class TestPromptMultiChoiceNoneOption:
+    """Opção explícita de 'nenhum' na multi-seleção (hábitos / sinais de alerta)."""
+
+    def _fake_console(self, monkeypatch, *answers):
+        responses = iter(answers)
+
+        class FakeConsole:
+            def print(self, *a, **k):
+                pass
+
+            def input(self, prompt):
+                return next(responses)
+
+        monkeypatch.setattr(
+            "chatbot.terminal_ui.get_console", lambda: FakeConsole()
+        )
+
+    def test_none_option_retorna_lista_vazia(self, monkeypatch):
+        from chatbot.terminal_ui import prompt_multi_choice
+
+        # "Nenhum" é a 3ª opção (índice 2) — selecioná-la retorna []
+        self._fake_console(monkeypatch, "3")
+        result = prompt_multi_choice(
+            "Hábitos?", ["Fumo", "Álcool"], max_select=2, none_option="Nenhum destes"
+        )
+        assert result == []
+
+    def test_none_option_sobrepoe_outras_selecoes(self, monkeypatch):
+        from chatbot.terminal_ui import prompt_multi_choice
+
+        # Selecionar um hábito E "Nenhum" → "Nenhum" prevalece
+        self._fake_console(monkeypatch, "1, 3")
+        result = prompt_multi_choice(
+            "Hábitos?", ["Fumo", "Álcool"], max_select=2, none_option="Nenhum destes"
+        )
+        assert result == []
+
+    def test_selecao_normal_com_none_disponivel(self, monkeypatch):
+        from chatbot.terminal_ui import prompt_multi_choice
+
+        self._fake_console(monkeypatch, "1")
+        result = prompt_multi_choice(
+            "Hábitos?", ["Fumo", "Álcool"], max_select=2, none_option="Nenhum destes"
+        )
+        assert result == ["Fumo"]
+
+    def test_none_option_aparece_na_lista_exibida(self, monkeypatch):
+        from chatbot.terminal_ui import prompt_multi_choice
+
+        printed: list[str] = []
+
+        class FakeConsole:
+            def print(self, *a, **k):
+                printed.append(" ".join(str(x) for x in a))
+
+            def input(self, prompt):
+                return ""  # Enter → nenhum
+
+        monkeypatch.setattr(
+            "chatbot.terminal_ui.get_console", lambda: FakeConsole()
+        )
+        prompt_multi_choice(
+            "Sinais?",
+            ["Convulsão"],
+            max_select=1,
+            none_option="Não tenho nenhum destes sinais de alerta",
+        )
+        output = "\n".join(printed)
+        assert "Não tenho nenhum destes sinais de alerta" in output
