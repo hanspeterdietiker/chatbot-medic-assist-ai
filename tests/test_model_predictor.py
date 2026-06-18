@@ -80,7 +80,9 @@ class TestEmergenciaRegras:
         assert source == "regras_seguranca"
         assert area == AREA_PRONTO_SOCORRO
         assert urgency == "emergencia"
-        assert diseases == []
+        # Com modelos treinados, as doenças prováveis ainda são exibidas como
+        # apoio mesmo em emergência (a segurança só dita área/urgência).
+        assert len(diseases) >= 1
 
     def test_dificuldade_respiratoria_usa_regras_seguranca(self, trained_models):
         from chatbot.model_predictor import predict_triage
