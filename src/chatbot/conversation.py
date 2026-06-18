@@ -107,6 +107,7 @@ def collect_patient_data() -> dict:
         "Você apresenta algum destes sinais de alerta?",
         ALERT_SIGNAL_OPTIONS,
         max_select=len(ALERT_SIGNAL_OPTIONS),
+        none_option="Não tenho nenhum destes sinais de alerta",
     )
     alert_signal_flags = {flag: False for flag in ALERT_SIGNAL_TO_FLAG.values()}
     for signal in selected_alert_signals:
@@ -122,7 +123,10 @@ def collect_patient_data() -> dict:
     # Passo 5 — hábitos de vida (multi-seleção)
     show_step_header(5, TOTAL_STEPS, "Hábitos de vida")
     selected_habits = prompt_multi_choice(
-        "Você tem algum destes hábitos?", HABIT_OPTIONS, max_select=2
+        "Você tem algum destes hábitos?",
+        HABIT_OPTIONS,
+        max_select=2,
+        none_option="Não tenho nenhum destes hábitos",
     )
     habit_flags = {flag: False for flag in HABIT_TO_FLAG.values()}
     for habit in selected_habits:
