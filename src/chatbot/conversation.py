@@ -28,6 +28,32 @@ SYMPTOM_TO_FLAG = {
     "Dor intensa / dor no peito":  "has_intense_pain",
 }
 
+# Sinais de alerta (passo 3) — mescla de sinais 🔴 (emergência) e 🟡 (urgência).
+# Ordem: críticos primeiro para dar destaque visual à gravidade.
+ALERT_SIGNAL_OPTIONS = [
+    "Sangramento intenso",
+    "Convulsão",
+    "Confusão mental súbita",
+    "Dormência ou fraqueza em um lado do corpo",
+    "Vômito persistente",
+    "Dor abdominal forte",
+    "Tontura",
+    "Palpitações",
+]
+
+# Mapa rótulo de sinal → chave booleana. As flags casam com
+# EMERGENCY_SIGNAL_FLAGS / URGENCY_SIGNAL_FLAGS em urgency_triage_rules.py.
+ALERT_SIGNAL_TO_FLAG = {
+    "Sangramento intenso":                        "has_severe_bleeding",
+    "Convulsão":                                  "has_seizure",
+    "Confusão mental súbita":                     "has_sudden_confusion",
+    "Dormência ou fraqueza em um lado do corpo":  "has_unilateral_weakness",
+    "Vômito persistente":                         "has_persistent_vomiting",
+    "Dor abdominal forte":                        "has_severe_abdominal_pain",
+    "Tontura":                                    "has_dizziness",
+    "Palpitações":                                "has_palpitations",
+}
+
 GENDERS = ["Masculino", "Feminino", "Outro / Prefiro não informar"]
 
 # Opções de perfil de saúde (proxies) → rótulo canônico Low/Normal/High
@@ -47,7 +73,7 @@ HABIT_TO_FLAG = {
     "Consumo de álcool": "drinks_alcohol",
 }
 
-TOTAL_STEPS = 5
+TOTAL_STEPS = 6
 
 
 def collect_patient_data() -> dict:
@@ -75,24 +101,36 @@ def collect_patient_data() -> dict:
     is_conscious = prompt_yes_no("Você está consciente e consegue responder sozinho?")
     show_step_done(2, TOTAL_STEPS, "Sintomas registrados")
 
-    # Passo 3 — perfil de saúde (proxies: pressão e colesterol)
-    show_step_header(3, TOTAL_STEPS, "Perfil de saúde")
+    # Passo 3 — sinais de alerta (mescla emergência 🔴 / urgência 🟡)
+    show_step_header(3, TOTAL_STEPS, "Sinais de alerta")
+    selected_alert_signals = prompt_multi_choice(
+        "Você apresenta algum destes sinais de alerta?",
+        ALERT_SIGNAL_OPTIONS,
+        max_select=len(ALERT_SIGNAL_OPTIONS),
+    )
+    alert_signal_flags = {flag: False for flag in ALERT_SIGNAL_TO_FLAG.values()}
+    for signal in selected_alert_signals:
+        alert_signal_flags[ALERT_SIGNAL_TO_FLAG[signal]] = True
+    show_step_done(3, TOTAL_STEPS, "Sinais de alerta registrados")
+
+    # Passo 4 — perfil de saúde (proxies: pressão e colesterol)
+    show_step_header(4, TOTAL_STEPS, "Perfil de saúde")
     _, bp_label = prompt_choice("Como está sua pressão arterial?", BLOOD_PRESSURE_OPTIONS)
     _, chol_label = prompt_choice("Como está seu colesterol?", CHOLESTEROL_OPTIONS)
-    show_step_done(3, TOTAL_STEPS, "Perfil de saúde registrado")
+    show_step_done(4, TOTAL_STEPS, "Perfil de saúde registrado")
 
-    # Passo 4 — hábitos de vida (multi-seleção)
-    show_step_header(4, TOTAL_STEPS, "Hábitos de vida")
+    # Passo 5 — hábitos de vida (multi-seleção)
+    show_step_header(5, TOTAL_STEPS, "Hábitos de vida")
     selected_habits = prompt_multi_choice(
         "Você tem algum destes hábitos?", HABIT_OPTIONS, max_select=2
     )
     habit_flags = {flag: False for flag in HABIT_TO_FLAG.values()}
     for habit in selected_habits:
         habit_flags[HABIT_TO_FLAG[habit]] = True
-    show_step_done(4, TOTAL_STEPS, "Hábitos registrados")
+    show_step_done(5, TOTAL_STEPS, "Hábitos registrados")
 
-    # Passo 5 — histórico rápido
-    show_step_header(5, TOTAL_STEPS, "Histórico rápido")
+    # Passo 6 — histórico rápido
+    show_step_header(6, TOTAL_STEPS, "Histórico rápido")
     symptom_duration_days = int(prompt_text(
         "Há quantos dias você está com esses sintomas? ",
         validator=lambda x: x.isdigit() and int(x) >= 0,
@@ -103,13 +141,15 @@ def collect_patient_data() -> dict:
         prompt_text("Qual(is) doença(s) crônica(s)? ")
         if has_chronic_disease else ""
     )
-    show_step_done(5, TOTAL_STEPS, "Triagem concluída")
+    show_step_done(6, TOTAL_STEPS, "Triagem concluída")
 
     return {
         "age": age,
         "gender": gender,
         "selected_symptoms": selected_symptoms,
         **symptom_flags,
+        "selected_alert_signals": selected_alert_signals,
+        **alert_signal_flags,
         "is_conscious": is_conscious,
         "blood_pressure": _HEALTH_CANONICAL.get(bp_label, "Normal"),
         "cholesterol_level": _HEALTH_CANONICAL.get(chol_label, "Normal"),
@@ -144,6 +184,7 @@ def build_triage_summary(
             "age": patient_data["age"],
             "gender": patient_data["gender"],
             "selected_symptoms": patient_data.get("selected_symptoms", []),
+            "selected_alert_signals": patient_data.get("selected_alert_signals", []),
             "blood_pressure": patient_data.get("blood_pressure", "Normal"),
             "cholesterol_level": patient_data.get("cholesterol_level", "Normal"),
             "smokes": patient_data.get("smokes", False),
