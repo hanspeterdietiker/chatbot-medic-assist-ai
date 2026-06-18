@@ -166,18 +166,25 @@ def prompt_multi_choice(
     prompt: str,
     options: list[str],
     max_select: int = 5,
+    none_option: str | None = None,
 ) -> list[str]:
     """
     Exibe opções numeradas e permite selecionar várias (até max_select).
 
     Aceita números separados por vírgula/espaço (ex.: "1, 3 4").
     Enter sem nada = nenhuma opção selecionada.
+
+    Se `none_option` for informado, ele é exibido como uma opção extra ao
+    final da lista (ex.: "Não tenho nenhum destes sinais de alerta").
+    Selecioná-lo retorna [] e tem prioridade sobre qualquer outra escolha.
     """
     console = get_console()
-    n = len(options)
+    display_options = options + ([none_option] if none_option is not None else [])
+    none_index = len(options) if none_option is not None else None
+    n = len(display_options)
     console.print(f"[bold]{prompt}[/]")
     console.print(f"  [dim](selecione até {max_select} — números separados por vírgula, ou Enter para nenhum)[/]")
-    for i, option in enumerate(options, 1):
+    for i, option in enumerate(display_options, 1):
         console.print(f"  [cyan]{i}.[/] {option}")
     while True:
         raw = console.input("[bold cyan]Suas escolhas:[/] ").strip()
@@ -193,6 +200,9 @@ def prompt_multi_choice(
             idx = int(t) - 1
             if idx not in seen:
                 seen.append(idx)
+        # "Nenhum destes" prevalece sobre quaisquer outras seleções
+        if none_index is not None and none_index in seen:
+            return []
         if len(seen) > max_select:
             _print_error(f"Selecione no máximo {max_select} opções.")
             continue
